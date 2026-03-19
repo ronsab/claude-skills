@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<!--
+  RON DIGITAL STUDIO — Presentation Template
+  ============================================
+  Fill every {{PLACEHOLDER}} with real content from:
+    - Google Docs "תיאור העסק+כנות"  → identity, honesty, audiences, psychology, objections, cases, red lines
+    - Google Docs "תוכנית עסקית"      → packages, financials
+    - Website scrape                  → 13 services (section #6 only)
+
+  RULES:
+    - white-space:nowrap on .hlogo (logo must be ONE line)
+    - dir="rtl" on <html>
+    - Heebo font
+    - Colors: --n950 (navy) + --gold + --b400 (blue)
+-->
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RON DIGITAL STUDIO — מצגת עסקית</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ═══ DESIGN TOKENS ═══════════════════════════════════════════════════════ */
+:root {
+  --n950: #010c1f;    /* navy black — main bg */
+  --n900: #021430;
+  --n800: #05214d;
+  --b400: #3b82f6;    /* blue accent */
+  --b300: #60a5fa;
+  --b200: #93c5fd;
+  --gold: #c9a227;    /* gold — primary accent */
+  --gold-light: #e8c84a;
+  --white: #ffffff;
+  --gray: #94a3b8;
+  --gray-light: #cbd5e1;
+  --card-bg: rgba(5,33,77,0.6);
+  --border: rgba(201,162,39,0.2);
+  --radius: 16px;
+  --font: 'Heebo', sans-serif;
+}
+
+/* ═══ RESET + BASE ════════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+html { scroll-behavior: smooth; font-size: 16px }
+body { font-family: var(--font); background: var(--n950); color: var(--white); overflow-x: hidden; direction: rtl }
+a { color: inherit; text-decoration: none }
+
+/* ═══ PROGRESS BAR ════════════════════════════════════════════════════════ */
+#progress-bar { position: fixed; top: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--b400)); width: 0%; z-index: 9999; transition: width .1s }
+
+/* ═══ SIDE NAV DOTS ═══════════════════════════════════════════════════════ */
+#nav-dots { position: fixed; left: 24px; top: 50%; transform: translateY(-50%); z-index: 1000; display: flex; flex-direction: column; gap: 10px }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.25); cursor: pointer; transition: all .3s; border: 2px solid transparent }
+.dot.active { background: var(--gold); border-color: var(--gold); transform: scale(1.3) }
+.dot:hover { background: var(--b300) }
+
+/* ═══ SECTION BASE ════════════════════════════════════════════════════════ */
+section { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 80px 48px; position: relative; overflow: hidden }
+.container { max-width: 1100px; width: 100%; margin: 0 auto }
+
+/* ═══ SCROLL ANIMATIONS ═══════════════════════════════════════════════════ */
+.fade-up { opacity: 0; transform: translateY(40px); transition: opacity .8s ease, transform .8s ease }
+.fade-up.visible { opacity: 1; transform: translateY(0) }
+.delay-1 { transition-delay: .15s } .delay-2 { transition-delay: .3s }
+.delay-3 { transition-delay: .45s } .delay-4 { transition-delay: .6s }
+.delay-5 { transition-delay: .75s }
+
+/* ═══ TYPOGRAPHY ══════════════════════════════════════════════════════════ */
+.section-label { font-size: .75rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px }
+.section-title { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; line-height: 1.2; margin-bottom: 24px }
+.section-title span { color: var(--gold) }
+.section-sub { font-size: 1.1rem; color: var(--gray-light); line-height: 1.8; max-width: 700px }
+.gold-line { width: 60px; height: 3px; background: linear-gradient(90deg, var(--gold), var(--b400)); border-radius: 2px; margin-bottom: 32px }
+
+/* ═══ CARDS ═══════════════════════════════════════════════════════════════ */
+.card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; backdrop-filter: blur(10px); transition: transform .3s, border-color .3s }
+.card:hover { transform: translateY(-4px); border-color: rgba(201,162,39,0.5) }
+.badge { display: inline-block; background: rgba(201,162,39,0.15); border: 1px solid var(--gold); color: var(--gold); font-size: .75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px }
+
+/* ═══ GRIDS ═══════════════════════════════════════════════════════════════ */
+.grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px }
+.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px }
+@media(max-width:900px) { .grid-3,.grid-4 { grid-template-columns: repeat(2,1fr) } }
+@media(max-width:600px) { .grid-2,.grid-3,.grid-4 { grid-template-columns: 1fr } }
+
+/* ═══ HERO ════════════════════════════════════════════════════════════════ */
+#hero { background: var(--n950); padding: 0; min-height: 100vh }
+#hero-canvas { position: absolute; inset: 0; width: 100%; height: 100% }
+.hero-inner { position: relative; z-index: 2; text-align: center; padding: 40px 24px; width: 100% }
+
+/* !! CRITICAL: white-space:nowrap keeps logo on ONE line !! */
+.hlogo {
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  white-space: nowrap;  /* ← DO NOT REMOVE */
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--white) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.hero-tagline { font-size: clamp(1rem, 2.5vw, 1.4rem); color: var(--b200); font-weight: 300; letter-spacing: .05em; margin-bottom: 48px }
+.hero-headline { font-size: clamp(1.6rem, 3.5vw, 2.8rem); font-weight: 800; line-height: 1.3; margin-bottom: 16px }
+.hero-sub { font-size: 1.05rem; color: var(--gray-light); max-width: 600px; margin: 0 auto 48px; line-height: 1.8 }
+.hero-cta { display: inline-block; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--n950); font-size: 1rem; font-weight: 800; padding: 16px 48px; border-radius: 50px; cursor: pointer; letter-spacing: .05em; transition: transform .2s, box-shadow .2s }
+.hero-cta:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(201,162,39,0.4) }
+.scroll-hint { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: .6 }
+.scroll-hint span { font-size: .75rem; letter-spacing: .1em; color: var(--gray) }
+.scroll-arrow { width: 20px; height: 20px; border-right: 2px solid var(--gold); border-bottom: 2px solid var(--gold); transform: rotate(45deg); animation: bounce 1.5s infinite }
+@keyframes bounce { 0%,100%{transform:rotate(45deg) translateY(0)} 50%{transform:rotate(45deg) translateY(6px)} }
+
+/* ═══ SERVICES GRID ═══════════════════════════════════════════════════════ */
+.services-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px }
+@media(max-width:900px) { .services-grid { grid-template-columns: repeat(3,1fr) } }
+@media(max-width:600px) { .services-grid { grid-template-columns: repeat(2,1fr) } }
+.srv-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 20px; text-align: center; transition: all .3s }
+.srv-card:hover { border-color: var(--gold); background: rgba(201,162,39,0.08) }
+.srv-icon { font-size: 2rem; margin-bottom: 12px }
+.srv-name { font-size: .9rem; font-weight: 700; margin-bottom: 6px }
+.srv-desc { font-size: .75rem; color: var(--gray); line-height: 1.6 }
+
+/* ═══ AUDIENCE TABS ═══════════════════════════════════════════════════════ */
+.aud-tabs { display: flex; gap: 10px; margin-bottom: 32px; flex-wrap: wrap }
+.aud-tab { padding: 10px 20px; border-radius: 24px; background: var(--card-bg); border: 1px solid var(--border); cursor: pointer; font-size: .85rem; font-weight: 600; transition: all .3s; color: var(--gray-light) }
+.aud-tab.active { background: var(--gold); border-color: var(--gold); color: var(--n950) }
+.aud-panel { display: none }
+.aud-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; animation: fadeIn .4s ease }
+@media(max-width:700px) { .aud-panel.active { grid-template-columns: 1fr } }
+@keyframes fadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+.aud-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px }
+.pain-item { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: .875rem; color: var(--gray-light); line-height: 1.6 }
+.pain-item::before { content: '⚡'; flex-shrink: 0 }
+
+/* ═══ HONESTY ROWS ════════════════════════════════════════════════════════ */
+.hon-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 16px }
+.hon-bad { color: #ef4444; font-size: .875rem; line-height: 1.6 }
+.hon-arrow { color: var(--gold); font-size: 1.4rem; font-weight: 900; text-align: center }
+.hon-good { color: #4ade80; font-size: .875rem; line-height: 1.6; font-weight: 600 }
+.hon-label { font-size: .65rem; color: var(--gray); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .1em }
+
+/* ═══ PSYCHOLOGY COLUMNS ══════════════════════════════════════════════════ */
+.psy-col { padding: 28px; border-radius: var(--radius); border: 1px solid var(--border) }
+.psy-col.blockers { background: rgba(239,68,68,0.08); border-color: rgba(239,68,68,0.2) }
+.psy-col.motivators { background: rgba(74,222,128,0.08); border-color: rgba(74,222,128,0.2) }
+.psy-col.fears { background: rgba(251,191,36,0.08); border-color: rgba(251,191,36,0.2) }
+.psy-col-title { font-size: 1rem; font-weight: 700; margin-bottom: 20px }
+.psy-item { font-size: .85rem; color: var(--gray-light); padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); line-height: 1.6 }
+
+/* ═══ OBJECTIONS ══════════════════════════════════════════════════════════ */
+.obj-item { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-bottom: 16px; transition: border-color .3s }
+.obj-item:hover { border-color: var(--gold) }
+.obj-q { font-size: 1rem; font-weight: 700; margin-bottom: 12px; display: flex; align-items: flex-start; gap: 12px }
+.obj-q::before { content: '?'; width: 28px; height: 28px; border-radius: 50%; background: rgba(201,162,39,0.15); border: 1px solid var(--gold); color: var(--gold); font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0 }
+.obj-a { font-size: .9rem; color: var(--gray-light); line-height: 1.8; padding-right: 40px }
+
+/* ═══ CASE CARDS ══════════════════════════════════════════════════════════ */
+.case-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: transform .3s }
+.case-card:hover { transform: translateY(-6px) }
+.case-header { background: linear-gradient(135deg, var(--n800), var(--b400)); padding: 24px; text-align: center; font-size: 2.5rem }
+.case-body { padding: 24px }
+.case-segment { font-size: .75rem; color: var(--gold); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .1em }
+.case-title { font-size: 1rem; font-weight: 700; margin-bottom: 8px }
+.case-challenge { font-size: .85rem; color: var(--gray); margin-bottom: 12px; line-height: 1.7 }
+.case-result { background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.2); border-radius: 10px; padding: 14px; font-size: .85rem; color: #4ade80; font-weight: 600; line-height: 1.6 }
+
+/* ═══ PACKAGES ════════════════════════════════════════════════════════════ */
+.pkg { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 28px; text-align: center; transition: transform .3s; position: relative }
+.pkg.featured { border-color: var(--gold); transform: scale(1.04) }
+.pkg.featured::before { content: 'הכי פופולרי'; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--n950); font-size: .7rem; font-weight: 800; padding: 4px 16px; border-radius: 20px; white-space: nowrap }
+.pkg-name { font-size: 1rem; font-weight: 700; color: var(--gold); margin-bottom: 16px; text-transform: uppercase; letter-spacing: .1em }
+.pkg-price { font-size: 2.8rem; font-weight: 900; margin-bottom: 4px }
+.pkg-price span { font-size: 1rem; font-weight: 400; color: var(--gray) }
+.pkg-cycle { font-size: .8rem; color: var(--gray); margin-bottom: 28px }
+.pkg-divider { height: 1px; background: var(--border); margin: 20px 0 }
+.pkg-features { list-style: none; text-align: right; margin-bottom: 32px }
+.pkg-features li { font-size: .85rem; color: var(--gray-light); padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; align-items: flex-start; gap: 10px; line-height: 1.6 }
+.pkg-features li::before { content: '✓'; color: #4ade80; font-weight: 700; flex-shrink: 0 }
+.pkg-btn { display: block; width: 100%; padding: 14px; border-radius: 40px; font-weight: 700; font-size: .9rem; cursor: pointer; border: none; letter-spacing: .05em; transition: all .2s }
+.pkg-btn-primary { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--n950) }
+.pkg-btn-secondary { background: transparent; border: 1.5px solid var(--gold); color: var(--gold) }
+.pkg-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(201,162,39,0.3) }
+
+/* ═══ FINANCIALS ══════════════════════════════════════════════════════════ */
+.scenario { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; text-align: center }
+.sc-name { font-size: .8rem; color: var(--gray); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px }
+.sc-profit { font-size: 1.8rem; font-weight: 900; color: var(--gold); margin-bottom: 16px }
+.sc-bar-wrap { height: 8px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden }
+.sc-bar { height: 100%; background: linear-gradient(90deg, var(--gold), var(--b400)); border-radius: 4px; width: 0%; transition: width 1.4s ease }
+.roi-header { background: linear-gradient(135deg, var(--n800), var(--b400)); padding: 20px 28px; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; font-size: .8rem; font-weight: 700; letter-spacing: .05em; color: var(--b200); text-transform: uppercase }
+.roi-row { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; padding: 16px 28px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: .875rem }
+.roi-row:last-child { border-bottom: none }
+.roi-row:nth-child(even) { background: rgba(255,255,255,0.02) }
+.roi-highlight { color: var(--gold); font-weight: 700 }
+
+/* ═══ COMPETITION TABLE ═══════════════════════════════════════════════════ */
+.comp-header { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; padding: 16px 24px; background: linear-gradient(135deg, var(--n800), var(--b400)); font-size: .8rem; font-weight: 700; letter-spacing: .05em; color: var(--b200); text-transform: uppercase }
+.comp-row { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; padding: 14px 24px; border-bottom: 1px solid rgba(255,255,255,0.05); align-items: center; font-size: .875rem }
+.comp-row:nth-child(even) { background: rgba(255,255,255,0.02) }
+.comp-check { color: #4ade80 } .comp-cross { color: #ef4444 } .comp-mid { color: #fbbf24 }
+.comp-col-us { color: var(--gold); font-weight: 700 }
+
+/* ═══ RED LINES ═══════════════════════════════════════════════════════════ */
+.red-card { background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.2); border-radius: var(--radius); padding: 24px; display: flex; gap: 16px; align-items: flex-start }
+.red-icon { font-size: 1.6rem; flex-shrink: 0 }
+.red-title { font-size: .95rem; font-weight: 700; margin-bottom: 6px; color: #fca5a5 }
+.red-desc { font-size: .85rem; color: var(--gray-light); line-height: 1.7 }
+
+/* ═══ CTA BUTTONS ════════════════════════════════════════════════════════ */
+.btn-primary { padding: 18px 48px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--n950); font-weight: 800; font-size: 1rem; border-radius: 50px; border: none; cursor: pointer; letter-spacing: .05em; transition: all .2s; display: inline-block }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(201,162,39,0.4) }
+.btn-secondary { padding: 18px 48px; background: transparent; color: var(--white); font-weight: 700; font-size: 1rem; border-radius: 50px; border: 2px solid rgba(255,255,255,0.2); cursor: pointer; letter-spacing: .05em; transition: all .2s; display: inline-block }
+.btn-secondary:hover { border-color: var(--gold); color: var(--gold) }
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<nav id="nav-dots"></nav>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 1 — HERO                                                       -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-inner container">
+    <!-- DO NOT change .hlogo — white-space:nowrap keeps it ONE line -->
+    <span class="hlogo fade-up">RON DIGITAL STUDIO</span>
+    <p class="hero-tagline fade-up delay-1">Always On. Always Smart.</p>
+    <h1 class="hero-headline fade-up delay-2">{{HERO_HEADLINE}}</h1>
+    <p class="hero-sub fade-up delay-3">{{HERO_SUB}}</p>
+    <a class="hero-cta fade-up delay-4" onclick="document.getElementById('who').scrollIntoView({behavior:'smooth'})">{{HERO_CTA_TEXT}}</a>
+    <div class="scroll-hint"><span>גלול</span><div class="scroll-arrow"></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 2 — WHO (identity from Google Docs)                            -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section id="who" style="background:linear-gradient(160deg,var(--n900) 0%,var(--n950) 100%)">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
+      <div class="fade-up" style="text-align:center">
+        <div style="width:280px;height:280px;border-radius:50%;background:linear-gradient(135deg,var(--n800),var(--b400));border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:5rem;margin:0 auto;position:relative">
+          {{WHO_AVATAR_EMOJI}}
+        </div>
+        <!-- STATS: replace numbers with real data -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px">
+          <div class="card" style="text-align:center"><div style="font-size:1.8rem;font-weight:900;color:var(--gold)">{{STAT_1_NUM}}</div><div style="font-size:.75rem;color:var(--gray)">{{STAT_1_LABEL}}</div></div>
+          <div class="card" style="text-align:center"><div style="font-size:1.8rem;font-weight:900;color:var(--gold)">{{STAT_2_NUM}}</div><div style="font-size:.75rem;color:var(--gray)">{{STAT_2_LABEL}}</div></div>
+          <div class="card" style="text-align:center"><div style="font-size:1.8rem;font-weight:900;color:var(--gold)">{{STAT_3_NUM}}</div><div style="font-size:.75rem;color:var(--gray)">{{STAT_3_LABEL}}</div></div>
+        </div>
+      </div>
+      <div>
+        <p class="section-label fade-up">מי אני</p>
+        <div class="gold-line fade-up delay-1"></div>
+        <h2 class="section-title fade-up delay-1">{{WHO_TITLE}}</h2>
+        <p class="section-sub fade-up delay-2">{{WHO_DESC}}</p>
+        <!-- Add <li> items from Google Docs identity bullets -->
+        <ul style="list-style:none;margin-top:24px" class="fade-up delay-3">
+          <li style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:.95rem;color:var(--gray-light)"><span style="color:var(--gold);font-size:.6rem;margin-top:5px">◆</span>{{WHO_BULLET_1}}</li>
+          <li style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:.95rem;color:var(--gray-light)"><span style="color:var(--gold);font-size:.6rem;margin-top:5px">◆</span>{{WHO_BULLET_2}}</li>
+          <li style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:.95rem;color:var(--gray-light)"><span style="color:var(--gold);font-size:.6rem;margin-top:5px">◆</span>{{WHO_BULLET_3}}</li>
+          <li style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:.95rem;color:var(--gray-light)"><span style="color:var(--gold);font-size:.6rem;margin-top:5px">◆</span>{{WHO_BULLET_4}}</li>
+          <li style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;font-size:.95rem;color:var(--gray-light)"><span style="color:var(--gold);font-size:.6rem;margin-top:5px">◆</span>{{WHO_BULLET_5}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 3 — PROBLEM                                                    -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section id="problem">
+  <div class="container">
+    <p class="section-label fade-up" style="text-align:center">הבעיה</p>
+    <div class="gold-line fade-up delay-1" style="margin:0 auto 12px"></div>
+    <h2 class="section-title fade-up delay-1" style="text-align:center">{{PROBLEM_TITLE}}</h2>
+    <p class="section-sub fade-up delay-2" style="margin:0 auto;text-align:center">{{PROBLEM_SUB}}</p>
+    <div class="grid-3" style="margin-top:48px">
+      <!-- Repeat this block for each problem (derive from audience pain points) -->
+      <div class="card fade-up delay-1" style="border-right:3px solid var(--b400)"><div style="font-size:2rem;margin-bottom:16px">{{PROB_1_ICON}}</div><div style="font-size:1rem;font-weight:700;margin-bottom:8px">{{PROB_1_TITLE}}</div><div style="font-size:.875rem;color:var(--gray-light);line-height:1.7">{{PROB_1_DESC}}</div></div>
+      <div class="card fade-up delay-2" style="border-right:3px solid var(--b400)"><div style="font-size:2rem;margin-bottom:16px">{{PROB_2_ICON}}</div><div style="font-size:1rem;font-weight:700;margin-bottom:8px">{{PROB_2_TITLE}}</div><div style="font-size:.875rem;color:var(--gray-light);line-height:1.7">{{PROB_2_DESC}}</div></div>
+      <div class="card fade-up delay-3" style="border-right:3px solid var(--b400)"><div style="font-size:2rem;margin-bottom:16px">{{PROB_3_ICON}}</div><div style="font-size:1rem;font-weight:700;margin-bottom:8px">{{PROB_3_TITLE}}</div><div style="font-size:.875rem;color:var(--gray-light);line-height:1.7">{{PROB_3_DESC}}</div></div>
+      <div class="card fade-up delay-1" style="border-right:3px solid var(--b400)"><div style="font-size:2rem;margin-bottom:16px">{{PROB_4_ICON}}</div><div style="font-size:1rem;font-weight:700;margin-bottom:8px">{{PROB_4_TITLE}}</div><div style="font-size:.875rem;color:var(--gray-light);line-height:1.7">{{PROB_4_DESC}}</div></div>
+      <div class="card fade-up delay-2" style="border-right:3px solid var(--b400)"><div style="font-size:2rem;margin-bottom:16px">{{PROB_5_ICON}}</div><div style="font-size:1rem;font-weight:700;margin-bottom:8px">{{PROB_5_TITLE}}</div><div style="font-size:.875rem;color:var(--gray-light);line-height:1.7">{{PROB_5_DESC}}</div></div>
+      <div class="card fade-up delay-3" style="border-right:3px solid var(--b400)"><div style="font-size:2rem;margin-bottom:16px">{{PROB_6_ICON}}</div><div style="font-size:1rem;font-weight:700;margin-bottom:8px">{{PROB_6_TITLE}}</div><div style="font-size:.875rem;color:var(--gray-light);line-height:1.7">{{PROB_6_DESC}}</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 4 — SOLUTION                                                   -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section id="solution" style="background:linear-gradient(160deg,var(--n800) 0%,var(--n950) 100%)">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;margin-bottom:56px">
+      <p class="section-label">הפתרון</p>
+      <div class="gold-line" style="margin:0 auto 24px"></div>
+      <h2 class="section-title">{{SOLUTION_TITLE}}</h2>
+      <p class="section-sub" style="margin:0 auto">{{SOLUTION_SUB}}</p>
+    </div>
+    <div class="grid-4">
+      <div class="card fade-up delay-1" style="text-align:center"><div style="font-size:2.5rem;margin-bottom:16px">🎯</div><div style="font-size:1rem;font-weight:700;margin-bottom:8px">אסטרטגיה</div><div style="font-size:.825rem;color:var(--gray);line-height:1.6">{{PILLAR_1_DESC}}</div></div>
+      <div class="card fade-up delay-2" style="text-align:center"><div style="font-size:2.5rem;margin-bottom:16px">🎨</div><div style="font-size:1rem;font-weight:700;margin-bottom:8px">עיצוב ובנייה</div><div style="font-size:.825rem;color:var(--gray);line-height:1.6">{{PILLAR_2_DESC}}</div></div>
+      <div class="card fade-up delay-3" style="text-align:center"><div style="font-size:2.5rem;margin-bottom:16px">✍️</div><div style="font-size:1rem;font-weight:700;margin-bottom:8px">תוכן ושיווק</div><div style="font-size:.825rem;color:var(--gray);line-height:1.6">{{PILLAR_3_DESC}}</div></div>
+      <div class="card fade-up delay-4" style="text-align:center"><div style="font-size:2.5rem;margin-bottom:16px">⚙️</div><div style="font-size:1rem;font-weight:700;margin-bottom:8px">אוטומציה</div><div style="font-size:.825rem;color:var(--gray);line-height:1.6">{{PILLAR_4_DESC}}</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 5 — HONESTY (Google Docs "במקום X → Y")                       -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section id="honesty">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;max-width:700px;margin:0 auto 48px">
+      <p class="section-label">מה שמבדיל אותי</p>
+      <div class="gold-line" style="margin:0 auto 24px"></div>
+      <h2 class="section-title">{{HONESTY_TITLE}}</h2>
+      <p class="section-sub" style="margin:0 auto">{{HONESTY_SUB}}</p>
+    </div>
+    <!-- Repeat .hon-row for each contrast pair from Google Docs -->
+    <div class="hon-row fade-up delay-1"><div><div class="hon-label">מה אחרים אומרים</div><div class="hon-bad">❌ {{HON_BAD_1}}</div></div><div class="hon-arrow">→</div><div><div class="hon-label">מה אני אומר</div><div class="hon-good">✅ {{HON_GOOD_1}}</div></div></div>
+    <div class="hon-row fade-up delay-2"><div><div class="hon-label">מה אחרים אומרים</div><div class="hon-bad">❌ {{HON_BAD_2}}</div></div><div class="hon-arrow">→</div><div><div class="hon-label">מה אני אומר</div><div class="hon-good">✅ {{HON_GOOD_2}}</div></div></div>
+    <div class="hon-row fade-up delay-3"><div><div class="hon-label">מה אחרים אומרים</div><div class="hon-bad">❌ {{HON_BAD_3}}</div></div><div class="hon-arrow">→</div><div><div class="hon-label">מה אני אומר</div><div class="hon-good">✅ {{HON_GOOD_3}}</div></div></div>
+    <div class="hon-row fade-up delay-4"><div><div class="hon-label">מה אחרים אומרים</div><div class="hon-bad">❌ {{HON_BAD_4}}</div></div><div class="hon-arrow">→</div><div><div class="hon-label">מה אני אומר</div><div class="hon-good">✅ {{HON_GOOD_4}}</div></div></div>
+    <div class="hon-row fade-up delay-5"><div><div class="hon-label">מה אחרים אומרים</div><div class="hon-bad">❌ {{HON_BAD_5}}</div></div><div class="hon-arrow">→</div><div><div class="hon-label">מה אני אומר</div><div class="hon-good">✅ {{HON_GOOD_5}}</div></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 6 — SERVICES (from WEBSITE — 13 services)                     -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section id="services" style="background:linear-gradient(160deg,var(--n900) 0%,var(--n950) 100%)">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;margin-bottom:56px">
+      <p class="section-label">השירותים שלנו</p>
+      <div class="gold-line" style="margin:0 auto 24px"></div>
+      <h2 class="section-title">{{SERVICES_TITLE}}</h2>
+      <p class="section-sub" style="margin:0 auto">{{SERVICES_SUB}}</p>
+    </div>
+    <div class="services-grid">
+      <!-- Repeat for each of the 13 website services -->
+      <div class="srv-card fade-up delay-1"><div class="srv-icon">{{SRV_1_ICON}}</div><div class="srv-name">{{SRV_1_NAME}}</div><div class="srv-desc">{{SRV_1_DESC}}</div></div>
+      <div class="srv-card fade-up delay-2"><div class="srv-icon">{{SRV_2_ICON}}</div><div class="srv-name">{{SRV_2_NAME}}</div><div class="srv-desc">{{SRV_2_DESC}}</div></div>
+      <div class="srv-card fade-up delay-3"><div class="srv-icon">{{SRV_3_ICON}}</div><div class="srv-name">{{SRV_3_NAME}}</div><div class="srv-desc">{{SRV_3_DESC}}</div></div>
+      <div class="srv-card fade-up delay-4"><div class="srv-icon">{{SRV_4_ICON}}</div><div class="srv-name">{{SRV_4_NAME}}</div><div class="srv-desc">{{SRV_4_DESC}}</div></div>
+      <div class="srv-card fade-up delay-1"><div class="srv-icon">{{SRV_5_ICON}}</div><div class="srv-name">{{SRV_5_NAME}}</div><div class="srv-desc">{{SRV_5_DESC}}</div></div>
+      <div class="srv-card fade-up delay-2"><div class="srv-icon">{{SRV_6_ICON}}</div><div class="srv-name">{{SRV_6_NAME}}</div><div class="srv-desc">{{SRV_6_DESC}}</div></div>
+      <div class="srv-card fade-up delay-3"><div class="srv-icon">{{SRV_7_ICON}}</div><div class="srv-name">{{SRV_7_NAME}}</div><div class="srv-desc">{{SRV_7_DESC}}</div></div>
+      <div class="srv-card fade-up delay-4"><div class="srv-icon">{{SRV_8_ICON}}</div><div class="srv-name">{{SRV_8_NAME}}</div><div class="srv-desc">{{SRV_8_DESC}}</div></div>
+      <div class="srv-card fade-up delay-1"><div class="srv-icon">{{SRV_9_ICON}}</div><div class="srv-name">{{SRV_9_NAME}}</div><div class="srv-desc">{{SRV_9_DESC}}</div></div>
+      <div class="srv-card fade-up delay-2"><div class="srv-icon">{{SRV_10_ICON}}</div><div class="srv-name">{{SRV_10_NAME}}</div><div class="srv-desc">{{SRV_10_DESC}}</div></div>
+      <div class="srv-card fade-up delay-3"><div class="srv-icon">{{SRV_11_ICON}}</div><div class="srv-name">{{SRV_11_NAME}}</div><div class="srv-desc">{{SRV_11_DESC}}</div></div>
+      <div class="srv-card fade-up delay-4"><div class="srv-icon">{{SRV_12_ICON}}</div><div class="srv-name">{{SRV_12_NAME}}</div><div class="srv-desc">{{SRV_12_DESC}}</div></div>
+      <div class="srv-card fade-up delay-1"><div class="srv-icon">{{SRV_13_ICON}}</div><div class="srv-name">{{SRV_13_NAME}}</div><div class="srv-desc">{{SRV_13_DESC}}</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTIONS 7–16: audiences / psychology / objections / cases / packages /
+     financials / competition / redlines / vision / cta
+     → Follow same pattern: section tag + container + fade-up elements + {{PLACEHOLDERS}}
+     → See SKILL.md for content source of each section
+     → CSS classes for each are defined in <style> above
+     → JS below handles: tabs, scroll animations, particle canvas, scenario bars
+-->
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- JAVASCRIPT BOILERPLATE (do not change — fill placeholders only)        -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<script>
+// ── NAV DOTS ──────────────────────────────────────────────────────────────
+// Add section IDs here to match HTML
+const SECTION_IDS = ['hero','who','problem','solution','honesty','services',
+  'audiences','psychology','objections','cases','packages','financials',
+  'competition','redlines','vision','cta'];
+
+const navEl = document.getElementById('nav-dots');
+SECTION_IDS.forEach((id, i) => {
+  const d = document.createElement('div');
+  d.className = 'dot';
+  d.title = id;
+  d.onclick = () => document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+  navEl.appendChild(d);
+});
+
+// ── PROGRESS BAR + ACTIVE DOT ─────────────────────────────────────────────
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  bar.style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
+  const dots = navEl.querySelectorAll('.dot');
+  SECTION_IDS.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    if (r.top <= 80 && r.bottom > 80) dots[i].classList.add('active');
+    else dots[i].classList.remove('active');
+  });
+  // Animate scenario bars when financials section enters view
+  const finEl = document.getElementById('financials');
+  if (finEl && finEl.getBoundingClientRect().top < window.innerHeight * .75) {
+    document.querySelectorAll('.sc-bar').forEach(b => {
+      if (!b.dataset.anim) { b.style.width = b.dataset.width + '%'; b.dataset.anim = '1'; }
+    });
+  }
+}, { passive: true });
+
+// ── FADE-UP INTERSECTION OBSERVER ────────────────────────────────────────
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: .12 });
+document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+// ── AUDIENCE TABS ─────────────────────────────────────────────────────────
+document.querySelectorAll('.aud-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const idx = tab.dataset.tab;
+    document.querySelectorAll('.aud-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.aud-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelector(`.aud-panel[data-panel="${idx}"]`)?.classList.add('active');
+  });
+});
+
+// ── HERO PARTICLE CANVAS ──────────────────────────────────────────────────
+const canvas = document.getElementById('hero-canvas');
+const ctx = canvas.getContext('2d');
+let W, H, particles = [];
+
+function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; }
+function Particle() {
+  this.x = Math.random() * W; this.y = Math.random() * H;
+  this.r = Math.random() * 2 + .5;
+  this.dx = (Math.random() - .5) * .4; this.dy = (Math.random() - .5) * .4;
+  this.alpha = Math.random() * .6 + .1;
+}
+function initP(n) { particles = []; for (let i = 0; i < n; i++) particles.push(new Particle()); }
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+  const g = ctx.createRadialGradient(W*.5, H*.4, .1, W*.5, H*.4, W*.7);
+  g.addColorStop(0, 'rgba(59,130,246,0.08)'); g.addColorStop(1, 'rgba(1,12,31,0)');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  particles.forEach(p => {
+    p.x += p.dx; p.y += p.dy;
+    if (p.x < 0 || p.x > W) p.dx *= -1;
+    if (p.y < 0 || p.y > H) p.dy *= -1;
+    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(201,162,39,${p.alpha})`; ctx.fill();
+  });
+  particles.forEach((a, i) => particles.slice(i+1).forEach(b => {
+    const d = Math.hypot(a.x-b.x, a.y-b.y);
+    if (d < 120) {
+      ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+      ctx.strokeStyle = `rgba(59,130,246,${.15*(1-d/120)})`; ctx.lineWidth = .6; ctx.stroke();
+    }
+  }));
+  requestAnimationFrame(draw);
+}
+resize(); initP(80); draw();
+window.addEventListener('resize', () => { resize(); initP(80); });
+</script>
+</body>
+</html>

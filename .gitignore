@@ -1,0 +1,21 @@
+# Sensitive / personal data
+.credentials.json
+settings.local.json
+mcp-needs-auth-cache.json
+stats-cache.json
+
+# Session & history (too large, private)
+history.jsonl
+projects/
+plans/
+shell-snapshots/
+debug/
+backups/
+
+# Plugin cache (re-downloadable)
+plugins/cache/
+
+# ✅ What DOES get committed:
+# skills/          ← הסקילים שלך
+# plugins/ron-digital/   ← הפלאגין שלך
+# settings.json    ← הגדרות (ללא סיסמאות)
