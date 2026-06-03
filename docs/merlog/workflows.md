@@ -47,4 +47,23 @@ Base44 חסר row locks / טרנזקציות רב-מסמכיות. הפתרון: 
 קליטה → StockMovement type=receipt (+qty) → `qty_on_hand += qty`. ידני ב-MVP; בעזרת ברקוד בשלב 2.
 
 ## 5. מספור מסמכים רציף — `Counter`
-order_number / delivery_note_number מוגדלים אך ורק דרך server function שמגדיל `Counter.current_value` באופן מוגן (אותה בעיית concurrency כמו מלאי). מספרי חשבונית חוקיים מנוהלים ע"י הספק החיצוני.
+order_number / delivery_note_number / quote_number מוגדלים אך ורק דרך server function שמגדיל `Counter.current_value` באופן מוגן (אותה בעיית concurrency כמו מלאי). מספרי חשבונית/קבלה חוקיים מנוהלים ע"י הספק החיצוני.
+
+## 6. זרימת מסמכים (הצעת מחיר / תעודת משלוח / חשבונית / קבלה)
+**גישה משולבת**: פנימי (Quote, DeliveryNote) + ספק חיצוני (חשבונית מס, קבלה).
+
+### 6.1 הצעת מחיר → הזמנה
+```
+Quote: draft → sent → approved → converted   (או rejected / expired)
+```
+- הצעת מחיר נוצרת ע"י סוכן/משרד עם שורות פריטים (snapshot מחיר/מע"מ כמו OrderLine) ותוקף (`valid_until`).
+- אישור הלקוח (פורטל) או הסוכן → server function `convertQuoteToOrder`: יוצר Order עם אותם snapshots, מסמן את ההצעה `converted`, ושומר `converted_order_id`. משם ההזמנה ממשיכה במכונת-המצבים הרגילה (כולל auto-send למחסן).
+
+### 6.2 תעודת משלוח
+מופקת בתוך המערכת ב-`picked/loaded` דרך `issueDeliveryNote(orderId)` — מספור רציף (Counter) + PDF RTL + snapshot של כמות שנמסרה.
+
+### 6.3 חשבונית מס / קבלה (ספק חיצוני)
+- `issueInvoice(orderId)` → קריאה ל-API של הספק (חשבונית ירוקה / חשבשבת / ריווחית / ...), קבלת `allocation_number` + `pdf_url`, שמירת `DocumentRef`(doc_type=tax_invoice).
+- רישום `Payment` → `issueReceipt(paymentId)` → DocumentRef(doc_type=receipt/tax_invoice_receipt) + סימון ההזמנה כשולמה.
+- זיכוי (החזרות, שלב 2) → DocumentRef(doc_type=credit_note).
+- כל ה-DocumentRef נשמרים במערכת לצפייה/הורדה, אך המסמך החוקי חי אצל הספק.

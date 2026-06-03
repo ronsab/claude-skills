@@ -65,18 +65,28 @@ snapshot תמחור: `resolved_unit_price`, `applied_price_list`→, `discount_p
 `pick_status`(pending/picked/short/substituted), `bin_location`.
 
 ## אספקה ומסמכים
+מודל המסמכים — **גישה משולבת**: הצעת מחיר ותעודת משלוח מופקות בתוך המערכת (PDF); חשבונית מס וקבלה דרך ספק חיצוני מורשה (`DocumentRef`).
+
+### Quote (הצעת מחיר) — מופקת בתוך המערכת
+`quote_number`(רץ, דרך Counter), `customer`→, `agent`→, `status`(draft/sent/approved/rejected/expired/converted), `valid_until`, `lines[]`(snapshot כמו OrderLine), `subtotal_ex_vat`, `vat_total`, `grand_total`, `pdf_url`, `converted_order_id`→.
+**זרימה:** אישור (פורטל לקוח/סוכן) → server function `convertQuoteToOrder` יוצר Order עם אותם snapshots, מסמן את ההצעה `converted` ומקשר ל-Order.
+
 ### Delivery (משלוח)
 `orders[]`, `driver`→User, `vehicle`, `route_date`, `stops[]`, `status`(planned/loaded/out_for_delivery/delivered/failed), `delivered_at`, `signature_url`, `proof_photo_url`, `recipient_name`.
 
-### DeliveryNote (תעודת משלוח)
+### DeliveryNote (תעודת משלוח) — מופקת בתוך המערכת
 `note_number`(רץ, דרך Counter), `order`→, `customer`→, `lines[]`(snapshot של כמות שנמסרה), `issued_at`, `pdf_url`.
 
-### InvoiceRef (הפניה לחשבונית של הספק החיצוני)
-`provider`, `external_invoice_id`, `allocation_number`(מספר הקצאה), `type`(חשבונית מס / חשבונית מס-קבלה / זיכוי), `customer`→, `order`→, `total_inc_vat`, `pdf_url`, `issued_at`.
+### DocumentRef (הפניה למסמך של הספק החיצוני) — חשבונית מס / קבלה / זיכוי
+`doc_type`(tax_invoice / receipt / tax_invoice_receipt / credit_note), `provider`, `external_id`, `allocation_number`(מספר הקצאה), `customer`→, `order`→, `total_inc_vat`, `pdf_url`, `issued_at`, `payment_method`(לקבלה).
+החשבוניות/קבלות אינן מופקות במערכת — המערכת שולחת נתונים לספק ושומרת את ההפניה.
+
+### Payment (תשלום)
+`customer`→, `order`→(או `document_ref`→), `amount`, `method`(מזומן/אשראי/העברה/צ'ק), `received_at`. רישום תשלום מסמן הזמנה כשולמה ומפעיל `issueReceipt` דרך הספק.
 
 ## עזר
 ### Counter (רצף בטוח)
-`name`(order_number/delivery_note_number), `current_value`. מוגדל אך ורק דרך server function.
+`name`(order_number/delivery_note_number/quote_number), `current_value`. מוגדל אך ורק דרך server function.
 
 ### User
 Base44 native + `role`(enum: owner/ops/agent/warehouse/forklift/driver/accounting/business_customer/private_customer), `display_name_he`, `linked_agent`→/`linked_customer`→, `is_active`.
