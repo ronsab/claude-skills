@@ -1,5 +1,49 @@
 {
+  "env": {
+    "TIMELESS_ACCESS_TOKEN": "2c3e50b8260f5ee1989bb14de123a20ae252899f647e98a5347b23d3c6376bb0",
+    "PINECONE_API_KEY": "pcsk_2Sd6B7_SmGXuRWkME2eo2VLzhjFsdmXoghHrQX8cNg5b7E26UXJKWJGL4GSPQ5H9gLVKUj"
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $HOME/.claude/skills/dream/session-start-dream.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash $HOME/.claude/skill-map/run-map.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $HOME/.claude/skills/dream/should-dream.sh && touch $HOME/.claude/.dream-pending || true"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"$CWD\" 2>/dev/null && git rev-parse --git-dir > /dev/null 2>&1 && git add -A && git diff --cached --quiet || git commit -m \"claude: auto-save $(date +%H:%M)\" 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  },
   "enabledPlugins": {
+    "marketing-skills@marketingskills": true,
     "typescript-lsp@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
@@ -36,7 +80,6 @@
     "laravel-boost@claude-plugins-official": true,
     "asana@claude-plugins-official": true,
     "linear@claude-plugins-official": true,
-    "Notion@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
     "gitlab@claude-plugins-official": true,
     "ralph-loop@claude-plugins-official": true,
@@ -47,13 +90,59 @@
     "huggingface-skills@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
     "circleback@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
+    "superpowers@superpowers-dev": true,
     "posthog@claude-plugins-official": true,
     "firecrawl@claude-plugins-official": true,
     "coderabbit@claude-plugins-official": true,
     "greptile@claude-plugins-official": true,
     "pinecone@claude-plugins-official": true,
     "sonatype-guide@claude-plugins-official": true,
-    "semgrep@claude-plugins-official": true
-  }
+    "semgrep@claude-plugins-official": true,
+    "wa-whatsapp-agent@practice-ai-plugins": true,
+    "document-skills@anthropic-agent-skills": true,
+    "example-skills@anthropic-agent-skills": true,
+    "claude-api@anthropic-agent-skills": true,
+    "impeccable@impeccable": true,
+    "claude-seo@agricidaniel-seo": true
+  },
+  "extraKnownMarketplaces": {
+    "superpowers-dev": {
+      "source": {
+        "source": "directory",
+        "path": "C:/Users/USER/Desktop/skills/superpowers-dev"
+      }
+    },
+    "marketingskills": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/coreyhaines31/marketingskills.git",
+        "path": "C:/Users/USER/Desktop/skills/marketingskills"
+      }
+    },
+    "practice-ai-plugins": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/Asher-pro/wa-whatsapp-agent.git"
+      }
+    },
+    "anthropic-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/skills"
+      }
+    },
+    "impeccable": {
+      "source": {
+        "source": "github",
+        "repo": "pbakaus/impeccable"
+      }
+    },
+    "agricidaniel-seo": {
+      "source": {
+        "source": "github",
+        "repo": "AgriciDaniel/claude-seo"
+      }
+    }
+  },
+  "agentPushNotifEnabled": true
 }

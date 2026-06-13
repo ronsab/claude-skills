@@ -1,0 +1,408 @@
+{
+  "meta": {
+    "version": "3.0",
+    "studioName": "RON DIGITAL STUDIO",
+    "note": "Single source of truth למפת הסקילים. ערוך כאן ידע עסקי. הגנרטור סורק אוטומטית את כל הסקילים וממזג עם הקובץ הזה."
+  },
+  "categories": {
+    "build":   { "label": "בנייה ועיצוב",      "color": "#3b82f6", "emoji": "🔵" },
+    "biz":     { "label": "מסמכים עסקיים",      "color": "#c9a227", "emoji": "🟡" },
+    "client":  { "label": "ניהול לקוחות",       "color": "#4caf7d", "emoji": "🟢" },
+    "market":  { "label": "שיווק ותוכן",        "color": "#8b5cf6", "emoji": "🟣" },
+    "review":  { "label": "ביקורת ואיכות",      "color": "#f5a623", "emoji": "🟠" },
+    "blog":    { "label": "מנוע בלוג",          "color": "#e05252", "emoji": "🔴" },
+    "system":  { "label": "RON Assistant",      "color": "#22d3ee", "emoji": "🩵" },
+    "israel":  { "label": "כלים ישראלים",       "color": "#0038b8", "emoji": "🇮🇱" },
+    "docs":    { "label": "מסמכים בעברית",       "color": "#d97706", "emoji": "📄" },
+    "util":    { "label": "Utilities",          "color": "#71717a", "emoji": "🛠️" }
+  },
+  "skills": {
+    "landing-page-builder": { "category": "build", "emoji": "🌐", "invoke": "Skill: landing-page-builder", "whenToUse": "לקוח רוצה דף נחיתה / אתר ויטרינה / דף שיווקי חד-עמודי", "output": "HTML בודד עם Three.js, RTL, אנימציות canvas, deploy ל-Vercel", "opportunity": "₪1,200-2,800 לדף. הליבה של השירות", "pricing": "₪1,200-2,800", "canonical": true, "badges": ["ליבה"] },
+    "fullstack-app": { "category": "build", "emoji": "⚡", "invoke": "Skill: fullstack-app", "whenToUse": "לקוח צריך login / מסד נתונים / dashboard / מערכת הזמנות", "output": "React+Vite+Supabase+Tailwind+Netlify — אפליקציה מלאה", "opportunity": "מכפיל טיקט: ₪4,500-9,000 מול ₪2,000 לדף נחיתה", "pricing": "₪4,500-9,000", "badges": ["טיקט גבוה"] },
+    "make-automation-builder": { "category": "build", "emoji": "⚙️", "invoke": "Skill: make-automation-builder", "whenToUse": "כל אוטומציה ב-Make.com: webhook, חיבור apps, scheduling", "output": "Blueprint מלא + validation pipeline + ידע מאומת Gmail (Label IDs)", "opportunity": "₪800-7,000 לאוטומציה. CANONICAL — להעדיף על anthropic-skills", "pricing": "₪800-7,000", "canonical": true, "badges": ["ליבה", "CANONICAL"] },
+    "write-landing": { "category": "build", "emoji": "✍️", "invoke": "Skill: write-landing", "whenToUse": "לפני בניית דף נחיתה גדול — קופי + framework", "output": "Copy מלא עם framework (PAS/AIDA/BAB) + wireframe", "opportunity": "להפעיל לפני landing-page-builder = דף חזק יותר", "pricing": "כלול", "badges": [] },
+    "frontend-design": { "category": "build", "emoji": "🎨", "invoke": "Skill: frontend-design", "whenToUse": "עקרונות UI/UX מודרני, חלק מ-impeccable system", "output": "הנחיות עיצוב + הקשר פרויקט", "opportunity": "איכות עיצוב גבוהה יותר", "pricing": "כלול", "badges": [] },
+    "impeccable": { "category": "build", "emoji": "✨", "invoke": "Skill: impeccable:impeccable", "whenToUse": "אחרי בניית UI — פולישינג ויזואלי (21 sub-skills: polish, animate, colorize, typeset...)", "output": "שיפור spacing, typography, colors, micro-animations", "opportunity": "מעלה רמת הדף לפני שליחה ללקוח", "pricing": "כלול", "badges": ["21 sub-skills"] },
+    "vercel-react-best-practices": { "category": "build", "emoji": "▲", "invoke": "Skill: vercel-react-best-practices", "whenToUse": "כתיבה/refactor של React/Next.js — אופטימיזציה", "output": "45 כללי performance ב-8 קטגוריות", "opportunity": "משלים fullstack-app", "pricing": "כלול", "badges": [] },
+
+    "ron-digital-quote": { "category": "biz", "emoji": "💰", "invoke": "Skill: anthropic-skills:ron-digital-quote", "whenToUse": "תמחור פרויקט, 'כמה לגבות', הכנה לפגישה, שליחת הצעת מחיר", "output": "HTML branded + 10 שאלות גילוי + ROI + 3-tier + follow-up + objection handling", "opportunity": "מנוע מכירה מלא. כל הצעה = תוכנית מכירה", "pricing": "—", "canonical": true, "badges": ["ליבה", "מנוע מכירה"] },
+    "ron-service-doc": { "category": "biz", "emoji": "📋", "invoke": "Skill: anthropic-skills:ron-service-doc", "whenToUse": "תמיד לפני הצעת מחיר — מסמך Scope of Work", "output": "SOW פורמלי: תחום, deliverables, תנאים", "opportunity": "מגן מ'אבל אמרת שזה כולל'", "pricing": "₪500-1,500", "badges": ["לפני quote"] },
+    "ron-digital-presentation": { "category": "biz", "emoji": "🎪", "invoke": "Skill: ron-digital-presentation", "whenToUse": "מצגת ל-WhatsApp / online (scrollytelling)", "output": "HTML scrollytelling מ-Google Docs → Vercel", "opportunity": "רושם מקצועי בפגישות מכירה", "pricing": "₪3,000-8,000", "badges": [] },
+    "landy-prompt-builder": { "category": "biz", "emoji": "🎯", "invoke": "Skill: anthropic-skills:landy-prompt-builder", "whenToUse": "בניית דף ב-Landy AI — פרומפטים", "output": "פרומפטים (800/5000 תווים), 9 סוגי דפים, 10 שאלות, 3 רמות עיצוב", "opportunity": "דפי נחיתה מהירים דרך Landy", "pricing": "₪1,200-2,800", "badges": [] },
+
+    "ron-client-search": { "category": "client", "emoji": "🔎", "invoke": "Skill: ron-client-search", "whenToUse": "לפני כל עבודה על לקוח חדש — חיפוש דומים", "output": "לקוחות דומים מ-Pinecone (index: ron-clients)", "opportunity": "מונע עבודה כפולה, ניצול ניסיון עבר", "pricing": "—", "badges": [] },
+
+    "ron-system-pitch": { "category": "system", "emoji": "🎤", "invoke": "Skill: anthropic-skills:ron-system-pitch", "whenToUse": "פגישה ראשונה עם פרוספקט ל-RON Assistant", "output": "Pitch 60-90 שניות + 3 hooks + טיפול ב-3 התנגדויות", "opportunity": "שלב 1 ב-funnel המכירה", "pricing": "—", "badges": ["שלב 1"] },
+    "ron-system-demo": { "category": "system", "emoji": "🖥️", "invoke": "Skill: anthropic-skills:ron-system-demo", "whenToUse": "הדגמה חיה של RON Assistant ב-screen share", "output": "תסריט 10 דקות: מה ללחוץ, מה לומר", "opportunity": "שלב 2 ב-funnel", "pricing": "—", "badges": ["שלב 2"] },
+    "ron-system-roi": { "category": "system", "emoji": "📊", "invoke": "Skill: anthropic-skills:ron-system-roi", "whenToUse": "'כמה הלקוח יחסוך', הצדקה כלכלית", "output": "חישוב חיסכון זמן + ערך לידים + תקופת החזר", "opportunity": "שלב 3 — הופך 'יקר' ל'כדאי'", "pricing": "—", "badges": ["שלב 3"] },
+    "ron-system-proposal": { "category": "system", "emoji": "📋", "invoke": "Skill: anthropic-skills:ron-system-proposal", "whenToUse": "הצעת מחיר פורמלית למערכת RON Assistant", "output": "מסמך הצעה: מחירון, לוז, scope, תנאים", "opportunity": "שלב 4 ב-funnel", "pricing": "—", "badges": ["שלב 4"] },
+    "ron-system-onboard": { "category": "system", "emoji": "🚀", "invoke": "Skill: anthropic-skills:ron-system-onboard", "whenToUse": "לקוח שחתם על RON Assistant — הקמה", "output": "Checklist + קונפיגורציה (נישות/ערים/ICP/מותג)", "opportunity": "שלב 5 — הקמה 4-6 שעות", "pricing": "—", "badges": ["שלב 5"] },
+    "ron-system-case-study": { "category": "system", "emoji": "⭐", "invoke": "Skill: anthropic-skills:ron-system-case-study", "whenToUse": "'תכין case study', חומר שיווקי מנתוני לפני/אחרי", "output": "Case Study אנונימי מוכן לפרסום", "opportunity": "ראיות חברתיות = הכלי השיווקי החזק ביותר", "pricing": "—", "badges": ["שיווק"] },
+
+    "market": { "category": "market", "emoji": "🎯", "invoke": "/market <command>", "whenToUse": "orchestrator שיווקי: audit, copy, emails, social, competitors...", "output": "12 sub-skills שיווקיים", "opportunity": "מערכת שיווק מלאה", "pricing": "—", "badges": ["orchestrator"] },
+    "market-audit": { "category": "market", "emoji": "🔬", "invoke": "/market audit <url>", "whenToUse": "לפני פגישת מכירה — ניתוח אתר הלקוח", "output": "5 agents מקבילים → ציון 0-100 + ממצאים", "opportunity": "מגיע לפגישה מוכן = closing גבוה יותר", "pricing": "—", "badges": ["לפני פגישה"] },
+    "market-competitors": { "category": "market", "emoji": "🕵️", "invoke": "/market competitors <url>", "whenToUse": "ניתוח תחרותי לפני מכירה", "output": "positioning map + נקודות חולשה של מתחרים", "opportunity": "טיעון מכירה חזק", "pricing": "—", "badges": [] },
+    "market-emails": { "category": "market", "emoji": "📧", "invoke": "/market emails <topic>", "whenToUse": "סדרת אימיילים ל-follow-up / nurture", "output": "5-7 אימיילים עם subject lines", "opportunity": "לידים שלא הולכים לאיבוד", "pricing": "—", "badges": [] },
+    "market-social": { "category": "market", "emoji": "📅", "invoke": "/market social <topic>", "whenToUse": "לוח תוכן 30 ימים גנרי", "output": "SOCIAL-CALENDAR.md", "opportunity": "תוכן עקבי", "pricing": "—", "badges": [] },
+    "market-landing": { "category": "review", "emoji": "📊", "invoke": "/market landing <url>", "whenToUse": "CRO לדף של לקוח/מתחרה (URL חיצוני)", "output": "7-point CRO analysis + benchmarks", "opportunity": "שירות אופטימיזציה לדפים קיימים", "pricing": "₪1,500-3,000", "badges": [] },
+    "blog": { "category": "blog", "emoji": "✍️", "invoke": "/blog <command>", "whenToUse": "מנוע SEO לאתר RON DIGITAL — 20 sub-commands", "output": "אסטרטגיה, מאמרים, calendar, GEO, schema", "opportunity": "לידים אורגניים בחינם מ-Google + AI", "pricing": "—", "badges": ["orchestrator", "SEO"] },
+    "blog-strategy": { "category": "blog", "emoji": "📋", "invoke": "/blog strategy <niche>", "whenToUse": "בניית אסטרטגיית תוכן", "output": "pillars + spokes + keyword clusters + roadmap", "opportunity": "תשתית SEO ל-6 חודשים", "pricing": "—", "badges": [] },
+    "blog-write": { "category": "blog", "emoji": "📝", "invoke": "/blog write <topic>", "whenToUse": "כתיבת מאמר SEO מלא", "output": "מאמר עם E-E-A-T, FAQ schema, תמונות", "opportunity": "כל מאמר = נקודת כניסה אורגנית", "pricing": "—", "badges": [] },
+
+    "hebrew-seo-geo-toolkit": { "category": "market", "emoji": "🇮🇱", "invoke": "Skill: anthropic-skills:hebrew-seo-geo-toolkit", "whenToUse": "SEO עברי + AI search (Google.co.il, ChatGPT, Perplexity)", "output": "Hebrew morphology, JSON-LD עברי, EEAT ישראלי", "opportunity": "CANONICAL לעברית — להעדיף על /blog geo", "pricing": "—", "canonical": true, "badges": ["CANONICAL", "חדש"] },
+    "israeli-social-content": { "category": "market", "emoji": "📱", "invoke": "Skill: anthropic-skills:israeli-social-content", "whenToUse": "לוח תוכן בעברית מותאם תרבותית", "output": "פוסטים FB/IG/TikTok/LinkedIn + hashtags ישראליים", "opportunity": "להעדיף על market-social לעברית", "pricing": "—", "badges": ["חדש"] },
+    "social-post-generator": { "category": "market", "emoji": "📲", "invoke": "Agent: social-post-generator", "whenToUse": "פוסט בודד בקול של רון", "output": "פוסט ישיר, ביצועים > חארטות", "opportunity": "נוכחות אישית", "pricing": "—", "badges": ["agent"] },
+    "carousel-builder": { "category": "market", "emoji": "🎠", "invoke": "Skill: carousel-builder", "whenToUse": "יצירת קרוסלת תמונות לאינסטגרם/סושיאל — שקופיות גרפיות (לא קופי)", "output": "HTML רב-שקופיות 4:5 או 1:1 → ייצוא PNG ב-Playwright, branded RTL navy+amber", "opportunity": "שירות חדש: קרוסלות מעוצבות ללקוחות + תוכן ויזואלי לסושיאל שלך", "pricing": "₪300-800 לסט", "badges": ["חדש", "גרפיקה"] },
+
+    "israeli-payroll-calculator": { "category": "israel", "emoji": "💰", "invoke": "Skill: anthropic-skills:israeli-payroll-calculator", "whenToUse": "חישוב שכר ישראלי (ברוטו/נטו, ביטוח לאומי, פנסיה)", "output": "מחשבון מלא לעובדים/עצמאים/עלות מעסיק", "opportunity": "🔥 Lead Magnet: 'מחשבון שכר לעצמאי' + ייעוץ ₪500-1,500", "pricing": "₪500-1,500", "badges": ["חדש", "Lead Magnet"] },
+    "israeli-gov-form-automator": { "category": "israel", "emoji": "🏛️", "invoke": "Skill: anthropic-skills:israeli-gov-form-automator", "whenToUse": "אוטומציית טפסי ממשלה (gov.il, מסים, ביטוח לאומי)", "output": "Playwright + PDF + אימות ת\"ז/טלפון", "opportunity": "🔥 שירות לעו\"ד/רו\"ח: ₪3,000-7,000 אינטגרציה", "pricing": "₪3,000-7,000", "badges": ["חדש", "שירות יקר"] },
+    "israeli-phone-formatter": { "category": "israel", "emoji": "📞", "invoke": "Skill: anthropic-skills:israeli-phone-formatter", "whenToUse": "אימות/פורמט טלפון ישראלי בטפסים", "output": "E.164 (+972) ל-WhatsApp/libphonenumber", "opportunity": "שימוש שוטף בטפסי לידים", "pricing": "כלול", "badges": ["חדש"] },
+    "israel-gov-api": { "category": "israel", "emoji": "📈", "invoke": "Skill: anthropic-skills:israel-gov-api", "whenToUse": "נתוני data.gov.il (CKAN API)", "output": "Datasets + CBS statistics", "opportunity": "סטטיסטיקות לאמינות מאמרים (EEAT)", "pricing": "—", "badges": ["חדש"] },
+    "israeli-rental-agreements": { "category": "israel", "emoji": "📃", "invoke": "Skill: anthropic-skills:israeli-rental-agreements", "whenToUse": "חוזי שכירות, חוק שכירות הוגנת 2017", "output": "הדרכה + זכויות + ניסוח", "opportunity": "חומר בלוג SEO גבוה", "pricing": "—", "badges": ["חדש", "בלוג"] },
+    "israeli-telecom-comparator": { "category": "israel", "emoji": "📡", "invoke": "Skill: anthropic-skills:israeli-telecom-comparator", "whenToUse": "השוואת סלולר/אינטרנט/TV", "output": "השוואה כולל eSIM, roaming", "opportunity": "חומר בלוג + lead magnet 'מחשבון חבילה'", "pricing": "—", "badges": ["חדש", "בלוג"] },
+    "israeli-utility-rates-comparator": { "category": "israel", "emoji": "⚡", "invoke": "Skill: anthropic-skills:israeli-utility-rates-comparator", "whenToUse": "חשמל/מים/גז/ארנונה + ROI סולארי", "output": "IEC tariffs, Mekorot, solar ROI", "opportunity": "lead magnet 'כמה משלם מיותר על ארנונה'", "pricing": "—", "badges": ["חדש", "Lead Magnet"] },
+    "israeli-product-price-comparator": { "category": "israel", "emoji": "🛒", "invoke": "Skill: anthropic-skills:israeli-product-price-comparator", "whenToUse": "השוואת מחירים Zap/KSP/iDigital", "output": "השוואה לוקאל vs ייבוא + הגנת צרכן", "opportunity": "lead magnet אפשרי", "pricing": "—", "badges": ["חדש"] },
+    "israeli-apartment-hunting": { "category": "israel", "emoji": "🏠", "invoke": "Skill: anthropic-skills:israeli-apartment-hunting", "whenToUse": "דירות שכירות (Yad2, Madlan)", "output": "מחירים 2026, checklist, הערכת שכונה", "opportunity": "נישת לקוחות: מתווכים/סוכני נדל\"ן", "pricing": "—", "badges": ["חדש"] },
+    "israeli-public-transit": { "category": "israel", "emoji": "🚆", "invoke": "Skill: anthropic-skills:israeli-public-transit", "whenToUse": "תחבורה ציבורית (אוטובוס/רכבת/רב-קו)", "output": "journey planning, real-time, fare", "opportunity": "לקוחות תיירות/הסעות", "pricing": "—", "badges": ["חדש"] },
+    "israeli-ui-design-system": { "category": "israel", "emoji": "🎨", "invoke": "Skill: anthropic-skills:israeli-ui-design-system", "whenToUse": "RTL design system לאפליקציות (משלים fullstack-app)", "output": "RTL components + Hebrew fonts + gov.il patterns", "opportunity": "אפליקציות עבריות איכותיות", "pricing": "כלול ב-fullstack", "badges": ["חדש"] },
+
+    "hebrew-document-generator": { "category": "docs", "emoji": "📄", "invoke": "Skill: anthropic-skills:hebrew-document-generator", "whenToUse": "PDF/DOCX/PPTX בעברית (חשבונית, חוזה, פרוטוקול)", "output": "מסמך מקצועי RTL + bidi", "opportunity": "המרת ron-digital-quote ל-PDF + חשבוניות מס", "pricing": "—", "badges": ["חדש"] },
+    "presentation-generator": { "category": "docs", "emoji": "🎤", "invoke": "Skill: anthropic-skills:presentation-generator", "whenToUse": "מצגות RTL פורמליות לתאגידים", "output": "מצגת עברית RTL מלא + bilingual", "opportunity": "🔥 שוק חדש: לקוחות תאגידיים (PPTX)", "pricing": "₪3,000-8,000", "badges": ["חדש", "שוק חדש"] },
+    "hyperframes-best-practices": { "category": "docs", "emoji": "🎬", "invoke": "Skill: anthropic-skills:hyperframes-best-practices", "whenToUse": "וידאו HTML+GSAP בעברית RTL", "output": "MP4 מ-HTML, Hebrew fonts, Whisper captions", "opportunity": "🔥 וידאו hero = +30-50% conversion. תוספת ₪500-1,500", "pricing": "₪500-1,500", "badges": ["חדש", "capability חדש"] },
+
+    "simplify": { "category": "util", "emoji": "🧹", "invoke": "/simplify", "whenToUse": "אחרי כל פרויקט קוד, לפני שליחה ללקוח", "output": "קוד נקי: reuse, simplification, efficiency", "opportunity": "0 עבודה ידנית, פחות באגים", "pricing": "כלול", "badges": ["חדש", "אוטומציה"] },
+    "prompt": { "category": "util", "emoji": "📝", "invoke": "/prompt", "whenToUse": "לפני כל יצירת פרומפט — שליפה מ-NotebookLM", "output": "תבנית מ-notebook 7f837353 (וידאו/תמונה) / 04e92e65 (קופי)", "opportunity": "פרומפטים איכותיים, חיסכון זמן", "pricing": "—", "badges": ["חדש"] },
+    "nekudat-hashmal": { "category": "util", "emoji": "⚡", "invoke": "Skill: nekudat-hashmal", "whenToUse": "פרויקט שלמה שושן (PWA חשמלאי)", "output": "קונפיגורציה ספציפית: BUILD_SPEC, paths", "opportunity": "דפוס סקיל-לקוח: אחרי כל פרויקט גדול", "pricing": "—", "badges": ["פר-לקוח"] },
+    "notebooklm": { "category": "util", "emoji": "📓", "invoke": "Skill: notebooklm", "whenToUse": "מחקר, podcasts, flashcards, mind-maps מ-NotebookLM", "output": "notebooks, sources, chat, podcast/video/quiz", "opportunity": "מנוע מחקר וידע", "pricing": "—", "badges": [] },
+    "skill-map": { "category": "util", "emoji": "🗺️", "invoke": "Skill: skill-map", "whenToUse": "תחזוקת/העשרת מפת הסקילים — הוספת סקיל לשכבה העסקית, תרחיש, כיוונון קיבוץ", "output": "עריכת skill-map-data.json + בנייה מחדש. מתעד את כל המבנה", "opportunity": "המערכת מתחזקת את עצמה — אין חקירה חוזרת", "pricing": "—", "badges": ["מערכת", "חדש"] }
+  },
+  "commands": {
+    "new-client": { "category": "client", "emoji": "🧲", "invoke": "/new-client", "whenToUse": "תחילת כל לקוח חדש — לפני הכל", "output": "Pinecone → אפיון → CLAUDE.md → הצעת מחיר", "opportunity": "מונע שאלות כפולות. ה-workflow החשוב ביותר", "pricing": "—", "badges": ["ליבה"] },
+    "save-client": { "category": "client", "emoji": "💾", "invoke": "/save-client", "whenToUse": "סיום פרויקט — שמירה ל-Pinecone + Case Study", "output": "שמירת לקוח + הצעת Case Study אם הצליח", "opportunity": "זיכרון + חומר שיווקי", "pricing": "—", "badges": [] },
+    "deploy": { "category": "build", "emoji": "🚀", "invoke": "/deploy", "whenToUse": "דף מוכן — העלאה לאוויר", "output": "Vercel deploy + URL ציבורי", "opportunity": "מסירה מהירה ללקוח", "pricing": "—", "badges": [] },
+    "review-page": { "category": "review", "emoji": "🔍", "invoke": "/review-page", "whenToUse": "אחרי בניית דף, לפני שליחה ללקוח", "output": "audit: SEO, RTL, CTA, מובייל, ביצועים", "opportunity": "אפס טעויות אצל הלקוח", "pricing": "—", "canonical": true, "badges": ["ליבה"] },
+    "landy": { "category": "build", "emoji": "🛬", "invoke": "/landy", "whenToUse": "עבודה עם מערכת Landy AI", "output": "אינטגרציה עם Landy", "opportunity": "דפים מהירים", "pricing": "—", "badges": [] },
+    "update-map": { "category": "util", "emoji": "🗺️", "invoke": "/update-map", "whenToUse": "ריענון ידני של מפת הסקילים", "output": "skill-map.html מעודכן בדסקטופ", "opportunity": "המפה תמיד עדכנית", "pricing": "—", "badges": ["מערכת"] }
+  },
+  "agents": {
+    "landing-page-reviewer": { "category": "review", "emoji": "🤖", "invoke": "Agent: landing-page-reviewer", "whenToUse": "audit דף נחיתה (engine מאחורי /review-page)", "output": "ממצאי SEO/RTL/CTA/מובייל", "opportunity": "בדיקה ב-background", "pricing": "—", "badges": ["agent"] },
+    "client-briefer": { "category": "client", "emoji": "📝", "invoke": "Agent: client-briefer", "whenToUse": "המרת שיחת לקוח גולמית למפרט מובנה", "output": "CLAUDE.md + מסמך אפיון", "opportunity": "אפיון מהיר", "pricing": "—", "badges": ["agent"] }
+  },
+  "decisionRules": [
+    { "intent": "לבנות דף נחיתה לעסק", "skill": "landing-page-builder", "say": "תבנה לי דף נחיתה ל-[שם העסק] בתחום [תחום]", "note": "אם צריך login/DB → fullstack-app" },
+    { "intent": "לבנות אפליקציה / מערכת עם login", "skill": "fullstack-app", "say": "תבנה לי אפליקציה עם משתמשים ומסד נתונים ל-[מטרה]", "note": "₪4,500-9,000" },
+    { "intent": "לבנות אוטומציה ב-Make", "skill": "make-automation-builder", "say": "תבנה אוטומציה ש[טריגר] → [פעולה]", "note": "CANONICAL" },
+    { "intent": "לתמחר / לשלוח הצעת מחיר", "skill": "ron-digital-quote", "say": "תכין הצעת מחיר ל-[לקוח] על [שירות]", "note": "תמיד ron-service-doc קודם" },
+    { "intent": "להכין מצגת לוואטסאפ", "skill": "ron-digital-presentation", "say": "תכין מצגת scrollytelling על [נושא]", "note": "scrollable web" },
+    { "intent": "להכין מצגת PPTX לתאגיד", "skill": "hebrew-document-generator", "say": "תכין מצגת PPTX בעברית על [נושא]", "note": "קובץ להורדה" },
+    { "intent": "לכתוב מאמר SEO בעברית", "skill": "hebrew-seo-geo-toolkit", "say": "תכתוב מאמר SEO על [נושא] לאתר", "note": "CANONICAL לעברית" },
+    { "intent": "לוח תוכן סושיאל בעברית", "skill": "israeli-social-content", "say": "תכין לוח תוכן חודשי ל-[רשת]", "note": "מותאם תרבותית" },
+    { "intent": "פוסט בודד בקול שלי", "skill": "social-post-generator", "say": "תכתוב פוסט על [נושא]", "note": "agent" },
+    { "intent": "קרוסלה / שקופיות לאינסטגרם (קרוסלות, סט תמונות לפוסט)", "skill": "carousel-builder", "say": "תבנה קרוסלה על [נושא/מוצר]", "note": "שקופיות גרפיות, לא קופי" },
+    { "intent": "וידאו hero לדף נחיתה", "skill": "hyperframes-best-practices", "say": "תכין וידאו hero בעברית ל-[דף]", "note": "+30-50% conversion" },
+    { "intent": "להתכונן לפגישת מכירה", "skill": "market-audit", "say": "/market audit [URL של הלקוח]", "note": "מגיע מוכן" },
+    { "intent": "לקוח חדש נכנס", "skill": "new-client", "say": "/new-client", "note": "ה-workflow הראשון" },
+    { "intent": "דף מוכן להעלאה", "skill": "deploy", "say": "/deploy", "note": "Vercel URL" },
+    { "intent": "לבדוק דף לפני שליחה", "skill": "review-page", "say": "/review-page", "note": "audit מלא" },
+    { "intent": "להכין pitch למערכת RON", "skill": "ron-system-pitch", "say": "תכין פיץ' ל-[פרוספקט]", "note": "funnel שלב 1" },
+    { "intent": "מחשבון/כלי חינמי לאתר", "skill": "israeli-payroll-calculator", "say": "תבנה מחשבון שכר לעצמאי כדף נחיתה", "note": "Lead Magnet" },
+    { "intent": "חישוב שכר נטו", "skill": "israeli-payroll-calculator", "say": "תחשב נטו ל-ברוטו [סכום]", "note": "" },
+    { "intent": "אוטומציית טפסי ממשלה", "skill": "israeli-gov-form-automator", "say": "תבנה אוטומציה למילוי טופס [שם]", "note": "₪3,000-7,000" }
+  ],
+  "conflicts": [
+    { "icon": "🎤", "title": "3 דרכים למצגות בעברית", "severity": "med", "status": "resolved", "rule": "CLAUDE.md › מצגות בעברית", "skills": ["ron-digital-presentation", "hebrew-document-generator", "presentation-generator"], "fix": "scrollytelling+וואטסאפ → ron-digital-presentation | PPTX להורדה/תאגיד → hebrew-document-generator | deck פורמלי → presentation-generator" },
+    { "icon": "🇮🇱", "title": "3 כלי SEO לעברית", "severity": "high", "status": "resolved", "rule": "CLAUDE.md › SEO בעברית", "skills": ["hebrew-seo-geo-toolkit", "/blog geo", "claude-seo:seo-geo"], "fix": "עברית (קאנוני) → hebrew-seo-geo-toolkit | בלוג שלם → /blog write | fallback → claude-seo:seo-geo" },
+    { "icon": "📱", "title": "תוכן סושיאל — 4 מסלולים", "severity": "high", "status": "resolved", "rule": "CLAUDE.md › תוכן סושיאל", "skills": ["social-post-generator", "israeli-social-content", "carousel-builder", "market-social"], "fix": "פוסט אישי → social-post-generator | לוח עברי → israeli-social-content | קרוסלת גרפיקה → carousel-builder | קמפיין גנרי → market-social" },
+    { "icon": "🎨", "title": "UI: landing vs israeli-ui-design-system", "severity": "med", "status": "resolved", "rule": "CLAUDE.md › UI: דף נחיתה vs אפליקציה", "skills": ["landing-page-builder", "israeli-ui-design-system"], "fix": "משלימים: israeli-ui-design-system רק עם fullstack-app. לעולם לא ב-landing-page-builder" },
+    { "icon": "📄", "title": "PDF: ron-digital-quote vs hebrew-document-generator", "severity": "med", "status": "resolved", "rule": "CLAUDE.md › המרת HTML → PDF", "skills": ["ron-digital-quote", "hebrew-document-generator"], "fix": "זרימה: ron-digital-quote יוצר HTML → hebrew-document-generator ממיר ל-PDF/DOCX. עובדים יחד" }
+  ],
+  "opportunities": [
+    { "icon": "💰", "title": "Lead Magnet: מחשבון שכר לעצמאי", "value": "חם!", "why": "כל עצמאי בישראל רוצה לדעת 'כמה נטו'. חיפושים גבוהים. ROI מיידי.", "how": "כבר נבנה: Desktop/calc-salary-freelancer.html → deploy", "skill": "israeli-payroll-calculator" },
+    { "icon": "🏛️", "title": "שירות: אוטומציית טפסי ממשלה", "value": "₪3,000-7,000", "why": "אין הרבה מתחרים. כאב אמיתי לעו\"ד/רו\"ח.", "how": "outreach ל-20 רואי חשבון בלינקדאין עם דמו", "skill": "israeli-gov-form-automator" },
+    { "icon": "🎬", "title": "Upsell: וידאו hero בדפים", "value": "+30-50% CR", "why": "וידאו hero מעלה conversion. עד עכשיו דפים סטטיים בלבד.", "how": "להציע ללקוחות קיימים כשדרוג ₪500-1,500", "skill": "hyperframes-best-practices" },
+    { "icon": "📝", "title": "10 פוסטי בלוג מהסקילים הישראליים", "value": "SEO גבוה", "why": "כל סקיל ישראלי = מאמר SEO עם traffic.", "how": "/blog write 'מחשבון תלוש לעצמאי'", "skill": "blog-write" },
+    { "icon": "🏢", "title": "שוק חדש: לקוחות תאגידיים", "value": "טיקט גבוה", "why": "PPTX פורמלי פותח שוק ביטוחים/בנקים/ציבורי.", "how": "סעיף 'שירותים לתאגידים' באתר + case study", "skill": "presentation-generator" },
+    { "icon": "🧹", "title": "simplify אחרי כל פרויקט", "value": "0 עבודה", "why": "קוד נקי יותר, פחות באגים אצל הלקוח.", "how": "אוטומטי ב-CLAUDE.md (כבר מוגדר)", "skill": "simplify" },
+    { "icon": "📂", "title": "סקילי-לקוח (דפוס nekudat-hashmal)", "value": "scalability", "why": "סקיל פר-לקוח = זיכרון מלא מעבר ל-Pinecone.", "how": "אחרי כל פרויקט > ₪5,000 — skill-creator", "skill": "nekudat-hashmal" },
+    { "icon": "🛠️", "title": "סקציית 'כלים חינמיים' באתר", "value": "200-500 לידים/חודש", "why": "5 מחשבונים = 5 דפי SEO = 5 נקודות כניסה + רשימת תפוצה.", "how": "מחשבון שכר → סלולר → ארנונה → חוזה שכירות", "skill": "israeli-utility-rates-comparator" },
+    { "icon": "📧", "title": "Follow-up אוטומטי ב-Make", "value": "+₪45,000/שנה", "why": "Blueprint מוכן. 35% closing במקום 20%.", "how": "ליצור 3 Gmail labels → לבקש מקלוד לבנות תרחיש", "skill": "make-automation-builder" },
+    { "icon": "🎯", "title": "market audit לפני כל פגישה", "value": "closing גבוה", "why": "להגיע עם ניתוח מוכן = נראה מקצועי יותר.", "how": "/market audit [URL] לפני פגישה", "skill": "market-audit" }
+  ],
+  "cheatSheet": [
+    { "trigger": "לקוח חדש", "say": "/new-client", "skill": "new-client" },
+    { "trigger": "הצעת מחיר", "say": "תכין הצעת מחיר ל-[לקוח]", "skill": "ron-digital-quote" },
+    { "trigger": "דף נחיתה", "say": "תבנה דף נחיתה ל-[עסק]", "skill": "landing-page-builder" },
+    { "trigger": "אוטומציה", "say": "תבנה אוטומציה ש[טריגר]→[פעולה]", "skill": "make-automation-builder" },
+    { "trigger": "לפני פגישה", "say": "/market audit [URL]", "skill": "market-audit" },
+    { "trigger": "דף מוכן", "say": "/deploy", "skill": "deploy" }
+  ],
+  "recipes": [
+    { "icon": "🧲", "name": "מכונת לידים אורגנית", "chain": ["blog-strategy", "blog-write", "hebrew-seo-geo-toolkit", "israeli-payroll-calculator", "make-automation-builder"], "outcome": "בלוג + מחשבון חינמי + סדרת follow-up אוטומטית", "value": "זרם לידים קבוע בלי תקציב פרסום" },
+    { "icon": "🤝", "name": "סגירת לקוח מקצה לקצה", "chain": ["market-audit", "ron-system-pitch", "ron-service-doc", "ron-digital-quote", "ron-system-onboard"], "outcome": "מפגישה ראשונה ועד לקוח חתום ומוקם", "value": "תהליך מכירה מקצועי = closing גבוה יותר" },
+    { "icon": "🌐", "name": "דף נחיתה מנצח", "chain": ["write-landing", "landing-page-builder", "hyperframes-best-practices", "impeccable", "review-page", "deploy"], "outcome": "דף עם קופי + וידאו hero + פוליש + audit + אונליין", "value": "דף ברמת סוכנות גדולה במחיר עצמאי" },
+    { "icon": "🏢", "name": "כניסה לשוק תאגידי", "chain": ["market-competitors", "presentation-generator", "ron-service-doc", "hebrew-document-generator"], "outcome": "מצגת PPTX פורמלית + SOW + חוזה PDF", "value": "פותח לקוחות גדולים שמשלמים טיקט גבוה" },
+    { "icon": "📰", "name": "מנוע תוכן שבועי", "chain": ["blog-strategy", "blog-write", "israeli-social-content", "hyperframes-best-practices"], "outcome": "מאמר → פוסטים לרשתות → סרטון קצר, אוטומטי", "value": "נוכחות עקבית מתוכן אחד = פי 4 הספק" },
+    { "icon": "🚀", "name": "השקת מוצר/שירות", "chain": ["market-launch", "write-landing", "landing-page-builder", "market-emails", "israeli-social-content"], "outcome": "playbook + דף + סדרת מיילים + תוכן השקה", "value": "השקה מסונכרנת בכל הערוצים" },
+    { "icon": "🎁", "name": "ליד מגנט → המרה", "chain": ["israeli-utility-rates-comparator", "landing-page-builder", "israeli-phone-formatter", "make-automation-builder"], "outcome": "כלי חינמי + טופס מאומת + נרצ'ר אוטומטי", "value": "ממיר סקרנים לרשימת תפוצה ואז ללקוחות" },
+    { "icon": "⚙️", "name": "אוטומציה כשירות ללקוח", "chain": ["new-client", "make-automation-builder", "ron-digital-quote", "save-client"], "outcome": "אפיון → בניית אוטומציה → תמחור → שמירה", "value": "שירות חוזר עם marginי גבוה" },
+    { "icon": "📱", "name": "נוכחות דיגיטלית לעצמאי", "chain": ["landing-page-builder", "israeli-social-content", "blog-write", "google-reviews"], "outcome": "דף + תוכן סושיאל + מאמר + ביקורות", "value": "חבילת 'נוכחות' חודשית — הכנסה חוזרת" },
+    { "icon": "🔁", "name": "מחזור תוכן (repurpose)", "chain": ["blog-write", "content-repurposing", "israeli-social-content", "newsletter"], "outcome": "מאמר אחד → 10 פוסטים → ניוזלטר", "value": "מקסימום ערך מכל פיסת תוכן" },
+    { "icon": "💤", "name": "החייאת לקוח רדום", "chain": ["ron-client-search", "market-emails", "make-automation-builder"], "outcome": "מציאת לקוחות ישנים → סדרת re-engagement אוטומטית", "value": "הכנסה מלקוחות ששכחת מהם" },
+    { "icon": "📍", "name": "דף תדמית + SEO מקומי", "chain": ["landing-page-builder", "hebrew-seo-geo-toolkit", "google-reviews"], "outcome": "דף + אופטימיזציה ל-Google.co.il + ביקורות", "value": "עסק מקומי שנמצא ראשון בחיפוש" },
+    { "icon": "🔍", "name": "מחקר שוק לנישה חדשה", "chain": ["market-competitors", "market-audit", "blog-strategy"], "outcome": "מיפוי מתחרים → פערים → אסטרטגיית תוכן", "value": "כניסה מושכלת לתחום חדש" },
+    { "icon": "🧪", "name": "מבדק איכות לפני השקה", "chain": ["review-page", "impeccable", "webapp-testing", "deploy"], "outcome": "audit → פוליש → בדיקות → אונליין", "value": "אפס באגים מביכים מול הלקוח" },
+    { "icon": "🎤", "name": "וובינר/אירוע לידים", "chain": ["market-launch", "landing-page-builder", "market-emails", "presentation-generator"], "outcome": "דף הרשמה + תזכורות + מצגת לאירוע", "value": "מפגש אחד = עשרות לידים חמים" },
+    { "icon": "🛠️", "name": "אוטומציה כמנוי חודשי", "chain": ["new-client", "make-automation-builder", "ron-digital-quote", "save-client"], "outcome": "אפיון → בנייה → תמחור מנוי → תיעוד", "value": "הכנסה חוזרת במקום פרויקט חד-פעמי" },
+    { "icon": "🧠", "name": "החלטה עם פאנל מומחים", "chain": ["brainstorm", "llm-council", "ron-digital-quote"], "outcome": "סיעור מוחות → ריבוי דעות → החלטה", "value": "החלטות עסקיות טובות יותר לבד" }
+  ],
+  "buildIdeas": [
+    { "icon": "🧮", "title": "סדרת מחשבונים חינמיים", "desc": "5 מחשבונים (שכר, ארנונה, סלולר, ROI דף נחיתה, עלות מעסיק) — כל אחד דף SEO + lead magnet", "skills": ["israeli-payroll-calculator", "israeli-utility-rates-comparator", "landing-page-builder"], "revenue": "200-500 לידים/חודש" },
+    { "icon": "📬", "title": "מנוי תוכן חודשי לעסקים", "desc": "חבילה חודשית: 4 פוסטים + מאמר + ניוזלטר. הכנסה חוזרת קבועה", "skills": ["israeli-social-content", "blog-write", "newsletter"], "revenue": "₪1,500-3,500/חודש" },
+    { "icon": "💬", "title": "בוט וואטסאפ לתורים", "desc": "בוט שמתאם תורים למספרות/קליניקות/מוסכים — 24/7, ללא טלפנית", "skills": ["make-automation-builder", "telegram-bot"], "revenue": "₪1,800-3,500 הקמה + חודשי" },
+    { "icon": "⚡", "title": "'אתר ב-24 שעות' כמוצר", "desc": "מוצר מוגדר: דף נחיתה מלא תוך יממה במחיר קבוע. קל למכור", "skills": ["write-landing", "landing-page-builder", "deploy"], "revenue": "₪1,800 פיקס" },
+    { "icon": "🔎", "title": "Productized SEO לעסקים מקומיים", "desc": "חבילת SEO עברי חודשית: אופטימיזציה + 2 מאמרים + דוח", "skills": ["hebrew-seo-geo-toolkit", "blog-write", "google-reviews"], "revenue": "₪1,200-2,500/חודש" },
+    { "icon": "🤖", "title": "סדנת AI לעסקים קטנים", "desc": "סדנה/קורס: איך עצמאי משתמש ב-AI יומיומי. מוצר ידע", "skills": ["notebooklm", "presentation-generator", "blog-write"], "revenue": "₪300-800/משתתף" },
+    { "icon": "📑", "title": "אוטומציית הצעות מחיר לעסקים", "desc": "מערכת שמייצרת הצעות מחיר אוטומטית מטופס — לעסקי שירות", "skills": ["make-automation-builder", "hebrew-document-generator"], "revenue": "₪3,000-6,000 פר לקוח" },
+    { "icon": "🏛️", "title": "שירות טפסי ממשלה לרו\"ח", "desc": "אוטומציה למילוי טפסים חוזרים — מנוי לעורכי דין/רו\"ח", "skills": ["israeli-gov-form-automator", "make-automation-builder"], "revenue": "₪3,000-7,000 + חודשי" },
+    { "icon": "🎥", "title": "סרטוני שיווק בעברית", "desc": "וידאו קצר לרשתות/דפים — תוסף לכל לקוח דף נחיתה", "skills": ["hyperframes-best-practices", "prompt"], "revenue": "₪500-1,500 לסרטון" },
+    { "icon": "📊", "title": "דשבורד נתונים לעסק", "desc": "דשבורד שמושך נתונים (Sheets/CRM) למסך אחד — לעסקים שגדלים", "skills": ["fullstack-app", "israeli-ui-design-system"], "revenue": "₪4,500-9,000" },
+    { "icon": "🩺", "title": "אבחון דיגיטלי חינמי (scorecard)", "desc": "שאלון 10 שאלות שנותן לעסק ציון נוכחות דיגיטלית + דוח — lead magnet חזק", "skills": ["scorecard-marketing", "landing-page-builder", "make-automation-builder"], "revenue": "30-80 לידים מוכשרים/חודש" },
+    { "icon": "⭐", "title": "ניהול מוניטין חודשי", "desc": "שירות שמבקש ביקורות Google אוטומטית מלקוחות מרוצים ומנטר אותן", "skills": ["google-reviews", "make-automation-builder"], "revenue": "₪600-1,200/חודש" },
+    { "icon": "🧾", "title": "אוטומציית חשבוניות לעסקים", "desc": "טופס/מייל → חשבונית מס מעוצבת אוטומטית. כאב אמיתי לעצמאים", "skills": ["make-automation-builder", "hebrew-document-generator"], "revenue": "₪2,000-4,000 + חודשי" },
+    { "icon": "💬", "title": "בוט FAQ לאתר", "desc": "בוט שעונה על שאלות נפוצות מתוכן האתר/בלוג — מפחית פניות", "skills": ["make-automation-builder", "blog"], "revenue": "₪1,500-3,000 הקמה" },
+    { "icon": "🎓", "title": "קורס 'בנה דף נחיתה בעצמך'", "desc": "מוצר ידע לעצמאים שרוצים לעשות לבד — scale בלי שעות עבודה", "skills": ["write-landing", "presentation-generator", "notebooklm"], "revenue": "₪290-590/נרשם" },
+    { "icon": "📦", "title": "תבנית אתר נישתי (productized)", "desc": "אתר מוכן לנישה (מספרות/מוסכים/קליניקות) שנמכר שוב ושוב בהתאמות", "skills": ["landing-page-builder", "fullstack-app"], "revenue": "₪1,500 × N לקוחות" },
+    { "icon": "🗓️", "title": "ניהול תוכן ללקוחות (retainer)", "desc": "סוכנות תוכן זעירה: לוח חודשי + פרסום + דוח, לכמה לקוחות במקביל", "skills": ["israeli-social-content", "blog-write", "market-report"], "revenue": "₪1,500-3,500 × לקוחות" }
+  ],
+  "sparks": [
+    "מה אם תיצור סדרת סרטוני TikTok מכל מאמר בלוג? (blog-write + hyperframes)",
+    "מה אם כל לקוח דף נחיתה יקבל גם מחשבון חינמי מותאם לתחום שלו? (israeli-payroll + landing)",
+    "מה אם תהפוך את הצעת המחיר למצגת אינטראקטיבית במקום PDF? (ron-digital-quote + ron-digital-presentation)",
+    "מה אם תבנה בוט וואטסאפ שעונה על שאלות נפוצות מהבלוג שלך? (blog + make-automation)",
+    "מה אם תציע לכל לקוח אתר גם חבילת תוכן חודשית? (landing + israeli-social-content)",
+    "מה אם תיצור ניוזלטר שבועי אוטומטי מהמאמרים החדשים? (blog + newsletter + make)",
+    "מה אם תמכור 'חבילת נוכחות דיגיטלית' במקום דף בודד? (landing + social + blog + reviews)",
+    "מה אם כל פגישת מכירה תתחיל עם ניתוח שיווקי מודפס של הלקוח? (market-audit + hebrew-document-generator)",
+    "מה אם תבנה מחשבון ROI שמראה ללקוח כמה אוטומציה תחסוך לו? (israeli-payroll + landing)",
+    "מה אם תיצור case study אוטומטי מכל פרויקט שמסתיים? (save-client + ron-system-case-study)",
+    "מה אם תהפוך כל סקיל ישראלי למאמר SEO + כלי חינמי? (כל israeli-* + blog + landing)",
+    "מה אם תציע סדנת AI לעסקים קטנים כמוצר ידע? (notebooklm + presentation-generator)",
+    "מה אם תבנה תבנית הצעת מחיר אוטומטית לעסקי שירות אחרים? (make + hebrew-document-generator)",
+    "מה אם תיצור סדרת פודקאסטים על אוטומציה לעסקים? (notebooklm audio)",
+    "מה אם כל דף נחיתה יקבל וידאו hero אוטומטי? (+30-50% המרה) (landing + hyperframes)",
+    "מה אם תבנה אבחון דיגיטלי חינמי שנותן לעסק ציון? (scorecard + landing)",
+    "מה אם תציע ניהול ביקורות Google כמנוי חודשי? (google-reviews + make)",
+    "מה אם תהפוך לקוחות רדומים לפרויקטים עם סדרת מיילים? (ron-client-search + market-emails)",
+    "מה אם תמכור תבנית אתר נישתי שוב ושוב לאותו תחום? (landing-page-builder)",
+    "מה אם כל הצעת מחיר תכלול case study רלוונטי אוטומטית? (ron-digital-quote + case-study)",
+    "מה אם תיצור בוט FAQ לאתר שמבוסס על הבלוג שלך? (make + blog)",
+    "מה אם תארח וובינר חודשי ותהפוך אותו לתוכן? (market-launch + presentation + blog)",
+    "מה אם תתמחר לפי נתונים מלקוחות דומים מהעבר? (ron-client-search + ron-digital-quote)",
+    "מה אם תבנה דשבורד KPI חודשי כשירות מתמשך ללקוח? (fullstack-app)",
+    "מה אם תהפוך אוטומציית חשבוניות למוצר לעצמאים? (make + hebrew-document-generator)"
+  ],
+  "enrich": {
+    "landing-page-builder": { "example": "תבנה דף נחיתה למאמן כושר עם טופס תיאום אימון ניסיון", "twist": "הוסף דף 'תודה' אחרי הטופס = הזדמנות upsell/הפניה" },
+    "fullstack-app": { "example": "תבנה לי מערכת הזמנת תורים לקליניקה עם login ולוח מנהל", "twist": "אותה מערכת = מוצר שאפשר למכור שוב לעסקים דומים" },
+    "make-automation-builder": { "example": "תבנה אוטומציה: טופס לקוח חדש → CRM → מייל ברוכים הבאים → התראה ב-Slack", "twist": "כל אוטומציה ידנית של לקוח = שירות חודשי חוזר" },
+    "write-landing": { "example": "תכתוב קופי PAS לדף נחיתה של רואה חשבון לעצמאים", "twist": "כתוב 3 וריאציות כותרת ל-A/B test" },
+    "frontend-design": { "example": "תן עקרונות עיצוב לדף נחיתה בתחום היופי והספא", "twist": "שמור design context ב-.impeccable.md לשימוש חוזר" },
+    "impeccable": { "example": "/impeccable polish על הדף שבניתי לפני שליחה ללקוח", "twist": "השתמש ב-bolder להפוך דף 'בסדר' למרשים" },
+    "ron-digital-quote": { "example": "תכין הצעת מחיר לאתר תדמית + אוטומציה לעסק שיפוצים", "twist": "הוסף 3-tier pricing — רוב הלקוחות בוחרים באמצע" },
+    "ron-service-doc": { "example": "תכין SOW לפרויקט דף נחיתה לפני ההצעה", "twist": "SOW מפורט מקטין בקשות 'אבל אמרת ש...' אחר כך" },
+    "ron-digital-presentation": { "example": "תכין מצגת scrollytelling על השירותים שלי לוואטסאפ", "twist": "שלח לינק במקום קובץ = נראה הרבה יותר מקצועי" },
+    "landy-prompt-builder": { "example": "תכין פרומפט ל-Landy לדף איסוף לידים בתחום הנדל\"ן", "twist": "שמור פרומפטים מנצחים לפי תחום לשימוש חוזר" },
+    "ron-client-search": { "example": "חפש לקוחות דומים שעשיתי בתחום המסעדנות", "twist": "לפני כל הצעת מחיר — בדוק מה גבית מלקוח דומה" },
+    "ron-system-pitch": { "example": "תכין פיץ' ל-RON Assistant לבעל מכון כושר", "twist": "התאם את ה-3 hooks לכאב הספציפי של הנישה" },
+    "ron-system-demo": { "example": "תכין תסריט דמו 10 דקות למערכת מול פרוספקט", "twist": "סיים תמיד בשאלה שמובילה לסגירה" },
+    "ron-system-roi": { "example": "תחשב ROI ל-RON Assistant: 30 לידים בחודש, ערך לקוח 2000", "twist": "הצג חיסכון שנתי — מספר גדול משכנע יותר" },
+    "ron-system-proposal": { "example": "תכין הצעה פורמלית למערכת עם מודולים A+B", "twist": "צרף case study רלוונטי להצעה = אמון מיידי" },
+    "ron-system-onboard": { "example": "תכין onboarding ללקוח חדש בתחום הקוסמטיקה", "twist": "checklist מסודר = הקמה ב-4 שעות במקום יומיים" },
+    "ron-system-case-study": { "example": "תכין case study אנונימי מלקוח שהכפיל לידים", "twist": "כל case study = חומר לאתר + ללינקדאין + להצעות" },
+    "market": { "example": "/market audit https://אתר-לקוח-פוטנציאלי", "twist": "הרץ 5 הסוכנים במקביל לפני פגישה חשובה" },
+    "market-audit": { "example": "/market audit https://[URL] לפני פגישת מכירה מחר", "twist": "הדפס את הדוח והבא לפגישה = רושם מקצועי" },
+    "market-competitors": { "example": "/market competitors https://[מתחרה של הלקוח]", "twist": "הצג ללקוח איפה המתחרים חלשים = הזדמנות שלו" },
+    "market-emails": { "example": "/market emails 'follow-up אחרי פגישת אפיון'", "twist": "סדרה של 5 מיילים סוגרת לקוחות שנעלמו" },
+    "market-social": { "example": "/market social 'אוטומציות לעסקים' ל-30 יום", "twist": "תזמן הכל מראש = חודש תוכן בשעה" },
+    "market-landing": { "example": "/market landing https://[דף של לקוח] לשיפור המרה", "twist": "מכור את הניתוח כשירות CRO בפני עצמו" },
+    "blog": { "example": "/blog strategy 'AI לעסקים קטנים בישראל'", "twist": "מנוע הבלוג = 20 פקודות, לא רק כתיבה" },
+    "blog-strategy": { "example": "/blog strategy 'אוטומציות לעצמאים'", "twist": "אסטרטגיה אחת = 6 חודשי תוכן מתוכנן" },
+    "blog-write": { "example": "/blog write 'מחשבון תלוש לעצמאי — המדריך'", "twist": "כל מאמר ישראלי = הזדמנות ל-lead magnet" },
+    "hebrew-seo-geo-toolkit": { "example": "תבדוק את האתר שלי ל-SEO עברי + נראות ב-ChatGPT", "twist": "אופטימיזציה ל-AI search = תהיה מצוטט ב-2026" },
+    "israeli-social-content": { "example": "תכין לוח תוכן חודשי לאינסטגרם בתחום הקולינריה", "twist": "תוכן מותאם-תרבותית מקבל יותר engagement" },
+    "social-post-generator": { "example": "תכתוב פוסט על כלי AI חדש שגיליתי", "twist": "בקול שלך — ישיר, ביצועים > חארטות" },
+    "carousel-builder": { "example": "תבנה קרוסלה של 6 שקופיות על השירותים שלי", "twist": "צמד עם social-content לקופי → סט פוסט מלא ב-2 סקילים" },
+    "israeli-payroll-calculator": { "example": "תבנה מחשבון שכר נטו לעצמאי כדף נחיתה עם CTA", "twist": "כלי חינמי = רשימת תפוצה שגדלה לבד" },
+    "israeli-gov-form-automator": { "example": "תבנה אוטומציה למילוי דוח שנתי לעצמאי", "twist": "מכור כמנוי לרו\"ח — הכנסה חוזרת" },
+    "israeli-phone-formatter": { "example": "תוסיף אימות טלפון ישראלי לטופס בדף הנחיתה", "twist": "טופס נקי מטעויות = פחות לידים אבודים" },
+    "israel-gov-api": { "example": "תמשוך נתוני data.gov.il לתמיכה בטענה במאמר", "twist": "סטטיסטיקה רשמית = אמינות גבוהה ל-SEO/EEAT" },
+    "israeli-rental-agreements": { "example": "/blog write 'כל מה שצריך לדעת על חוזה שכירות'", "twist": "נושא חם = traffic גבוה לבלוג" },
+    "israeli-telecom-comparator": { "example": "תבנה מחשבון 'איזו חבילת סלולר חוסכת לי הכי הרבה'", "twist": "lead magnet עם affiliate potential" },
+    "israeli-utility-rates-comparator": { "example": "תבנה כלי 'כמה אתה משלם מיותר על ארנונה'", "twist": "כותרת מעוררת סקרנות = הרבה שיתופים" },
+    "israeli-product-price-comparator": { "example": "תשווה מחירי מוצר בין Zap/KSP/iDigital", "twist": "בסיס לאתר השוואת מחירים נישתי" },
+    "israeli-apartment-hunting": { "example": "תכין מדריך שכירות לעיר ספציפית", "twist": "נישת לקוחות: מתווכים וסוכני נדל\"ן" },
+    "israeli-public-transit": { "example": "תכנן מסלול תחבורה ציבורית מנקודה לנקודה", "twist": "שימושי ללקוחות תיירות/הסעות" },
+    "israeli-ui-design-system": { "example": "תבנה design system RTL לאפליקציה שאני בונה", "twist": "רק עם fullstack-app — לא לדף נחיתה" },
+    "hebrew-document-generator": { "example": "תהפוך את הצעת המחיר ל-PDF מעוצב להורדה", "twist": "גם חשבוניות מס וחוזים — לא רק הצעות" },
+    "presentation-generator": { "example": "תכין מצגת PPTX פורמלית לפגישה עם חברת ביטוח", "twist": "פותח שוק תאגידי שמצפה ל-PPTX, לא scroll" },
+    "hyperframes-best-practices": { "example": "תכין וידאו hero של 15 שניות בעברית לדף נחיתה", "twist": "+30-50% המרה — תוסף ₪500-1,500 ללקוח קיים" },
+    "simplify": { "example": "/simplify על הקוד של הדף לפני שליחה", "twist": "0 עבודה ידנית, פחות באגים אצל הלקוח" },
+    "prompt": { "example": "תכין פרומפט וידאו ל-Veo (שלוף מ-NotebookLM)", "twist": "תמיד שלוף תבנית קיימת לפני כתיבה מאפס" },
+    "nekudat-hashmal": { "example": "המשך פיתוח stage 2 לפרויקט שלמה שושן", "twist": "דפוס: סקיל פר-לקוח אחרי כל פרויקט גדול" },
+    "notebooklm": { "example": "תכין podcast על אוטומציות לעסקים מ-3 מקורות", "twist": "podcast/flashcards/mind-map ממקור אחד" },
+    "skill-map": { "example": "תוסיף תרחיש 'לקוח רוצה לוגו' למפת הסקילים", "twist": "המפה מתעדת את עצמה — ערוך data.json, לא את הקוד" },
+    "new-client": { "example": "/new-client (לפני כל לקוח חדש)", "twist": "מחפש אוטומטית לקוחות דומים מהעבר" },
+    "save-client": { "example": "/save-client בסיום פרויקט מוצלח", "twist": "מציע אוטומטית case study אם הצליח" },
+    "deploy": { "example": "/deploy אחרי שהדף מוכן", "twist": "URL ציבורי תוך דקה לשליחה ללקוח" },
+    "review-page": { "example": "/review-page לפני שליחת דף ללקוח", "twist": "תופס טעויות RTL/מובייל לפני שהלקוח רואה" },
+    "landy": { "example": "/landy לעבודה עם מערכת Landy", "twist": "" },
+    "update-map": { "example": "/update-map לרענון המפה", "twist": "רץ אוטומטית בכל פתיחת סשן" },
+    "landing-page-reviewer": { "example": "תריץ ביקורת על index.html של הלקוח", "twist": "אפשר להריץ ברקע בזמן שעובדים על משהו אחר" },
+    "client-briefer": { "example": "תהפוך את שיחת הוואטסאפ עם הלקוח למפרט", "twist": "הדבק שיחה גולמית → מקבל אפיון מסודר" }
+  },
+  "checklists": [
+    { "icon": "🧲", "name": "לקוח חדש מקצה לקצה", "steps": [
+      { "text": "חיפוש לקוחות דומים מהעבר", "skill": "ron-client-search" },
+      { "text": "פתיחת לקוח + אפיון", "skill": "new-client" },
+      { "text": "אם יש URL — ניתוח שיווקי מקדים", "skill": "market-audit" },
+      { "text": "שאלת login/DB → להחליט landing או fullstack", "skill": "" },
+      { "text": "מסמך SOW לפני הצעת מחיר", "skill": "ron-service-doc" },
+      { "text": "הצעת מחיר", "skill": "ron-digital-quote" }
+    ]},
+    { "icon": "🚀", "name": "מסירת דף נחיתה ללקוח", "steps": [
+      { "text": "ניקוי קוד אוטומטי", "skill": "simplify" },
+      { "text": "פוליש ויזואלי", "skill": "impeccable" },
+      { "text": "audit לפני שליחה (RTL/SEO/מובייל)", "skill": "review-page" },
+      { "text": "העלאה לאוויר + URL", "skill": "deploy" },
+      { "text": "להציע וידאו hero כשדרוג", "skill": "hyperframes-best-practices" }
+    ]},
+    { "icon": "💰", "name": "סגירת עסקה", "steps": [
+      { "text": "פיץ' / הצגה ראשונה", "skill": "ron-system-pitch" },
+      { "text": "הצעת מחיר עם 3-tier + ROI", "skill": "ron-digital-quote" },
+      { "text": "התחלת סדרת follow-up", "skill": "make-automation-builder" },
+      { "text": "אחרי חתימה — onboarding", "skill": "ron-system-onboard" },
+      { "text": "שמירת לקוח + הצעת case study", "skill": "save-client" }
+    ]},
+    { "icon": "🎁", "name": "השקת ליד-מגנט", "steps": [
+      { "text": "בחירת כלי חינמי (מחשבון/השוואה)", "skill": "israeli-payroll-calculator" },
+      { "text": "בניית דף נחיתה לכלי", "skill": "landing-page-builder" },
+      { "text": "אימות טלפון בטופס", "skill": "israeli-phone-formatter" },
+      { "text": "נרצ'ר אוטומטי לנרשמים", "skill": "make-automation-builder" },
+      { "text": "קידום אורגני בעברית", "skill": "hebrew-seo-geo-toolkit" }
+    ]}
+  ],
+  "libraryGroups": [
+    { "id": "marketing", "label": "🎯 שיווק ותוכן", "open": true, "priority": true, "broad": true,
+      "prefix": ["blog", "market", "social", "content", "copy", "ad-", "seo", "email", "newsletter", "linkedin", "facebook", "google-ads", "youtube", "reddit", "thread", "podcast", "affiliate", "demand", "brand"],
+      "kw": ["marketing", "copywrit", "content", "seo", "geo", "social", "advertis", "email", "brand", "growth", "funnel", "campaign", "launch", "viral", "newsletter", "audience", "ads ", "affiliate", "keyword", "backlink", "serp", "blog", "post", "tweet", "engagement"] },
+    { "id": "sales", "label": "💰 מכירות וכסף", "open": true, "priority": true,
+      "prefix": ["pricing", "cold", "icp", "apollo", "hubspot", "stripe", "predictable", "referral", "lead", "scorecard", "offer", "one-page", "hundred-million"],
+      "kw": ["negotiat", "pricing", "sales", "persuas", "influence", "offer", "conversion", " lead", "outreach", "deal ", "churn", "referral", "revenue", "monetiz", "upsell", "paywall", "checkout", "dispute", "psychology of", "objection", "close the"] },
+    { "id": "productivity", "label": "🗂️ פרודוקטיביות וכלים", "open": true, "priority": true,
+      "prefix": ["obsidian", "pdf", "docx", "xlsx", "csv", "json", "markdown", "defuddle", "notebooklm", "doc-"],
+      "kw": ["obsidian", "notion", "document", "productiv", "knowledge", "note-taking", "spreadsheet", "calendar", "task", "workflow", "pdf", "docx", "xlsx", "convert", "extract text", "transcri"] },
+    { "id": "strategy", "label": "📊 אסטרטגיה ומוצר", "open": false, "priority": false,
+      "prefix": ["lean", "jobs-to-be", "design-sprint", "blue-ocean", "crossing", "traction", "inspired", "continuous", "obviously", "37signals"],
+      "kw": ["lean", "startup", "jobs-to-be-done", "ux", "design sprint", "strategy", "framework", "retention", "positioning", "roadmap", "discovery", "product market", "onboarding", "heuristic", "habit"] },
+    { "id": "dev", "label": "💻 פיתוח ותכנות", "open": false, "priority": false,
+      "prefix": ["clean-", "refactor", "software", "domain-driven", "system-design", "ddia", "pragmatic", "release-it", "high-perf", "web-", "frontend", "vercel", "claude-api", "mcp-builder", "i18n", "d3js", "remotion"],
+      "kw": ["code", "api", "refactor", "architect", "debugging", "unit test", "react", "frontend", "backend", "database design", "git ", "deployment", "webapp", "design system"] },
+    { "id": "sci", "label": "🔬 מדע ומחקר", "open": false, "collapsed": true, "suffix": ["-sci"] },
+    { "id": "security", "label": "🛡️ אבטחת קוד", "open": false, "collapsed": true, "prefix": ["tob-"] },
+    { "id": "games", "label": "🎮 פיתוח משחקים", "open": false, "collapsed": true, "prefix": ["gs-", "gstack"] },
+    { "id": "other", "label": "🧩 שונות", "open": false, "catchall": true }
+  ],
+  "scenarios": [
+    {
+      "icon": "📞",
+      "title": "לקוח פנה לראשונה",
+      "trigger": "לקוח כתב 'אני מעוניין' / נרשם בטופס / התקשר",
+      "steps": [
+        { "num": 1, "action": "פתיחת תיק + חיפוש לקוחות דומים מהעבר", "skill": "new-client", "say": "/new-client", "get": "אפיון מובנה + תקדים מ-Pinecone אם קיים" },
+        { "num": 2, "action": "אם יש לו אתר — ניתוח שיווקי מהיר", "skill": "market-audit", "say": "/market audit https://[URL-של-הלקוח]", "get": "ציון 0-100 + 5 ממצאים לשיחה" },
+        { "num": 3, "action": "הכנת Scope of Work לפני תמחור", "skill": "ron-service-doc", "say": "תכין SOW ל[תיאור הפרויקט]", "get": "מסמך scope שמגן מ-'אבל אמרת שזה כולל'" },
+        { "num": 4, "action": "הצעת מחיר עם 3 רמות + ROI + follow-up", "skill": "ron-digital-quote", "say": "תכין הצעת מחיר ל[שם לקוח] על [שירות]", "get": "HTML branded + 10 שאלות גילוי + objection handling" }
+      ]
+    },
+    {
+      "icon": "📅",
+      "title": "לפני פגישת מכירה מחר",
+      "trigger": "יש פגישה בלוח — צריך להיות מוכן",
+      "steps": [
+        { "num": 1, "action": "ניתוח האתר של הלקוח (5 agents במקביל)", "skill": "market-audit", "say": "/market audit https://[URL-שלו]", "get": "דוח שיווקי + נקודות חולשה לציין בפגישה" },
+        { "num": 2, "action": "ניתוח המתחרים שלו", "skill": "market-competitors", "say": "/market competitors https://[URL-שלו]", "get": "positioning map + נקודות חולשה של המתחרים" },
+        { "num": 3, "action": "הכנת פיץ' 60 שניות לפרויקט", "skill": "ron-system-pitch", "say": "תכין פיץ' ל-RON Assistant ל[תחום הלקוח]", "get": "3 hooks + 3 התנגדויות מוכנות" },
+        { "num": 4, "action": "חישוב ROI לשכנוע כלכלי", "skill": "ron-system-roi", "say": "תחשב ROI: [X] לידים בחודש, ערך לקוח [Y] ₪", "get": "מספרים מוכנים: חיסכון זמן + תקופת החזר" }
+      ]
+    },
+    {
+      "icon": "🏗️",
+      "title": "לקוח רוצה אתר — בונים",
+      "trigger": "לקוח אישר. שאלת: login/DB? — לא. זה דף נחיתה",
+      "steps": [
+        { "num": 1, "action": "כתיבת קופי + framework (PAS/AIDA/BAB)", "skill": "write-landing", "say": "תכתוב קופי PAS לדף נחיתה של [תחום]", "get": "headline + body + CTA + wireframe טקסטואלי" },
+        { "num": 2, "action": "בנייה טכנית עם הקופי", "skill": "landing-page-builder", "say": "תבנה דף נחיתה ל[שם העסק] בתחום [תחום]", "get": "HTML בודד, RTL, Three.js, אנימציות canvas" },
+        { "num": 3, "action": "פוליש ויזואלי לפני שליחה", "skill": "impeccable", "say": "/impeccable polish", "get": "spacing, typography, colors מדויקים" },
+        { "num": 4, "action": "בדיקת איכות מלאה", "skill": "review-page", "say": "/review-page", "get": "audit SEO + RTL + CTA + מובייל" },
+        { "num": 5, "action": "העלאה ושליחת URL ללקוח", "skill": "deploy", "say": "/deploy", "get": "URL ציבורי תוך דקה" }
+      ]
+    },
+    {
+      "icon": "🚀",
+      "title": "דף מוכן — מסירה ללקוח",
+      "trigger": "הקוד עובד, מוכנים לשלוח",
+      "steps": [
+        { "num": 1, "action": "ניקוי ואיחוד הקוד לפני שליחה", "skill": "simplify", "say": "/simplify", "get": "קוד נקי ללא redundancy, קל לתחזוקה" },
+        { "num": 2, "action": "audit אחרון — RTL, SEO, מובייל, CTA", "skill": "review-page", "say": "/review-page", "get": "רשימת בעיות לתיקון לפני שהלקוח רואה" },
+        { "num": 3, "action": "העלאה לאוויר", "skill": "deploy", "say": "/deploy", "get": "Vercel URL — שולחים ללקוח ב-WhatsApp" },
+        { "num": 4, "action": "שמירת הלקוח לזיכרון + הצעת Case Study", "skill": "save-client", "say": "/save-client", "get": "תיק לקוח ב-Pinecone + טיוטת case study אם הפרויקט הצליח" }
+      ]
+    },
+    {
+      "icon": "💰",
+      "title": "לקוח שאל 'כמה זה עולה'",
+      "trigger": "לקוח שואל על מחיר — לפני שיש לו הצעה",
+      "steps": [
+        { "num": 1, "action": "מסמך scope קודם — מה בדיוק כלול", "skill": "ron-service-doc", "say": "תכין SOW ל[תיאור קצר] — מה כלול ומה לא", "get": "מסמך שמגדיר את הפרויקט לפני שמתמחרים" },
+        { "num": 2, "action": "הצעת מחיר עם 3 מסלולים", "skill": "ron-digital-quote", "say": "תכין הצעת מחיר ל[לקוח] — [שירות] עם 3 tier", "get": "HTML branded: בסיסי / מומלץ / פרימיום + ROI" },
+        { "num": 3, "action": "חישוב החזר השקעה ללקוח", "skill": "ron-system-roi", "say": "תחשב ROI: הלקוח עם [X] לידים ופרויקט של [Y] ₪", "get": "כלי שהופך 'יקר' ל'כדאי מבחינה כלכלית'" }
+      ]
+    },
+    {
+      "icon": "🤖",
+      "title": "לקוח רוצה לחסוך זמן בעבודה יומית",
+      "trigger": "לקוח אמר: 'אני עושה את זה ידנית כל יום ולוקח שעות'",
+      "steps": [
+        { "num": 1, "action": "ניתוח תהליך קיים ומציאת הזדמנויות", "skill": "market-audit", "say": "/market audit https://[אתר-הלקוח] — זהה תהליכים ידניים", "get": "מפת כאב + אפשרויות אוטומציה ספציפיות" },
+        { "num": 2, "action": "בניית האוטומציה ב-Make", "skill": "make-automation-builder", "say": "תבנה אוטומציה ש[טריגר] → [פעולה ראשונה] → [תוצאה]", "get": "Blueprint Make מלא + validation + error handling" },
+        { "num": 3, "action": "הצגת ה-ROI — כמה שעות נחסכות", "skill": "ron-system-roi", "say": "תחשב ROI: האוטומציה חוסכת [X] שעות בשבוע בשכר [Y] ₪/שעה", "get": "מספרים: חיסכון שנתי + תקופת החזר" },
+        { "num": 4, "action": "הכנת מסמך scope + הצעה", "skill": "ron-service-doc", "say": "תכין SOW לאוטומציית [שם התהליך]", "get": "הסכם ברור על מה מתמחרים" }
+      ]
+    }
+  ],
+  "serviceMenu": {
+    "tagline": "אתרים · אוטומציות · AI לעסקים קטנים",
+    "groups": [
+      { "title": "אתרים ודפי נחיתה", "items": [
+        { "name": "דף נחיתה בסיסי", "price": "₪1,200-1,800", "benefit": "דף ממוקד שמייצר לידים, מוכן תוך ימים" },
+        { "name": "דף נחיתה מלא + קופי", "price": "₪1,800-2,800", "benefit": "כולל כתיבת תוכן שיווקי ועיצוב מותאם" },
+        { "name": "וידאו hero לדף", "price": "₪500-1,500", "benefit": "תוספת שמעלה המרה ב-30-50%" },
+        { "name": "אתר/אפליקציה עם מערכת", "price": "₪4,500-9,000", "benefit": "login, מסד נתונים, dashboard, הזמנות" }
+      ]},
+      { "title": "אוטומציות חכמות", "items": [
+        { "name": "אוטומציה בסיסית", "price": "₪800-1,500", "benefit": "חיבור בין כלים, חיסכון שעות בשבוע" },
+        { "name": "בוט WhatsApp לתורים/מענה", "price": "₪1,800-3,500", "benefit": "מענה 24/7 ללא טלפנית" },
+        { "name": "מערכת אוטומציה מורכבת", "price": "₪3,000-7,000", "benefit": "כמה תהליכים, עיבוד מסמכים, CRM" }
+      ]},
+      { "title": "תוכן ושיווק", "items": [
+        { "name": "מנוי תוכן חודשי", "price": "₪1,500-3,500/חודש", "benefit": "פוסטים + מאמר + ניוזלטר, נוכחות עקבית" },
+        { "name": "SEO עברי + נראות ב-AI", "price": "₪1,200-2,500/חודש", "benefit": "דירוג בגוגל + ציטוט ב-ChatGPT/Perplexity" },
+        { "name": "מצגת עסקית", "price": "₪3,000-8,000", "benefit": "scrollytelling או PPTX לתאגידים" }
+      ]},
+      { "title": "ייעוץ דיגיטלי", "items": [
+        { "name": "פגישת אסטרטגיה חד-פעמית", "price": "₪500-900", "benefit": "מיפוי הזדמנויות דיגיטליות לעסק" },
+        { "name": "ליווי חודשי שוטף", "price": "₪1,800-3,500/חודש", "benefit": "שותף דיגיטלי קבוע לעסק" }
+      ]}
+    ]
+  }
+}

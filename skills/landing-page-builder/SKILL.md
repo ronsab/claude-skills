@@ -2,9 +2,11 @@
 name: landing-page-builder
 description: >
   בנייה מלאה של דפי נחיתה פרמיום לעסקים קטנים ובינוניים בישראל — כולל 3D, RTL עברית, אנימציות canvas, ו-Three.js hero.
+  כולל דיפלוי אוטומטי ל-Vercel והטמעה במערכת LANDY דרך iframe.
   הפעל סקיל זה בכל פעם שמשתמש מבקש לבנות דף נחיתה, landing page, אתר ויטרינה, דף שיווקי, או כל דף חד-עמודי לעסק.
   מתאים לכל תחום: אבטחה, שיפוצים, אינסטלציה, רואה חשבון, קוסמטיקה, מסעדה, עורך דין, ועוד.
-  הפעל גם כשהמשתמש אומר "תבנה לי אתר", "צריך דף לעסק שלי", "עשה לי landing page", "תיצור דף נחיתה".
+  הפעל גם כשהמשתמש אומר "תבנה לי אתר", "צריך דף לעסק שלי", "עשה לי landing page", "תיצור דף נחיתה",
+  "תעלה ל-Vercel", "תטמיע ב-LANDY", "תדפלע את הדף", "העלה את הדף", "תעביר ל-LANDY".
 ---
 
 # Landing Page Builder — דפי נחיתה פרמיום לעסקים ישראליים
@@ -95,17 +97,24 @@ description: >
 
 **סדר מומלץ:**
 1. `#header` — sticky, לוגו + nav + CTA טלפון
-2. `#hero` — Three.js canvas + כותרת + כפתורים
-3. `#counters` — 4 נתונים מספריים
-4. `#services` — כרטיסי שירות עם canvas
-5. `#why-us` — 3 יתרונות
-6. `#we-bring` — 6 סיבות לבחור (checklist)
-7. `#value-table` — "מה כלול" + CTA
-8. `#about` — על החברה
-9. `#testimonials` — המלצות לקוחות
-10. `#faq` — שאלות נפוצות (accordion)
-11. `#contact` — טופס + פרטי קשר
-12. `footer` + כפתור WhatsApp צף
+2. `#hero` — Three.js canvas / תמונת רקע + כותרת + כפתורים
+3. `.marquee-wrap` — טקסט רץ (ticker) עם מילות מפתח של השירותים
+4. `#counters` — 4 נתונים מספריים
+5. `.brands-bar` — לוגואות/שמות מותגים (אם רלוונטי לתחום)
+6. `#problems` — 4 כרטיסי בעיה+פתרון (מניע רגשי לפעולה)
+7. `#services` — כרטיסי שירות עם canvas
+8. `#packages` — חבילות מחירים (3 רמות: בסיסית, מתקדמת, פרימיום)
+9. `#why-us` — 3 יתרונות
+10. `#we-bring` — 6 סיבות לבחור (checklist)
+11. `#value-table` — "מה כלול" + CTA
+12. `#about` — על החברה
+13. `#testimonials` — המלצות לקוחות
+14. `#faq` — שאלות נפוצות (accordion)
+15. `#contact` — טופס + פרטי קשר
+16. `footer` + כפתור WhatsApp צף
+
+**Hero:** אם הלקוח לא סיפק תמונה — השתמש ב-Unsplash/stock רלוונטי לתחום כתמונת רקע.
+**ערכת צבעים (בהירה/כהה):** תלוי לקוח — שאל בשאלון.
 
 **הוסף/הסר סקשנים לפי צרכי הלקוח הספציפי.**
 
@@ -191,6 +200,48 @@ mcp__plugin_playwright__browser_take_screenshot
 mcp__plugin_playwright__browser_resize → 768 × 1024
 mcp__plugin_playwright__browser_take_screenshot
 ```
+
+---
+
+## שלב 7 — דיפלוי ל-Vercel
+
+**קרא:** `references/deployment.md`
+
+לאחר שהדף עבר אימות מוצלח (שלב 6), דפלע אותו ל-Vercel:
+
+1. ודא שקיים `package.json` בתיקיית הפרויקט. אם לא — צור מינימלי:
+```json
+{ "name": "[project-name]", "version": "1.0.0" }
+```
+
+2. דפלע באמצעות MCP tool `deploy_to_vercel` או Vercel CLI:
+```bash
+vercel deploy --prod
+```
+
+3. שמור את כתובת ה-URL שהתקבלה (למשל: `https://project-name.vercel.app`)
+
+4. בדוק שהדף נטען בכתובת החדשה — פתח ב-Playwright ובדוק שאין שגיאות
+
+5. הצג למשתמש: `הדף עלה בהצלחה: [URL]`
+
+---
+
+## שלב 8 — הטמעה ב-LANDY
+
+**קרא:** `references/deployment.md` (סעיף LANDY)
+
+LANDY הוא מערכת AI שבונה דפי נחיתה — **לא מקבל קוד HTML ישירות**. הפתרון: iframe שמצביע ל-Vercel.
+
+**הכן הודעה מוכנה להדבקה ב-LANDY** (החלף `[VERCEL_URL]` בכתובת האמיתית):
+
+```
+מחק את כל התוכן הקיים בדף. הטמע במקומו iframe שמציג את הכתובת [VERCEL_URL] בלבד. ה-iframe צריך לתפוס 100% רוחב ו-100% גובה של המסך, ללא גבולות, ללא שוליים, וללא header או footer של LANDY. הקוד: <iframe src="[VERCEL_URL]" style="width:100%;height:100vh;border:none;margin:0;padding:0" allowfullscreen></iframe>
+```
+
+**הצג למשתמש את ההודעה** בתוך בלוק קוד כדי שיוכל להעתיק ולהדביק ב-LANDY.
+
+**יתרון**: כל עדכון עתידי שיעלה ל-Vercel — ישתקף אוטומטית גם ב-LANDY.
 
 ---
 

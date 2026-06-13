@@ -1,8 +1,12 @@
 # Sensitive / personal data
 .credentials.json
+.env.global
 settings.local.json
 mcp-needs-auth-cache.json
 stats-cache.json
+security_warnings_state_*.json
+*.bak-*
+settings.json.bak-*
 
 # Session & history (too large, private)
 history.jsonl
@@ -11,6 +15,16 @@ plans/
 shell-snapshots/
 debug/
 backups/
+.backups/
+logs/
+sessions/
+session-env/
+tasks/
+todos/
+cache/
+file-history/
+ide/
+launch.json
 
 # Plugin cache (re-downloadable)
 plugins/cache/

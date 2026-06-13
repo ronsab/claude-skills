@@ -99,6 +99,167 @@ document.querySelectorAll('.cnt-num[data-to]').forEach(el => {
 
 ---
 
+## MARQUEE (טקסט רץ)
+
+ממוקם בין ה-Hero לבין ה-Counters. מציג מילות מפתח של השירותים ב-ticker אינסופי.
+
+```html
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <!-- כפל התוכן פעמיים לאפקט לולאה חלק -->
+    <span>[שירות 1]</span><span>•</span>
+    <span>[שירות 2]</span><span>•</span>
+    <span>[שירות 3]</span><span>•</span>
+    <!-- חזור על הכל שוב -->
+    <span>[שירות 1]</span><span>•</span>
+    <span>[שירות 2]</span><span>•</span>
+    <span>[שירות 3]</span><span>•</span>
+  </div>
+</div>
+```
+
+```css
+.marquee-wrap { overflow:hidden; background:var(--navy, #0A1220); padding:.9rem 0; }
+.marquee-track { display:flex; width:max-content; animation:marquee-scroll 22s linear infinite; }
+.marquee-track span { white-space:nowrap; padding:0 2.5rem; font-size:1rem; font-weight:600; color:var(--gold); }
+@keyframes marquee-scroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+```
+
+> **טיפ**: הכפלת התוכן (פעמיים) יוצרת לולאה חלקה. כש-50% מתגלגל, זה נראה אינסופי.
+
+---
+
+## BRANDS BAR (רצועת מותגים)
+
+מוצג כשיש לעסק מותגים/ספקים מוכרים. מחזק אמון.
+
+```html
+<div class="brands-bar">
+  <div class="container">
+    <p class="brands-title">עובדים עם המותגים המובילים</p>
+    <div class="brands-inner">
+      <span>[מותג 1]</span>
+      <span>[מותג 2]</span>
+      <span>[מותג 3]</span>
+      <!-- עד 7 מותגים -->
+    </div>
+  </div>
+</div>
+```
+
+```css
+.brands-bar { background:var(--bg2); padding:2rem 0; text-align:center; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.brands-title { color:var(--txt-dim); font-size:.85rem; margin-bottom:1rem; letter-spacing:1px; text-transform:uppercase; }
+.brands-inner { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:2rem; }
+.brands-inner span { font-size:1.1rem; font-weight:700; color:var(--cyan); letter-spacing:1px; opacity:.7; transition:opacity .3s; }
+.brands-inner span:hover { opacity:1; }
+```
+
+---
+
+## PROBLEMS (כרטיסי בעיה + פתרון)
+
+4 כרטיסים שמציגים בעיות של קהל היעד ואיך העסק פותר אותן. מניע רגשי לפעולה.
+
+```html
+<section id="problems" class="sec">
+  <div class="container">
+    <h2 class="ttl reveal">למה בעלי בתים <span>מחפשים פתרון?</span></h2>
+    <p class="sub-ttl reveal">הבעיות שהלקוחות שלנו חוו — לפני שפנו אלינו</p>
+    <div class="prob-grid">
+      <div class="prob-card reveal">
+        <div class="prob-icon">🔓</div>
+        <h3>[בעיה]</h3>
+        <p>[תיאור הבעיה והפתרון]</p>
+      </div>
+      <!-- × 4 -->
+    </div>
+  </div>
+</section>
+```
+
+```css
+.prob-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+@media(max-width:900px) { .prob-grid { grid-template-columns:repeat(2,1fr); } }
+@media(max-width:500px) { .prob-grid { grid-template-columns:1fr; } }
+.prob-card { background:var(--bg3, var(--glass)); border:1px solid var(--border); border-radius:16px; padding:2rem 1.5rem; text-align:center; transition:transform .3s, box-shadow .3s, border-color .3s; }
+.prob-card:hover { transform:translateY(-8px); box-shadow:0 12px 40px rgba(0,0,0,.4); border-color:var(--gold); }
+.prob-icon { font-size:2.5rem; margin-bottom:1rem; }
+.prob-card h3 { color:var(--gold); font-size:1.05rem; font-weight:700; margin-bottom:.75rem; }
+.prob-card p { color:var(--txt-dim); font-size:.88rem; line-height:1.7; }
+```
+
+---
+
+## PACKAGES (חבילות מחירים)
+
+3 חבילות: בסיסית, מתקדמת (featured), פרימיום. החבילה האמצעית מודגשת.
+
+```html
+<section id="packages" class="sec">
+  <div class="container">
+    <h2 class="ttl reveal">חבילות <span>והשקעה</span></h2>
+    <p class="sub-ttl reveal">בחרו את החבילה שמתאימה לכם — הכל כולל התקנה</p>
+    <div class="pkg-grid">
+      <div class="pkg-card reveal">
+        <h3>בסיסית</h3>
+        <div class="pkg-price">[מחיר]<small>₪</small></div>
+        <ul class="pkg-list">
+          <li><i class="fas fa-check"></i> [פיצ'ר 1]</li>
+          <li><i class="fas fa-check"></i> [פיצ'ר 2]</li>
+          <li><i class="fas fa-check"></i> [פיצ'ר 3]</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">לפרטים נוספים</a>
+      </div>
+      <div class="pkg-card featured reveal">
+        <div class="pkg-badge">הכי פופולרי</div>
+        <h3>מתקדמת</h3>
+        <div class="pkg-price">[מחיר]<small>₪</small></div>
+        <ul class="pkg-list">
+          <li><i class="fas fa-check"></i> [פיצ'ר 1]</li>
+          <li><i class="fas fa-check"></i> [פיצ'ר 2]</li>
+          <li><i class="fas fa-check"></i> [פיצ'ר 3]</li>
+          <li><i class="fas fa-check"></i> [פיצ'ר 4]</li>
+        </ul>
+        <a href="#contact" class="btn btn-gold">בחירה והזמנה</a>
+      </div>
+      <div class="pkg-card reveal">
+        <h3>פרימיום</h3>
+        <div class="pkg-price">[מחיר]<small>₪</small></div>
+        <ul class="pkg-list">
+          <li><i class="fas fa-check"></i> [פיצ'ר 1]</li>
+          <li><i class="fas fa-check"></i> [פיצ'ר 2]</li>
+          <li><i class="fas fa-check"></i> [פיצ'ר 3]</li>
+          <li><i class="fas fa-check"></i> [פיצ'ר 4]</li>
+          <li><i class="fas fa-check"></i> [פיצ'ר 5]</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">לפרטים נוספים</a>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+```css
+.pkg-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; align-items:start; }
+@media(max-width:768px) { .pkg-grid { grid-template-columns:1fr; max-width:400px; margin:0 auto; } }
+.pkg-card { background:var(--glass); border:1px solid var(--border); border-radius:20px; padding:2rem; text-align:center; position:relative; transition:transform .3s; }
+.pkg-card:hover { transform:translateY(-6px); }
+.pkg-card.featured { border-color:var(--gold); box-shadow:0 0 40px var(--gold-dim, rgba(232,168,56,0.15)); transform:scale(1.05); }
+.pkg-card.featured:hover { transform:scale(1.05) translateY(-6px); }
+.pkg-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--gold); color:#000; font-size:.78rem; font-weight:700; padding:.3rem 1.2rem; border-radius:20px; }
+.pkg-card h3 { color:var(--gold); font-size:1.2rem; margin-bottom:.75rem; }
+.pkg-price { font-size:2.5rem; font-weight:900; color:#fff; margin-bottom:1rem; }
+.pkg-price small { font-size:1rem; font-weight:400; color:var(--txt-dim); }
+.pkg-list { list-style:none; padding:0; margin-bottom:1.5rem; text-align:right; }
+.pkg-list li { padding:.5rem 0; color:var(--txt); font-size:.88rem; border-bottom:1px solid rgba(255,255,255,.04); }
+.pkg-list li i { color:var(--gold); margin-left:.5rem; }
+.btn-outline { display:inline-block; padding:.65rem 2rem; border:1px solid var(--cyan); color:var(--cyan); border-radius:8px; text-decoration:none; font-weight:600; transition:all .3s; }
+.btn-outline:hover { background:var(--cyan); color:#000; }
+```
+
+---
+
 ## WHY US
 
 ```html

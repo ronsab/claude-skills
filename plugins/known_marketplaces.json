@@ -1,0 +1,58 @@
+{
+  "superpowers-dev": {
+    "source": {
+      "source": "directory",
+      "path": "C:/Users/USER/Desktop/skills/superpowers-dev"
+    },
+    "installLocation": "C:\\Users\\USER\\Desktop\\skills\\superpowers-dev",
+    "lastUpdated": "2026-05-05T20:40:24.258Z"
+  },
+  "claude-plugins-official": {
+    "source": {
+      "source": "github",
+      "repo": "anthropics/claude-plugins-official"
+    },
+    "installLocation": "C:\\Users\\USER\\.claude\\plugins\\marketplaces\\claude-plugins-official",
+    "lastUpdated": "2026-05-05T20:40:25.611Z"
+  },
+  "marketingskills": {
+    "source": {
+      "source": "git",
+      "url": "https://github.com/coreyhaines31/marketingskills.git"
+    },
+    "installLocation": "C:\\Users\\USER\\.claude\\plugins\\marketplaces\\marketingskills",
+    "lastUpdated": "2026-05-05T20:40:27.590Z"
+  },
+  "practice-ai-plugins": {
+    "source": {
+      "source": "git",
+      "url": "https://github.com/Asher-pro/wa-whatsapp-agent.git"
+    },
+    "installLocation": "C:\\Users\\USER\\.claude\\plugins\\marketplaces\\practice-ai-plugins",
+    "lastUpdated": "2026-05-05T20:40:29.138Z"
+  },
+  "anthropic-agent-skills": {
+    "source": {
+      "source": "github",
+      "repo": "anthropics/skills"
+    },
+    "installLocation": "C:\\Users\\USER\\.claude\\plugins\\marketplaces\\anthropic-agent-skills",
+    "lastUpdated": "2026-05-05T20:40:31.915Z"
+  },
+  "impeccable": {
+    "source": {
+      "source": "github",
+      "repo": "pbakaus/impeccable"
+    },
+    "installLocation": "C:\\Users\\USER\\.claude\\plugins\\marketplaces\\impeccable",
+    "lastUpdated": "2026-05-05T20:40:36.685Z"
+  },
+  "agricidaniel-seo": {
+    "source": {
+      "source": "github",
+      "repo": "AgriciDaniel/claude-seo"
+    },
+    "installLocation": "C:\\Users\\USER\\.claude\\plugins\\marketplaces\\agricidaniel-seo",
+    "lastUpdated": "2026-05-06T05:26:17.255Z"
+  }
+}

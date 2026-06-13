@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>קרוסלה — תבנית</title>
+<!--
+  תבנית בסיס לקרוסלת אינסטגרם. שכפל <section class="slide"> לכל שקופית.
+  ייצוא: showOnly(n) להצגת שקופית בודדת לצילום; showAll() לתצוגת גלילה.
+  ראה references/slide-components.md לרכיבים נוספים (pain, solution, stats...).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0A1929; --bg2:#0D2137; --amber:#FFB300; --white:#fff;
+  --mut:rgba(255,255,255,.55); --mut2:rgba(255,255,255,.35); --line:rgba(255,255,255,.08);
+  --green:#00CC64; --red:#FF5A5A;
+}
+body{background:#05101c;font-family:'Heebo','Arial Hebrew',Arial,sans-serif;
+  display:flex;flex-direction:column;align-items:center;gap:40px;padding:40px 0}
+
+/* גודל שקופית — 4:5. לריבוע: height:1080px */
+.slide{width:1080px;height:1350px;background:var(--bg);position:relative;overflow:hidden;
+  flex-shrink:0;display:flex;flex-direction:column;direction:rtl}
+
+.bg-glow{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 800px 460px at 50% 0%, rgba(255,179,0,.10) 0%, transparent 68%),
+    radial-gradient(ellipse 460px 380px at 8% 90%, rgba(255,179,0,.055) 0%, transparent 60%)}
+.bg-grid{position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,179,0,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,179,0,.03) 1px,transparent 1px);background-size:56px 56px}
+
+.kicker{position:absolute;top:60px;right:72px;display:flex;align-items:center;gap:13px;z-index:5}
+.kicker .dot{width:13px;height:13px;border-radius:50%;background:var(--amber)}
+.kicker .nm{font-size:24px;font-weight:600;color:var(--amber);letter-spacing:.04em}
+.pageno{position:absolute;top:60px;left:72px;font-size:24px;font-weight:600;color:var(--mut2);
+  font-variant-numeric:tabular-nums;z-index:5;direction:ltr}
+.swipe{position:absolute;bottom:54px;left:0;right:0;text-align:center;font-size:26px;
+  font-weight:500;color:var(--mut2);z-index:5}
+.swipe b{color:var(--amber)}
+.inner{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;padding:150px 80px 120px}
+
+/* cover */
+.cv{justify-content:center;gap:34px}
+.cv .eyebrow{font-size:34px;font-weight:400;color:var(--amber);letter-spacing:.05em}
+.cv h1{font-size:104px;font-weight:900;color:var(--white);line-height:1.04}
+.cv h1 .a{color:var(--amber)}
+.cv .sub{font-size:40px;font-weight:400;color:var(--mut);line-height:1.4;max-width:840px}
+/* cta */
+.cta{justify-content:center;align-items:center;gap:40px;text-align:center}
+.cta .q{font-size:48px;font-weight:400;color:var(--mut)}
+.cta h2{font-size:108px;font-weight:900;color:var(--white);line-height:1}
+.cta h2 span{color:var(--amber)}
+.cta .btn{background:var(--amber);color:var(--bg);font-family:'Heebo';font-size:46px;font-weight:900;
+  padding:30px 84px;border-radius:100px;border:none;box-shadow:0 8px 44px rgba(255,179,0,.3)}
+.cta .div{width:200px;height:1px;background:rgba(255,255,255,.14)}
+.cta .contact{font-size:30px;color:rgba(255,255,255,.7);font-weight:500}
+.cta .brand{font-size:32px;font-weight:300;color:var(--mut2);letter-spacing:.24em;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<!-- שקופית 1 — Hook -->
+<section class="slide" id="s1">
+  <div class="bg-glow"></div><div class="bg-grid"></div>
+  <div class="kicker"><span class="dot"></span><span class="nm">RON DIGITAL</span></div>
+  <div class="pageno">01 / 03</div>
+  <div class="inner cv">
+    <div class="eyebrow">לקהל היעד שלך</div>
+    <h1>כותרת עם מילה <span class="a">מודגשת</span></h1>
+    <div class="sub">משפט קצר שממסגר את הכאב או ההבטחה.</div>
+  </div>
+  <div class="swipe">החלק להמשך <b>←</b></div>
+</section>
+
+<!-- שקופית 2 — תוכן (העתק רכיב מ-slide-components.md) -->
+<section class="slide" id="s2">
+  <div class="bg-glow"></div><div class="bg-grid"></div>
+  <div class="kicker"><span class="dot"></span><span class="nm">RON DIGITAL</span></div>
+  <div class="pageno">02 / 03</div>
+  <div class="inner" style="justify-content:center;gap:24px">
+    <!-- כאן רכיב: pain / solution / feature+phone / stats -->
+  </div>
+  <div class="swipe">החלק להמשך <b>←</b></div>
+</section>
+
+<!-- שקופית 3 — CTA (בלי swipe) -->
+<section class="slide" id="s3">
+  <div class="bg-glow"></div><div class="bg-grid"></div>
+  <div class="kicker"><span class="dot"></span><span class="nm">RON DIGITAL</span></div>
+  <div class="pageno">03 / 03</div>
+  <div class="inner cta">
+    <div class="q">שאלה שמובילה לפעולה?</div>
+    <h2>קריאה<br><span>לפעולה</span></h2>
+    <button class="btn">כפתור פעולה 📩</button>
+    <div class="div"></div>
+    <div class="contact"><span>📱 <bdi dir="ltr">050-621-7775</bdi></span></div>
+    <div class="brand">RON DIGITAL STUDIO</div>
+  </div>
+</section>
+
+<script>
+// ייצוא: showOnly(n) להצגת שקופית בודדת לצילום נקי; showAll() לתצוגת גלילה
+function showOnly(n){
+  document.querySelectorAll('.slide').forEach((s,i)=>{ s.style.display=(i===n-1)?'flex':'none'; });
+  window.scrollTo(0,0);
+}
+function showAll(){ document.querySelectorAll('.slide').forEach(s=> s.style.display='flex'); }
+</script>
+</body>
+</html>

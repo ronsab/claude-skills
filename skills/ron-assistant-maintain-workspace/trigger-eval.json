@@ -1,0 +1,21 @@
+[
+  {"query": "ה/scan בבוט מחזיר לידים בלי מספר טלפון, תבדוק למה ותתקן את זה", "should_trigger": true},
+  {"query": "תוסיף פקודה לבוט טלגרם ron-assistant שתשלוף את 5 הלקוחות האחרונים מ-Pinecone", "should_trigger": true},
+  {"query": "למה /research בבוט נותן ניתוח שגוי על העסק? תתקן ותפרוס מחדש", "should_trigger": true},
+  {"query": "תעדכן את agent.py בבוט שהוא יוכל גם להריץ scan עם אישור לפני", "should_trigger": true},
+  {"query": "הסריקה היומית של הבוט הפסיקה לרוץ בלילה, תבדוק את ה-railway ותראה מה קרה", "should_trigger": true},
+  {"query": "צריך לפרוס מחדש את ron-assistant ל-railway אחרי השינוי ב-scan.py", "should_trigger": true},
+  {"query": "ה/funnel בבוט נותן אחוזי המרה לא נכונים, נראה לי יש באג בחישוב", "should_trigger": true},
+  {"query": "תשנה את ההודעה שהבוט שולח אחרי /scan שתכלול גם לינק לאינסטגרם DM", "should_trigger": true},
+  {"query": "המייל לא נשלח אחרי הסריקה, תבדוק את email_send.py בבוט בטלגרם", "should_trigger": true},
+  {"query": "תבנה לי בוט טלגרם חדש ללקוח שמנהל מסעדה, שיקבל הזמנות ויענה לשאלות", "should_trigger": false},
+  {"query": "תכין דמו חי של מערכת RON Assistant לפגישה עם פרוספקט מחר ב-10", "should_trigger": false},
+  {"query": "תחשב ROI ללקוח על מערכת הלידים, כמה הוא יחסוך בחודש מ-/scan", "should_trigger": false},
+  {"query": "תכין הצעת מחיר פורמלית על מערכת RON Assistant ללקוח שמתעניין", "should_trigger": false},
+  {"query": "יש לי באג בדף נחיתה של לקוח, הכפתור CTA לא עובד במובייל", "should_trigger": false},
+  {"query": "תפרוס את דף הנחיתה של נקודת חשמל ל-Vercel ותן לי לינק", "should_trigger": false},
+  {"query": "מה הדרך הנכונה לעשות דיבאגינג לקוד פייתון באופן כללי בלי לנחש", "should_trigger": false},
+  {"query": "תכין onboarding ללקוח חדש שחתם על המערכת, נישות וערים וצבעי מותג", "should_trigger": false},
+  {"query": "תכתוב לי פוסט לאינסטגרם על הבוט החכם שבניתי לעסק", "should_trigger": false},
+  {"query": "תבנה אוטומציה ב-make.com שמושכת לידים מפייסבוק לגוגל שיטס", "should_trigger": false}
+]

@@ -1,0 +1,172 @@
+Split: 12 train, 7 test (holdout=0.4)
+
+============================================================
+Iteration 1/5
+Description: Maintenance runbook for the ONE EXISTING RON Assistant Telegram bot — the deployed Python bot whose code lives at C:\Users\USER\Documents\ron-assistant and runs as the Railway service "ron-assistant". Use this whenever Ron wants to fix a bug in, modify, add/change a command in, debug, or deploy THIS specific bot. Concrete triggers: "ה/scan שבור", "תוסיף פקודה לבוט", "למה /research החזיר מידע שגוי", "תפרוס את הבוט", "הסריקה היומית הפסיקה", "תעדכן את agent.py", "/funnel נותן מספרים לא נכונים". It covers the code map, the safe-change protocol, local-test quirks on this Windows machine (full Python path, Hebrew UTF-8, never hardcoding secrets), the exact Railway deploy + post-deploy verification flow, and verified facts about the bot's stack. Do NOT use this skill for building a NEW Telegram bot from scratch — that is the telegram-bot skill. Do NOT use it as a generic debugging method — that is superpowers:systematic-debugging, which this skill points you to. Do NOT use it for selling, pitching, pricing, or onboarding the system to a client — those are the ron-system-* skills. This skill is engineering on an existing, live bot only.
+============================================================
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Train: 18/36 correct, precision=100% recall=0% accuracy=50% (4.6s)
+  [FAIL] rate=0/3 expected=True: צריך לפרוס מחדש את ron-assistant ל-railway אחרי השינוי ב-sca
+  [FAIL] rate=0/3 expected=True: הסריקה היומית של הבוט הפסיקה לרוץ בלילה, תבדוק את ה-railway 
+  [FAIL] rate=0/3 expected=True: המייל לא נשלח אחרי הסריקה, תבדוק את email_send.py בבוט בטלגר
+  [FAIL] rate=0/3 expected=True: למה /research בבוט נותן ניתוח שגוי על העסק? תתקן ותפרוס מחדש
+  [FAIL] rate=0/3 expected=True: ה/scan בבוט מחזיר לידים בלי מספר טלפון, תבדוק למה ותתקן את ז
+  [PASS] rate=0/3 expected=False: תפרוס את דף הנחיתה של נקודת חשמל ל-Vercel ותן לי לינק
+  [FAIL] rate=0/3 expected=True: תוסיף פקודה לבוט טלגרם ron-assistant שתשלוף את 5 הלקוחות האח
+  [PASS] rate=0/3 expected=False: תבנה לי בוט טלגרם חדש ללקוח שמנהל מסעדה, שיקבל הזמנות ויענה 
+  [PASS] rate=0/3 expected=False: תכין onboarding ללקוח חדש שחתם על המערכת, נישות וערים וצבעי 
+  [PASS] rate=0/3 expected=False: מה הדרך הנכונה לעשות דיבאגינג לקוד פייתון באופן כללי בלי לנח
+  [PASS] rate=0/3 expected=False: תכין דמו חי של מערכת RON Assistant לפגישה עם פרוספקט מחר ב-1
+  [PASS] rate=0/3 expected=False: תכתוב לי פוסט לאינסטגרם על הבוט החכם שבניתי לעסק
+Test : 12/21 correct, precision=100% recall=0% accuracy=57% (0.0s)
+  [FAIL] rate=0/3 expected=True: תעדכן את agent.py בבוט שהוא יוכל גם להריץ scan עם אישור לפני
+  [FAIL] rate=0/3 expected=True: ה/funnel בבוט נותן אחוזי המרה לא נכונים, נראה לי יש באג בחיש
+  [FAIL] rate=0/3 expected=True: תשנה את ההודעה שהבוט שולח אחרי /scan שתכלול גם לינק לאינסטגר
+  [PASS] rate=0/3 expected=False: תכין הצעת מחיר פורמלית על מערכת RON Assistant ללקוח שמתעניין
+  [PASS] rate=0/3 expected=False: תחשב ROI ללקוח על מערכת הלידים, כמה הוא יחסוך בחודש מ-/scan
+  [PASS] rate=0/3 expected=False: יש לי באג בדף נחיתה של לקוח, הכפתור CTA לא עובד במובייל
+  [PASS] rate=0/3 expected=False: תבנה אוטומציה ב-make.com שמושכת לידים מפייסבוק לגוגל שיטס
+
+Improving description...
+Proposed (21.8s): Use this skill to fix, debug, modify, or deploy the existing RON Assistant Telegram bot — Ron's live Python bot at C:\Users\USER\Documents\ron-assistant, running as the Railway service "ron-assistant" (@ron_digital_assistant_bot). Trigger whenever Ron references THIS bot ("הבוט", "בוט טלגרם ron-assistant") or its parts: a broken or wrong command (/scan, /research, /funnel, /follow), the daily lead scan that stopped, email not sending, a file like agent.py/scan.py/email_send.py, adding a command, or redeploying to Railway after a code change. Covers the code map, safe-change protocol, Windows local-test quirks (full Python path, Hebrew UTF-8, secrets), and the Railway deploy + verification flow. NOT for building a new bot from scratch (use telegram-bot), generic Python debugging method (superpowers:systematic-debugging), or selling/pitching/pricing/onboarding the system to clients (ron-system-* skills). Engineering on the one existing live bot only.
+
+============================================================
+Iteration 2/5
+Description: Use this skill to fix, debug, modify, or deploy the existing RON Assistant Telegram bot — Ron's live Python bot at C:\Users\USER\Documents\ron-assistant, running as the Railway service "ron-assistant" (@ron_digital_assistant_bot). Trigger whenever Ron references THIS bot ("הבוט", "בוט טלגרם ron-assistant") or its parts: a broken or wrong command (/scan, /research, /funnel, /follow), the daily lead scan that stopped, email not sending, a file like agent.py/scan.py/email_send.py, adding a command, or redeploying to Railway after a code change. Covers the code map, safe-change protocol, Windows local-test quirks (full Python path, Hebrew UTF-8, secrets), and the Railway deploy + verification flow. NOT for building a new bot from scratch (use telegram-bot), generic Python debugging method (superpowers:systematic-debugging), or selling/pitching/pricing/onboarding the system to clients (ron-system-* skills). Engineering on the one existing live bot only.
+============================================================
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Train: 18/36 correct, precision=100% recall=0% accuracy=50% (2.1s)
+  [FAIL] rate=0/3 expected=True: הסריקה היומית של הבוט הפסיקה לרוץ בלילה, תבדוק את ה-railway 
+  [FAIL] rate=0/3 expected=True: למה /research בבוט נותן ניתוח שגוי על העסק? תתקן ותפרוס מחדש
+  [FAIL] rate=0/3 expected=True: המייל לא נשלח אחרי הסריקה, תבדוק את email_send.py בבוט בטלגר
+  [FAIL] rate=0/3 expected=True: צריך לפרוס מחדש את ron-assistant ל-railway אחרי השינוי ב-sca
+  [FAIL] rate=0/3 expected=True: ה/scan בבוט מחזיר לידים בלי מספר טלפון, תבדוק למה ותתקן את ז
+  [FAIL] rate=0/3 expected=True: תוסיף פקודה לבוט טלגרם ron-assistant שתשלוף את 5 הלקוחות האח
+  [PASS] rate=0/3 expected=False: תכין onboarding ללקוח חדש שחתם על המערכת, נישות וערים וצבעי 
+  [PASS] rate=0/3 expected=False: תפרוס את דף הנחיתה של נקודת חשמל ל-Vercel ותן לי לינק
+  [PASS] rate=0/3 expected=False: תבנה לי בוט טלגרם חדש ללקוח שמנהל מסעדה, שיקבל הזמנות ויענה 
+  [PASS] rate=0/3 expected=False: תכין דמו חי של מערכת RON Assistant לפגישה עם פרוספקט מחר ב-1
+  [PASS] rate=0/3 expected=False: מה הדרך הנכונה לעשות דיבאגינג לקוד פייתון באופן כללי בלי לנח
+  [PASS] rate=0/3 expected=False: תכתוב לי פוסט לאינסטגרם על הבוט החכם שבניתי לעסק
+Test : 12/21 correct, precision=100% recall=0% accuracy=57% (0.0s)
+  [FAIL] rate=0/3 expected=True: תעדכן את agent.py בבוט שהוא יוכל גם להריץ scan עם אישור לפני
+  [FAIL] rate=0/3 expected=True: ה/funnel בבוט נותן אחוזי המרה לא נכונים, נראה לי יש באג בחיש
+  [FAIL] rate=0/3 expected=True: תשנה את ההודעה שהבוט שולח אחרי /scan שתכלול גם לינק לאינסטגר
+  [PASS] rate=0/3 expected=False: תכין הצעת מחיר פורמלית על מערכת RON Assistant ללקוח שמתעניין
+  [PASS] rate=0/3 expected=False: יש לי באג בדף נחיתה של לקוח, הכפתור CTA לא עובד במובייל
+  [PASS] rate=0/3 expected=False: תחשב ROI ללקוח על מערכת הלידים, כמה הוא יחסוך בחודש מ-/scan
+  [PASS] rate=0/3 expected=False: תבנה אוטומציה ב-make.com שמושכת לידים מפייסבוק לגוגל שיטס
+
+Improving description...
