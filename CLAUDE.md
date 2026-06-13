@@ -210,6 +210,12 @@
 - **לפני שליחה ללקוח** — תמיד `simplify` לניקוי הקוד
 - **לפני כתיבת פרומפט** — תמיד `prompt` לשליפה מ-NotebookLM
 
+### סנכרון/הפצה של Skills (3 כלים — אין חפיפה)
+- **סקיל לטלפון / claude.ai** → `skills-to-phone` (אורז סקיל מקומי ל-zip תקין להעלאה ל-claude.ai. מתקן backslash, SKILL.md כפול, frontmatter רב-שורתי)
+- **סנכרון ללפטופ (Claude Code)** → `/sync-skills` (git push ל-github.com/ronsab/claude-skills)
+- **יצירת סקיל חדש מאפס** → `skill-creator`
+- **מפת הסקילים HTML** → `skill-map`
+
 בכל פעם שמשימה רלוונטית ל-Skill, הפעל אותו אוטומטית ללא שאלה.
 
 ## Agents זמינים
