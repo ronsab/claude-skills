@@ -167,7 +167,91 @@ for c in range(1, total_cols+1):
             maxlen = max(maxlen, len(str(v)))
     ws.column_dimensions[letter].width = min(max(maxlen + 2, 10), 45)
 
+# ---- 4. דף סיכום מנהלים ----
+from openpyxl.chart import BarChart, PieChart, Reference
+from collections import Counter
+
+i_matzav = next(i for i, h in enumerate(base_hdr) if str(h).strip() == "מצב")
+i_addr   = next(i for i, h in enumerate(base_hdr) if "כתובת התקנה" in str(h))
+by_city = Counter(); by_state = Counter()
+for r in base_data:
+    addr = r[i_addr] if i_addr < len(r) else ""
+    city = str(addr).split(",")[0].strip() if addr else "ללא כתובת"
+    by_city[city] += 1
+    st = str(r[i_matzav]).strip() if (i_matzav < len(r) and r[i_matzav] is not None) else "לא צוין"
+    by_state[st or "לא צוין"] += 1
+
+su = wb.create_sheet("סיכום מנהלים", 0)   # ראשון בחוברת
+su.sheet_view.rightToLeft = True
+TITLEF2 = PatternFill("solid", fgColor="0F2147")
+KPIF    = PatternFill("solid", fgColor="1F3864")
+LBL     = PatternFill("solid", fgColor="DDEBF7")
+
+su.merge_cells("A1:F1")
+c = su["A1"]; c.value = f"משרד המשפטים  |  סיכום מנהלים — מצבת מתקני שתייה  |  {today}"
+c.fill = TITLEF2; c.font = Font(bold=True, color="FFFFFF", size=16); c.alignment = Alignment("center", vertical="center")
+su.row_dimensions[1].height = 34
+
+# כרטיסי KPI
+kpis = [("סה\"כ מכשירים פעילים", len(base_data)),
+        ("הושלמו ממצבת המתקנים", n_done - n_conf),
+        ("כפילות לאימות", n_conf),
+        ("לא נמצאו במצבת", n_miss),
+        ("מותקנים", by_state.get("מותקן", 0)),
+        ("לא מותקנים", sum(v for k,v in by_state.items() if k!="מותקן"))]
+col = 1
+for label, val in kpis:
+    lc = su.cell(row=3, column=col, value=label)
+    lc.fill = LBL; lc.font = Font(bold=True, size=10); lc.alignment = CENTER; lc.border = BORDER
+    vc = su.cell(row=4, column=col, value=val)
+    vc.fill = KPIF; vc.font = Font(bold=True, color="FFFFFF", size=20); vc.alignment = CENTER; vc.border = BORDER
+    su.column_dimensions[get_column_letter(col)].width = 18
+    col += 1
+su.row_dimensions[4].height = 36
+
+# טבלת פילוח לפי עיר
+r0 = 7
+su.cell(row=r0, column=1, value="פילוח לפי עיר").font = Font(bold=True, size=13)
+hr = r0 + 1
+for j, t in enumerate(["עיר", "מספר מכשירים"]):
+    cc = su.cell(row=hr, column=1+j, value=t); cc.fill = NAVY; cc.font = HFONT; cc.alignment = CENTER; cc.border = BORDER
+city_sorted = by_city.most_common()
+for i, (city, n) in enumerate(city_sorted, start=hr+1):
+    a = su.cell(row=i, column=1, value=city); a.border = BORDER; a.alignment = RIGHT
+    b = su.cell(row=i, column=2, value=n); b.border = BORDER; b.alignment = CENTER
+    if (i-hr) % 2 == 0: a.fill = ZEBRA; b.fill = ZEBRA
+city_end = hr + len(city_sorted)
+
+# טבלת פילוח לפי מצב (בצד)
+sr = r0 + 1
+su.cell(row=r0, column=4, value="פילוח לפי מצב").font = Font(bold=True, size=13)
+for j, t in enumerate(["מצב", "מספר"]):
+    cc = su.cell(row=sr, column=4+j, value=t); cc.fill = NAVY; cc.font = HFONT; cc.alignment = CENTER; cc.border = BORDER
+for i, (st, n) in enumerate(by_state.most_common(), start=sr+1):
+    a = su.cell(row=i, column=4, value=st); a.border = BORDER; a.alignment = RIGHT
+    b = su.cell(row=i, column=5, value=n); b.border = BORDER; b.alignment = CENTER
+state_end = sr + len(by_state)
+
+# גרף עמודות - ערים
+bar = BarChart(); bar.title = "מכשירים פעילים לפי עיר"; bar.type = "bar"; bar.height = 9; bar.width = 18
+data = Reference(su, min_col=2, min_row=hr, max_row=city_end)
+cats = Reference(su, min_col=1, min_row=hr+1, max_row=city_end)
+bar.add_data(data, titles_from_data=True); bar.set_categories(cats); bar.legend = None
+su.add_chart(bar, "G7")
+
+# גרף עוגה - מצב
+pie = PieChart(); pie.title = "התפלגות מצב"; pie.height = 8; pie.width = 10
+pdata = Reference(su, min_col=5, min_row=sr, max_row=state_end)
+pcats = Reference(su, min_col=4, min_row=sr+1, max_row=state_end)
+pie.add_data(pdata, titles_from_data=True); pie.set_categories(pcats)
+su.add_chart(pie, "G28")
+
+for L in ["D", "E"]:
+    su.column_dimensions[L].width = 16
+su.column_dimensions["A"].width = 22
+
 wb.save(OUT)
 print(f"נשמר: {OUT}")
+print(f"ערים בפילוח: {len(city_sorted)} | מצבים: {dict(by_state)}")
 print(f"הושלמו: {n_done} (מתוכם כפילות סותרת לאימות: {n_conf}) | לא נמצאו: {n_miss}")
 print("דוגמת לא-נמצאו:", miss_list[:10])
