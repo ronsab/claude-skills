@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-clone_voice.py -- שלב חד-פעמי: שכפול הקול של רון ב-ElevenLabs (Instant Voice Clone)
+clone_voice.py -- שלב חד-פעמי: ניהול הקול של רון ב-ElevenLabs
 
-שימוש:
+לזיהוי מקסימלי בעברית מומלץ Professional Voice Clone (PVC), שנוצר ב-Web UI של
+ElevenLabs (דורש אימות זהות + אימון). לאחר היצירה ב-UI, השתמש כאן ב---list כדי
+לאתר את ה-voice_id ולהגדירו כ-RON_VOICE_ID.
+
+הסקריפט עצמו מבצע Instant Voice Clone (IVC) כ-fallback מהיר ללא המתנה לאימון:
     python run.py clone_voice.py --list
     python run.py clone_voice.py --name "Ron" --files recording1.mp3 recording2.wav
     python run.py clone_voice.py --name "Ron" --files clip.mp4   # וידאו -> אודיו אוטומטי
