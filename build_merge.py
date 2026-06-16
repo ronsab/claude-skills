@@ -30,17 +30,27 @@ i_serial = col_s("מספר סידורי")
 src_cols = {"דגם": col_s("דגם"), "יחידה": col_s("יחידה"), "אתר": col_s("אתר"),
             "עיר": col_s("עיר"), "מיקום": col_s("מיקום"), "כתובת מלאה": col_s("כתובת מלאה")}
 
-src_map = {}
+src_all = {}   # serial -> list of records
 for r in rows_s[1:]:
     key = norm(r[i_serial])
     if not key: continue
     rec = {k: (r[idx] if idx < len(r) and r[idx] is not None else "") for k, idx in src_cols.items()}
-    filled = sum(1 for v in rec.values() if str(v).strip() != "")
-    # בכפילות - נשמרת הרשומה המלאה ביותר
-    if key not in src_map or filled > src_map[key]["_filled"]:
-        rec["_filled"] = filled
-        src_map[key] = rec
+    src_all.setdefault(key, []).append(rec)
+
+def sig(rec):
+    """חתימת רשומה לזיהוי כפילות זהה מול סותרת (נרמול רווחים)"""
+    return tuple(str(rec[k]).strip() for k in src_cols)
+
+src_map = {}     # serial -> rec נבחר
+conflict = set() # serials עם כפילות סותרת
+for key, recs in src_all.items():
+    # בחירת הרשומה המלאה ביותר
+    best = max(recs, key=lambda rc: sum(1 for v in rc.values() if str(v).strip() != ""))
+    src_map[key] = best
+    if len({sig(rc) for rc in recs}) > 1:   # כפילות סותרת
+        conflict.add(key)
 wb_s.close()
+print(f"כפילויות סותרות במקור: {len(conflict)} -> {sorted(conflict)[:10]}")
 print(f"מקור: {len(src_map)} מספרים סידוריים ייחודיים")
 
 # ---- 2. קריאת בסיס (קובץ 2, גיליון "מכשירים פעילים", כותרת שורה 3) ----
@@ -97,17 +107,22 @@ for c, name in enumerate(full_hdr, start=1):
 ws.row_dimensions[HROW].height = 38
 
 # נתונים
-n_done = n_miss = 0
+n_done = n_miss = n_conf = 0
 miss_list = []
 date_fmt = "dd/mm/yyyy"
 for ridx, r in enumerate(base_data):
     excel_row = HROW + 1 + ridx
     key = norm(r[i_tavua])
     rec = src_map.get(key)
-    if rec: n_done += 1
+    is_conf = key in conflict
+    if rec:
+        n_done += 1
+        if is_conf: n_conf += 1
     else:
         n_miss += 1
         miss_list.append(key)
+    status_val = ("כפילות במקור - לאימות" if (rec and is_conf)
+                  else "הושלם" if rec else "לא נמצא במצבת המתקנים")
     # עמודות הבסיס
     for c in range(total_cols):
         if c < ncols:
@@ -115,7 +130,7 @@ for ridx, r in enumerate(base_data):
         elif c < ncols + len(SRC_KEYS):
             val = rec[SRC_KEYS[c - ncols]] if rec else ""
         else:  # עמודת סטטוס התאמה
-            val = "הושלם" if rec else "לא נמצא במצבת המתקנים"
+            val = status_val
         cell = ws.cell(row=excel_row, column=c+1, value=val)
         cell.font = CFONT; cell.alignment = RIGHT; cell.border = BORDER
         if isinstance(val, datetime.datetime):
@@ -135,7 +150,7 @@ for ridx, r in enumerate(base_data):
         pass
     # צביעת סטטוס התאמה
     scell = ws.cell(row=excel_row, column=total_cols)
-    scell.fill = GREEN if rec else ORANGE
+    scell.fill = ORANGE if (rec and is_conf) else GREEN if rec else RED
     scell.alignment = CENTER
 
 # הקפאה, פילטר
@@ -154,5 +169,5 @@ for c in range(1, total_cols+1):
 
 wb.save(OUT)
 print(f"נשמר: {OUT}")
-print(f"הושלמו: {n_done} | לא נמצאו: {n_miss}")
+print(f"הושלמו: {n_done} (מתוכם כפילות סותרת לאימות: {n_conf}) | לא נמצאו: {n_miss}")
 print("דוגמת לא-נמצאו:", miss_list[:10])
