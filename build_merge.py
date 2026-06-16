@@ -65,11 +65,25 @@ base_data = [r for r in rows_b[HDR_ROW+1:] if any(c is not None and str(c).strip
 wb_b.close()
 print(f"בסיס: {len(base_data)} שורות מכשירים פעילים")
 
+# עמודות בסיס להסרה (לפי בקשת רון)
+DROP = ["מספר תיק לקוח", "מספר מסמך", "תאריך החלפה אחרון - מטהר מים",
+        "תאריך החלפה אחרון – נורה", "תאריך החלפה הבא - נורה", "תאריך החלפה הבא - מטהר מים"]
+def is_drop(h):
+    hs = str(h).strip()
+    return any(d.replace("–","-").strip() == hs.replace("–","-") for d in DROP)
+keep_idx = [i for i, h in enumerate(base_hdr) if not is_drop(h)]
+base_hdr_kept = [base_hdr[i] for i in keep_idx]
+print(f"עמודות בסיס: {ncols} -> נשמרות {len(keep_idx)} (הוסרו {ncols-len(keep_idx)})")
+
 # ---- 3. בניית חוברת פלט מעוצבת ----
 NEW_COLS = ["דגם", "יחידה", "אתר", "עיר", "מיקום (קובץ מתקנים)", "כתובת מלאה (קובץ מתקנים)", "סטטוס התאמה"]
 SRC_KEYS = ["דגם", "יחידה", "אתר", "עיר", "מיקום", "כתובת מלאה"]
-full_hdr = list(base_hdr) + NEW_COLS
+# מבנה פלט: # | עמודות בסיס שנשמרו | 6 מושלמות | סטטוס
+full_hdr = ["#"] + list(base_hdr_kept) + NEW_COLS
 total_cols = len(full_hdr)
+nkept = len(base_hdr_kept)          # מס' עמודות בסיס שנשמרו
+src_start = 1 + nkept              # אינדקס 0-based של תחילת העמודות המושלמות (אחרי #)
+status_pos0 = total_cols - 1       # אינדקס 0-based של עמודת הסטטוס
 
 wb = openpyxl.Workbook()
 ws = wb.active
@@ -123,31 +137,30 @@ for ridx, r in enumerate(base_data):
         miss_list.append(key)
     status_val = ("כפילות במקור - לאימות" if (rec and is_conf)
                   else "הושלם" if rec else "לא נמצא במצבת המתקנים")
-    # עמודות הבסיס
     for c in range(total_cols):
-        if c < ncols:
-            val = r[c] if c < len(r) else None
-        elif c < ncols + len(SRC_KEYS):
-            val = rec[SRC_KEYS[c - ncols]] if rec else ""
-        else:  # עמודת סטטוס התאמה
+        if c == 0:
+            val = ridx + 1                          # מספור רץ
+        elif c < src_start:
+            val = r[keep_idx[c-1]] if keep_idx[c-1] < len(r) else None
+        elif c < src_start + len(SRC_KEYS):
+            val = rec[SRC_KEYS[c - src_start]] if rec else ""
+        else:                                       # סטטוס התאמה
             val = status_val
         cell = ws.cell(row=excel_row, column=c+1, value=val)
-        cell.font = CFONT; cell.alignment = RIGHT; cell.border = BORDER
+        cell.font = CFONT; cell.alignment = (CENTER if c == 0 else RIGHT); cell.border = BORDER
         if isinstance(val, datetime.datetime):
             cell.number_format = date_fmt
         # רקע
-        if ncols <= c < ncols + len(SRC_KEYS):
+        if src_start <= c < src_start + len(SRC_KEYS):
             cell.fill = ADDED
         elif ridx % 2 == 1:
             cell.fill = ZEBRA
-    # צביעת מצב
-    try:
-        i_matzav = next(i for i, h in enumerate(base_hdr) if str(h).strip() == "מצב")
-        mcell = ws.cell(row=excel_row, column=i_matzav+1)
+    # צביעת מצב (לפי מיקומה בעמודות שנשמרו)
+    if "מצב" in [str(h).strip() for h in base_hdr_kept]:
+        pos = [str(h).strip() for h in base_hdr_kept].index("מצב") + 1  # +1 בגלל עמודת #
+        mcell = ws.cell(row=excel_row, column=pos+1)
         if str(mcell.value).strip() == "מותקן": mcell.fill = GREEN
         elif str(mcell.value).strip(): mcell.fill = RED
-    except StopIteration:
-        pass
     # צביעת סטטוס התאמה
     scell = ws.cell(row=excel_row, column=total_cols)
     scell.fill = ORANGE if (rec and is_conf) else GREEN if rec else RED
