@@ -85,6 +85,8 @@
 - `vercel-react-best-practices` -- React/Next.js performance (45 rules, 8 קטגוריות)
 - `hebrew-subtitles` (local) -- כתוביות עברית אוטומטיות לסרטונים: Whisper API + ffmpeg, תוצר SRT + MP4 צרוב, סגנון TikTok או קלאסי, כולל שלב אישור תמלול + כותרת עליונה אופציונלית
 - `video-merge` (local) -- איחוד קליפים קצרים לסרטון אחד עד 90 שניות (אינסטגרם/פייסבוק), נרמול אוטומטי לפורמט אחיד. זרימה: קודם איחוד, אחר כך hebrew-subtitles
+- `screencast-to-reel` (local) -- המרת הקלטת מסך ארוכה (16:9) של מערכת/דמו לריל אנכי 9:16 ממותג: בחירת קטעי מפתח (Claude vision) + רקע מטושטש + כותרת צרובה + מוזיקת ambient מסונתזת. זרימה: ריל קודם, אחר כך hebrew-subtitles לכתוביות
+- `reel-brander` (local) -- מיתוג והידוק ריל מדבר קיים: כרטיס פתיחה (hook) + כרטיס סיום ממותג (שם עסק + CTA, נייבי/זהב, bidi מעורב עברית-אנגלית) + פס מיתוג צדי + הסרת שתיקות (jump-cuts). זרימה: קודם hebrew-subtitles, אחר כך reel-brander. **לא** האצה/Speed Ramp (זה social-video-editor)
 
 ### מסמכים עסקיים
 - `ron-digital-presentation` -- מצגת HTML scrollytelling מ-Google Docs → Vercel
@@ -205,6 +207,14 @@
 ### וידאו hero בדף נחיתה (NEW capability)
 לפרויקטי landing-page-builder גדולים — שאל לפני: "האם להוסיף וידאו hero? +30-50% conversion, תוספת ₪500-1,500"
 - כן → `anthropic-skills:hyperframes-best-practices` (HTML+GSAP בעברית RTL)
+
+### עריכת וידאו (כלים — אין חפיפה)
+- איחוד כמה קליפים נפרדים לסרטון אחד → `video-merge`
+- הקלטת מסך ארוכה אחת → ריל ממותג 9:16 (רקע מטושטש + כותרת + מוזיקה) → `screencast-to-reel`
+- הוספת כתוביות עברית → `hebrew-subtitles` (אחרי כל אחד מהאחרים, לא לפני)
+- כרטיס פתיחה/סיום ממותג + פס מיתוג צדי + הסרת שתיקות לסרטון מדבר → `reel-brander` (local). זרימה: קודם `hebrew-subtitles`, אחר כך `reel-brander`
+- האצה / Speed Ramp / פיצול לקרוסלה → `anthropic-skills:social-video-editor`
+- **גבול הסרת שתיקות**: `reel-brander --trim-silence` = סרטון מדבר (יש דיבור). `social-video-editor ramp` = הקלטת מסך/דמו בלי דיבור. ההכרעה לפי סוג התוכן, לא לפי "לקצר"
 
 ### אוטומציות בסיום פרויקט
 - **לפני שליחה ללקוח** — תמיד `simplify` לניקוי הקוד
