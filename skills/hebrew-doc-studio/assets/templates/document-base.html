@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+  תבנית בסיס למסמך עברי מעוצב (proposal / letter / report).
+  השתמש כך:  קרא את הקובץ, החלף את התוכן בין הסימונים, והעבר ל-hebrew_pdf.html_to_pdf
+  עם full_html=<התוכן>, או פשוט החלף את ה-{{...}} והרץ WeasyPrint ישירות.
+  הגופנים והבסיס הטיפוגרפי מוזרקים על ידי hebrew_pdf.py (FONT_FACE_CSS + BASE_CSS),
+  אז כאן צריך רק את התוכן ואת ה-override הספציפי למסמך.
+-->
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>{{TITLE}}</title>
+<style>
+  :root { --font: 'Heebo'; --accent: #1F4E79; }
+  /* override ספציפי למסמך - דורס את BASE_CSS */
+  .meta-row { display:flex; justify-content:space-between; color:#666; font-size:10pt; }
+  .signature { margin-top:40px; display:flex; justify-content:space-between; }
+  .sign-box { width:45%; border-top:1px solid #333; padding-top:6px; text-align:center; }
+</style>
+</head>
+<body>
+
+  <div class="header-band">
+    <h1>{{TITLE}}</h1>
+    <div class="meta-row">
+      <span>{{ORG_NAME}}</span>
+      <span>{{DATE}}</span>
+    </div>
+  </div>
+
+  <!-- ===== תוכן המסמך מתחיל כאן ===== -->
+
+  <p class="muted">לכבוד: {{RECIPIENT}}</p>
+
+  <h2>כותרת מקטע</h2>
+  <p>פסקת גוף. שים מונחים לועזיים כמו AI או SaaS בתוך הטקסט והם יישארו במקום
+     הנכון אוטומטית.</p>
+
+  <ul>
+    <li>פריט ברשימה</li>
+    <li>פריט נוסף</li>
+  </ul>
+
+  <!-- ===== סוף תוכן ===== -->
+
+  <div class="signature">
+    <div class="sign-box">חתימת הספק</div>
+    <div class="sign-box">חתימת הלקוח</div>
+  </div>
+
+</body>
+</html>

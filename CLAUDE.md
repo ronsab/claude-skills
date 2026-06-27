@@ -128,7 +128,8 @@
 - `anthropic-skills:israeli-ui-design-system` -- RTL design system לאפליקציות (Hebrew typography, gov.il patterns). **משלים `fullstack-app`, לא `landing-page-builder`**
 
 ### מסמכים בעברית (נוספים)
-- `anthropic-skills:hebrew-document-generator` -- PDF/DOCX/PPTX בעברית (Heshbonit, Hozeh, Hatza'at Mechir, Protokol). **תמיד לפני המרות מ-HTML ל-PDF**
+- `hebrew-doc-studio` (local, CANONICAL למסמך עברי להורדה) -- PDF/DOCX מעוצב בעברית עם RTL+BiDi תקין + גופנים מוטמעים (Heebo/Assistant/Frank Ruhl Libre) + 6 פלטות + תבניות ישראליות (חשבונית/חוזה/הצעת מחיר/פרוטוקול/קבלה). **תמיד להעדיף על-פני `docx`/`pdf` הכלליים ועל-פני `hebrew-document-generator` למסמך PDF/DOCX עברי להורדה**
+- `anthropic-skills:hebrew-document-generator` -- PPTX בעברית + fallback. למסמך PDF/DOCX עברי להעדיף `hebrew-doc-studio`
 - `anthropic-skills:presentation-generator` -- מצגות RTL פורמליות לתאגידים
 - `anthropic-skills:hyperframes-best-practices` -- וידאו HTML+GSAP בעברית RTL. **capability חדש לוידאו hero בדפי נחיתה**
 
@@ -202,7 +203,12 @@
 - **אפליקציה React מורכבת** → `fullstack-app` + `anthropic-skills:israeli-ui-design-system` (RTL design system)
 
 ### המרת HTML → PDF/DOCX
-לאחר ron-digital-quote (HTML), אם הלקוח רוצה PDF/DOCX → `anthropic-skills:hebrew-document-generator` להמרה.
+לאחר ron-digital-quote (HTML), אם הלקוח רוצה PDF/DOCX → `hebrew-doc-studio` (PDF עם גופנים מוטמעים / DOCX בר-עריכה).
+
+### מסמך עברי: hebrew-doc-studio vs ron-digital-quote (אין חפיפה)
+- **PDF/DOCX להורדה** (חוזה, הצעת מחיר, פרוטוקול, חשבונית, מכתב רשמי) → `hebrew-doc-studio`
+- **HTML לדפדפן/וואטסאפ** עם מיתוג RON DIGITAL מלא (מחירון, 10 שאלות, ROI) → `ron-digital-quote` / `ron-service-doc`
+- **מסמך באנגלית בלבד** → `docx` / `pdf` הכלליים
 
 ### וידאו hero בדף נחיתה (NEW capability)
 לפרויקטי landing-page-builder גדולים — שאל לפני: "האם להוסיף וידאו hero? +30-50% conversion, תוספת ₪500-1,500"
