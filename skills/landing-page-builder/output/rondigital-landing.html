@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+  ════════════════════════════════════════════════════════════
+  RON DIGITAL — דף נחיתה  |  בנוי ע"י landing-page-builder
+  ⚠ PLACEHOLDERS למילוי לפני פרסום (חיפוש בקובץ אחר הטוקן):
+     [PHONE_DISPLAY]   → מספר טלפון לתצוגה (למשל 054-0000000)
+     [PHONE_TEL]       → טלפון ל-href, בלי מקפים (למשל 9725400000000... פורמט +972)
+     [WA_NUMBER]       → מספר וואטסאפ בפורמט 9725XXXXXXXX (ללא + ללא מקפים)
+     [CALENDLY_URL]    → קישור Calendly לקביעת פגישה (אופציונלי)
+     [MAKE_WEBHOOK]    → Webhook של Make.com לשליחת לידים (אופציונלי)
+  המייל ronsabon@gmail.com אמיתי ומשמש כברירת מחדל לקבלת לידים.
+  ════════════════════════════════════════════════════════════
+  -->
+
+  <!-- ═══ SEO בסיסי ═══ -->
+  <title>RON DIGITAL — אוטומציות, דפי נחיתה ו-AI לעסקים קטנים</title>
+  <meta name="description" content="RON DIGITAL STUDIO בונה לעסקים קטנים בישראל אוטומציות חכמות, דפי נחיתה שממירים ואתרי תדמית — בליווי אישי ובמחיר שכולל הכל. קבעו שיחת ייעוץ חינם.">
+  <meta name="keywords" content="אוטומציות לעסקים, Make, Zapier, דפי נחיתה, אתרי תדמית, AI לעסקים, בוט וואטסאפ, RON DIGITAL">
+  <meta name="author" content="RON DIGITAL STUDIO">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://rondigital.co.il/">
+
+  <!-- ═══ Open Graph ═══ -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rondigital.co.il/">
+  <meta property="og:title" content="RON DIGITAL — אוטומציות, דפי נחיתה ו-AI לעסקים קטנים">
+  <meta property="og:description" content="פחות עבודה ידנית, יותר זמן לעסק שלך. אוטומציות חכמות, דפי נחיתה ואתרים — בליווי אישי מול רון ובמחיר שכולל הכל.">
+  <meta property="og:image" content="https://placehold.co/1200x630/030812/00ffc8?text=RON+DIGITAL">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="he_IL">
+  <meta property="og:site_name" content="RON DIGITAL">
+
+  <!-- ═══ Twitter Card ═══ -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RON DIGITAL — אוטומציות, דפי נחיתה ו-AI לעסקים קטנים">
+  <meta name="twitter:description" content="פחות עבודה ידנית, יותר זמן לעסק שלך.">
+  <meta name="twitter:image" content="https://placehold.co/1200x630/030812/00ffc8?text=RON+DIGITAL">
+
+  <!-- ═══ Schema.org — Local Business ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "RON DIGITAL STUDIO",
+    "description": "סטודיו דיגיטלי לעסקים קטנים — אוטומציות חכמות, דפי נחיתה, אתרי תדמית ופתרונות AI.",
+    "url": "https://rondigital.co.il",
+    "email": "ronsabon@gmail.com",
+    "founder": { "@type": "Person", "name": "רון שבון" },
+    "address": { "@type": "PostalAddress", "addressCountry": "IL" },
+    "areaServed": "IL",
+    "serviceType": ["אוטומציות עסקיות", "דפי נחיתה", "אתרי תדמית", "פתרונות AI לעסקים"],
+    "priceRange": "₪₪"
+  }
+  </script>
+
+  <!-- emoji favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+  <!-- Fonts + Icons + Three.js -->
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <style>
+  /* ═══════════════ palette: tech-dark ═══════════════ */
+  :root{
+    --bg:#030812; --bg2:#050c1a; --bg3:#071020;
+    --glass:rgba(5,12,26,0.85);
+    --border:rgba(0,255,180,0.12);
+    --border-g:rgba(0,200,255,0.18);
+    /* aliases לשימוש חוזר ב-CSS של הסקשנים */
+    --cyan:#0084ff; --cyan-dim:rgba(0,132,255,0.12);
+    --gold:#00ffc8; --gold-l:#80ffdf; --gold-dim:rgba(0,255,200,0.12);
+    --green:#00ff88;
+    --wa:#25d366;
+    --txt:#b8d4e8; --txt-dim:rgba(184,212,232,0.55);
+    --mono:'Share Tech Mono',monospace;
+    --navy:#071428;
+    --accent1:#00ffc8; --accent2:#0084ff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--txt);direction:rtl;overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
+  a{color:inherit}
+  .container{max-width:1180px;margin:0 auto;padding:0 1.25rem}
+  .sec{padding:6rem 0;position:relative}
+  .ttl{font-size:clamp(1.9rem,5vw,3rem);font-weight:900;color:#fff;text-align:center;margin-bottom:.6rem;text-shadow:0 1px 0 rgba(0,132,255,.3),0 2px 0 rgba(0,132,255,.2),0 10px 24px rgba(0,0,0,.5)}
+  .ttl span{color:var(--gold)}
+  .sub-ttl{text-align:center;color:var(--txt-dim);font-size:1.02rem;max-width:560px;margin:0 auto 3rem}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.8rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:.95rem;cursor:pointer;border:none;transition:transform .2s,box-shadow .3s,background .3s;font-family:inherit}
+  .btn-gold{background:linear-gradient(135deg,var(--accent1),#00c9a0);color:#021014;box-shadow:0 6px 24px rgba(0,255,200,.28)}
+  .btn-gold:hover{transform:translateY(-3px);box-shadow:0 10px 34px rgba(0,255,200,.42)}
+  .btn-wa{background:var(--wa);color:#fff}
+  .btn-wa:hover{transform:translateY(-3px)}
+  .btn-outline{display:inline-block;padding:.7rem 2rem;border:1px solid var(--cyan);color:var(--cyan);border-radius:10px;text-decoration:none;font-weight:600;transition:all .3s}
+  .btn-outline:hover{background:var(--cyan);color:#021014}
+
+  /* ═══ HEADER ═══ */
+  #hdr{position:sticky;top:0;z-index:100;padding:.8rem 0;transition:background .3s,box-shadow .3s}
+  #hdr.sc{background:rgba(3,8,18,.95);backdrop-filter:blur(12px);box-shadow:0 2px 24px rgba(0,0,0,.6)}
+  .hdr-inner{display:flex;align-items:center;gap:1.5rem}
+  .logo{display:flex;align-items:center;gap:.55rem;font-size:1.25rem;font-weight:900;color:#fff;text-decoration:none;margin-left:auto;letter-spacing:.5px}
+  .logo .logo-icon{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;color:#021014;font-size:1rem}
+  .logo span{color:var(--gold)}
+  #main-nav{display:flex;gap:1.6rem}
+  #main-nav a{color:var(--txt);font-size:.92rem;text-decoration:none;transition:color .2s}
+  #main-nav a:hover{color:var(--gold)}
+  .hdr-cta{padding:.6rem 1.3rem}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+  .burger span{display:block;width:25px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+  @media(max-width:860px){
+    #main-nav{display:none;position:absolute;top:100%;right:0;left:0;background:rgba(3,8,18,.98);padding:1rem 1.25rem;flex-direction:column;gap:1rem;border-bottom:1px solid var(--border)}
+    #main-nav.open{display:flex}
+    .burger{display:flex}
+    .hdr-cta{display:none}
+  }
+
+  /* ═══ HERO ═══ */
+  #hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+  #hero-3d{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
+  .hero-grid{position:absolute;bottom:0;left:0;right:0;height:42%;background-image:linear-gradient(rgba(0,132,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(0,132,255,.06) 1px,transparent 1px);background-size:60px 60px;transform:perspective(300px) rotateX(60deg);transform-origin:bottom center;mask-image:linear-gradient(to top,rgba(0,132,255,.3),transparent);-webkit-mask-image:linear-gradient(to top,rgba(0,132,255,.3),transparent);pointer-events:none;z-index:0}
+  .hero-hud{position:absolute;top:6rem;font:700 11px var(--mono);color:var(--gold);letter-spacing:1px;z-index:2;opacity:.8}
+  .hero-hud.left{right:1.5rem}
+  .hero-hud.right{left:1.5rem;color:var(--cyan)}
+  .hero-body{position:relative;z-index:2;max-width:680px}
+  .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--glass);border:1px solid var(--border-g);color:var(--gold-l);font-size:.85rem;font-weight:600;padding:.45rem 1.1rem;border-radius:30px;margin-bottom:1.4rem;animation:float3d 4s ease-in-out infinite}
+  .hero-title{font-size:clamp(2.3rem,6.5vw,4rem);font-weight:900;color:#fff;line-height:1.12;margin-bottom:1.2rem;text-shadow:0 2px 0 rgba(0,132,255,.25),0 14px 40px rgba(0,0,0,.6)}
+  .hero-title .hl{color:var(--gold)}
+  .hero-sub{font-size:clamp(1rem,2.4vw,1.18rem);color:var(--txt);max-width:580px;margin-bottom:2rem;line-height:1.7}
+  .hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+  .hero-scroll{position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);z-index:2;color:var(--txt-dim);font-size:.78rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.3rem;animation:float3d 2.6s ease-in-out infinite}
+
+  /* ═══ MARQUEE ═══ */
+  .marquee-wrap{overflow:hidden;background:var(--navy);padding:.9rem 0;border-block:1px solid var(--border)}
+  .marquee-track{display:flex;width:max-content;animation:marquee-scroll 26s linear infinite}
+  .marquee-track span{white-space:nowrap;padding:0 2rem;font-size:1rem;font-weight:700;color:var(--gold)}
+  .marquee-track span.dot{color:var(--cyan);opacity:.6}
+  @keyframes marquee-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+  /* ═══ COUNTERS / STATS ═══ */
+  #counters{clip-path:polygon(0 0,100% 4%,100% 100%,0 96%);padding:5rem 0;margin:-1.5rem 0;background:var(--bg2);position:relative;z-index:2}
+  .cnt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+  @media(max-width:640px){.cnt-grid{grid-template-columns:repeat(2,1fr)}}
+  .cnt-item{text-align:center;padding:1.2rem}
+  .cnt-icon{font-size:1.7rem;color:var(--gold);margin-bottom:.5rem}
+  .cnt-num{font-size:1.85rem;font-weight:900;color:#fff;font-family:var(--mono);text-shadow:0 2px 0 rgba(0,132,255,.3),0 8px 20px rgba(0,0,0,.5);line-height:1.2}
+  .cnt-lbl{color:var(--txt-dim);font-size:.88rem;margin-top:.35rem}
+
+  /* ═══ PROBLEMS ═══ */
+  .prob-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+  @media(max-width:900px){.prob-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:500px){.prob-grid{grid-template-columns:1fr}}
+  .prob-card{background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:2rem 1.4rem;text-align:center;transition:transform .3s,box-shadow .3s,border-color .3s}
+  .prob-card:hover{transform:translateY(-8px);box-shadow:0 14px 44px rgba(0,0,0,.5);border-color:var(--gold)}
+  .prob-icon{font-size:2.3rem;margin-bottom:1rem}
+  .prob-card h3{color:var(--gold);font-size:1.02rem;font-weight:700;margin-bottom:.6rem}
+  .prob-card p{color:var(--txt-dim);font-size:.86rem;line-height:1.7}
+
+  /* ═══ SERVICES ═══ */
+  #services{background:var(--bg2);clip-path:polygon(0 3%,100% 0,100% 97%,0 100%);margin:-1.5rem 0;padding:7rem 0}
+  .srv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem;perspective:1800px;max-width:920px;margin:0 auto}
+  @media(max-width:760px){.srv-grid{grid-template-columns:1fr;max-width:440px}}
+  .srv-card{background:var(--bg3);border:1px solid var(--border);border-radius:18px;overflow:hidden;transform-style:preserve-3d;transition:transform .4s cubic-bezier(.2,.8,.3,1.2),box-shadow .4s;cursor:default;position:relative}
+  .srv-card::before{content:'';position:absolute;inset:0;border-radius:18px;transform:translateZ(-14px);background:linear-gradient(135deg,#020912,#010408);border:1px solid rgba(0,132,255,.08)}
+  .srv-card:hover{box-shadow:0 30px 80px rgba(0,0,0,.7),0 0 44px rgba(0,255,200,.16)}
+  .srv-display{position:relative;height:160px;background:#020810;overflow:hidden}
+  .srv-display canvas{width:100%;height:100%;display:block}
+  .srv-tag{display:inline-flex;align-items:center;gap:.4rem;font:700 10px var(--mono);color:var(--cyan);background:var(--cyan-dim);border:1px solid var(--border);border-radius:5px;padding:.25rem .6rem;margin:.85rem .85rem 0;letter-spacing:.05em}
+  .srv-card h3{padding:.6rem .85rem .25rem;font-size:1.15rem;color:#fff}
+  .srv-card>p{padding:0 .85rem .6rem;font-size:.88rem;color:var(--txt-dim);line-height:1.6}
+  .srv-meta{display:flex;justify-content:space-between;align-items:center;padding:.4rem .9rem 1rem}
+  .srv-price{font:700 .85rem var(--mono);color:var(--gold)}
+  .srv-link{font-size:.82rem;color:var(--cyan);text-decoration:none;font-weight:600}
+  .srv-link:hover{text-decoration:underline}
+
+  /* ═══ PROCESS ═══ */
+  .proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;counter-reset:step}
+  @media(max-width:820px){.proc-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:460px){.proc-grid{grid-template-columns:1fr}}
+  .proc-card{background:var(--glass);border:1px solid var(--border);border-radius:16px;padding:2rem 1.3rem;position:relative;text-align:center}
+  .proc-num{width:44px;height:44px;margin:0 auto 1rem;border-radius:50%;background:var(--gold-dim);border:1px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font:900 1.1rem var(--mono)}
+  .proc-card h4{color:#fff;font-size:1.02rem;margin-bottom:.5rem}
+  .proc-card p{color:var(--txt-dim);font-size:.85rem;line-height:1.6}
+
+  /* ═══ WHY US ═══ */
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  @media(max-width:768px){.why-grid{grid-template-columns:1fr}}
+  .why-card{background:var(--glass);border:1px solid var(--border);border-radius:16px;padding:2rem;text-align:center;transition:transform .3s,box-shadow .3s}
+  .why-card:hover{transform:perspective(1000px) rotateX(-6deg) translateY(-10px) translateZ(20px);box-shadow:0 20px 50px rgba(0,0,0,.5),0 0 30px rgba(0,132,255,.12)}
+  .why-icon{font-size:2.3rem;margin-bottom:1rem;color:var(--gold)}
+  .why-card h3{font-size:1.1rem;color:#fff;margin-bottom:.5rem}
+  .why-card p{color:var(--txt-dim);font-size:.9rem;line-height:1.65}
+
+  /* ═══ PACKAGES ═══ */
+  #packages{background:var(--bg2)}
+  .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;align-items:start}
+  @media(max-width:820px){.pkg-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+  .pkg-card{background:var(--glass);border:1px solid var(--border);border-radius:20px;padding:2.2rem 1.8rem;text-align:center;position:relative;transition:transform .3s}
+  .pkg-card:hover{transform:translateY(-6px)}
+  .pkg-card.featured{border-color:var(--gold);box-shadow:0 0 44px var(--gold-dim);transform:scale(1.04)}
+  .pkg-card.featured:hover{transform:scale(1.04) translateY(-6px)}
+  .pkg-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--gold);color:#021014;font-size:.76rem;font-weight:800;padding:.32rem 1.2rem;border-radius:20px}
+  .pkg-card h3{color:var(--gold);font-size:1.2rem;margin-bottom:.4rem}
+  .pkg-tagline{color:var(--txt-dim);font-size:.82rem;margin-bottom:1rem}
+  .pkg-price{font-size:2rem;font-weight:900;color:#fff;margin-bottom:1.2rem}
+  .pkg-price small{font-size:.95rem;font-weight:400;color:var(--txt-dim);display:block;margin-bottom:.2rem}
+  .pkg-list{list-style:none;padding:0;margin-bottom:1.6rem;text-align:right}
+  .pkg-list li{padding:.5rem 0;color:var(--txt);font-size:.87rem;border-bottom:1px solid rgba(255,255,255,.05)}
+  .pkg-list li i{color:var(--gold);margin-left:.5rem}
+
+  /* ═══ ABOUT ═══ */
+  .about-wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:2.4rem;align-items:center;max-width:960px;margin:0 auto}
+  @media(max-width:760px){.about-wrap{grid-template-columns:1fr;text-align:center}}
+  .about-card{background:var(--glass);border:1px solid var(--border-g);border-radius:20px;padding:2.4rem 2rem;text-align:center}
+  .about-avatar{width:96px;height:96px;border-radius:50%;margin:0 auto 1rem;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:2.4rem;color:#021014;font-weight:900}
+  .about-card h3{color:#fff;font-size:1.3rem}
+  .about-card .role{color:var(--gold);font-size:.9rem;font-family:var(--mono);margin-top:.2rem}
+  .about-text h2{color:#fff;font-size:clamp(1.6rem,4vw,2.2rem);font-weight:900;margin-bottom:1rem}
+  .about-text h2 span{color:var(--gold)}
+  .about-text p{color:var(--txt-dim);font-size:.98rem;line-height:1.8;margin-bottom:1rem}
+
+  /* ═══ FAQ ═══ */
+  .faq-list{max-width:720px;margin:0 auto}
+  .faq-item{border:1px solid var(--border);border-radius:12px;margin-bottom:.8rem;overflow:hidden;background:var(--glass)}
+  .faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.3rem;cursor:pointer;color:#fff;font-weight:600;font-size:.98rem}
+  .faq-q i{color:var(--gold);transition:transform .3s}
+  .faq-item.open .faq-q i{transform:rotate(180deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .faq-item.open .faq-a{max-height:260px}
+  .faq-a p{padding:.4rem 1.3rem 1.1rem;color:var(--txt-dim);font-size:.9rem;line-height:1.75}
+
+  /* ═══ CONTACT ═══ */
+  #contact{background:var(--bg2)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:2rem;max-width:980px;margin:0 auto}
+  @media(max-width:768px){.contact-grid{grid-template-columns:1fr}}
+  .contact-info,.contact-form{background:var(--glass);border:1px solid var(--border);border-radius:18px;padding:2rem}
+  .contact-info h3,.contact-form h3{color:var(--gold);margin-bottom:1.3rem;font-size:1.15rem}
+  .cinfo-item{display:flex;align-items:center;gap:1rem;margin-bottom:1.1rem}
+  .cinfo-item i{width:40px;height:40px;border-radius:50%;background:var(--cyan-dim);display:flex;align-items:center;justify-content:center;color:var(--cyan);flex-shrink:0;font-size:1.05rem}
+  .cinfo-item .lbl{color:var(--txt-dim);font-size:.78rem}
+  .cinfo-item a,.cinfo-item .val{color:#fff;text-decoration:none;font-weight:600;font-size:.95rem}
+  .cinfo-item a:hover{color:var(--gold)}
+  .contact-cal{margin-top:1.4rem;padding-top:1.4rem;border-top:1px solid var(--border)}
+  .form-group{margin-bottom:1rem}
+  .form-group label{display:block;color:var(--txt-dim);font-size:.85rem;margin-bottom:.35rem}
+  .form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(0,0,0,.32);border:1px solid var(--border);border-radius:10px;padding:.7rem 1rem;color:#fff;font-family:Heebo,sans-serif;font-size:.92rem;transition:border-color .2s}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--gold)}
+  .form-group select{appearance:none}
+  .form-note{font-size:.78rem;color:var(--txt-dim);margin-top:.8rem;text-align:center}
+
+  /* ═══ FOOTER ═══ */
+  footer{background:var(--navy);padding:2.2rem 0 1.4rem}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding-bottom:1.2rem;border-bottom:1px solid var(--border);margin-bottom:1.2rem}
+  .footer-logo{font-size:1.15rem;font-weight:800;color:#fff;display:flex;align-items:center;gap:.5rem}
+  .footer-logo span{color:var(--gold)}
+  .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+  .footer-links a{color:var(--txt-dim);font-size:.86rem;text-decoration:none}
+  .footer-links a:hover{color:var(--gold)}
+  .footer-copy{text-align:center;color:var(--txt-dim);font-size:.8rem}
+
+  /* WhatsApp float */
+  .wa-float{position:fixed;bottom:1.5rem;left:1.5rem;width:56px;height:56px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.6rem;z-index:999;box-shadow:0 4px 20px rgba(37,211,102,.45);text-decoration:none;animation:wa-pulse 2.2s infinite}
+
+  /* utilities */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s,transform .6s}
+  .reveal.visible{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
+  @keyframes float3d{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  @keyframes wa-pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.4)}50%{box-shadow:0 0 0 14px rgba(37,211,102,0)}}
+  </style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header id="hdr">
+  <div class="container">
+    <div class="hdr-inner">
+      <a href="#hero" class="logo"><span class="logo-icon">⚡</span>RON <span>DIGITAL</span></a>
+      <nav id="main-nav">
+        <a href="#services">שירותים</a>
+        <a href="#process">איך זה עובד</a>
+        <a href="#packages">השקעה</a>
+        <a href="#about">אודות</a>
+        <a href="#faq">שאלות</a>
+        <a href="#contact">צור קשר</a>
+      </nav>
+      <a href="#contact" class="btn btn-gold hdr-cta"><i class="fas fa-calendar-check"></i> קבע שיחת ייעוץ</a>
+      <div class="burger" id="burger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="hero">
+  <canvas id="hero-3d"></canvas>
+  <div class="hero-grid"></div>
+  <div class="hero-hud left"><span class="rec-dot"></span>RON DIGITAL</div>
+  <div class="hero-hud right" id="hero-ts">STUDIO &nbsp;ONLINE</div>
+  <div class="container">
+    <div class="hero-body">
+      <div class="hero-badge">⚡ סטודיו דיגיטלי לעסקים קטנים</div>
+      <h1 class="hero-title">פחות עבודה ידנית.<br><span class="hl">יותר זמן לעסק שלך.</span></h1>
+      <p class="hero-sub">RON DIGITAL בונה לעסקים קטנים אוטומציות חכמות, דפי נחיתה שממירים ואתרי תדמית שעובדים — בליווי אישי מול רון, ובמחיר שכולל הכל.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-gold"><i class="fas fa-calendar-check"></i> קבע שיחת ייעוץ חינם</a>
+        <a href="#services" class="btn btn-outline">ראה מה אפשר לבנות</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll"><i class="fas fa-chevron-down"></i><span>גלול</span></div>
+</section>
+
+<!-- ═══════════ MARQUEE ═══════════ -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>אוטומציות חכמות</span><span class="dot">•</span><span>Make &amp; Zapier</span><span class="dot">•</span><span>דפי נחיתה</span><span class="dot">•</span><span>אתרי תדמית</span><span class="dot">•</span><span>בוטים בוואטסאפ</span><span class="dot">•</span><span>פתרונות AI</span><span class="dot">•</span><span>חיסכון בזמן</span><span class="dot">•</span>
+    <span>אוטומציות חכמות</span><span class="dot">•</span><span>Make &amp; Zapier</span><span class="dot">•</span><span>דפי נחיתה</span><span class="dot">•</span><span>אתרי תדמית</span><span class="dot">•</span><span>בוטים בוואטסאפ</span><span class="dot">•</span><span>פתרונות AI</span><span class="dot">•</span><span>חיסכון בזמן</span><span class="dot">•</span>
+  </div>
+</div>
+
+<!-- ═══════════ COUNTERS / STATS ═══════════ -->
+<section id="counters">
+  <div class="container">
+    <div class="cnt-grid">
+      <div class="cnt-item reveal d1">
+        <div class="cnt-icon"><i class="fas fa-bolt"></i></div>
+        <div class="cnt-num">ימים</div>
+        <div class="cnt-lbl">מהאפיון להשקה</div>
+      </div>
+      <div class="cnt-item reveal d2">
+        <div class="cnt-icon"><i class="fas fa-user-tie"></i></div>
+        <div class="cnt-num">1:1</div>
+        <div class="cnt-lbl">ליווי אישי מול רון</div>
+      </div>
+      <div class="cnt-item reveal d3">
+        <div class="cnt-icon"><i class="fas fa-tag"></i></div>
+        <div class="cnt-num">כולל הכל</div>
+        <div class="cnt-lbl">מחיר ללא הפתעות</div>
+      </div>
+      <div class="cnt-item reveal d4">
+        <div class="cnt-icon"><i class="fas fa-robot"></i></div>
+        <div class="cnt-num">AI + Make</div>
+        <div class="cnt-lbl">הטכנולוגיה שמתאימה</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROBLEMS ═══════════ -->
+<section id="problems" class="sec">
+  <div class="container">
+    <h2 class="ttl reveal">העסק רץ — <span>אבל אתה תקוע בעבודה</span></h2>
+    <p class="sub-ttl reveal">הכאבים שבעלי עסקים מספרים לי לפני שאנחנו מתחילים</p>
+    <div class="prob-grid">
+      <div class="prob-card reveal d1">
+        <div class="prob-icon">⏳</div>
+        <h3>שעות על עבודה ידנית</h3>
+        <p>העתקות בין Gmail, Sheets ו-WhatsApp שאוכלות את היום. אוטומציה עושה את זה במקומך, בלי טעויות.</p>
+      </div>
+      <div class="prob-card reveal d2">
+        <div class="prob-icon">📉</div>
+        <h3>לידים שנופלים</h3>
+        <p>פניות שמתפספסות כי אין מי שיענה מיד. מערכת שלוכדת כל ליד ומגיבה אוטומטית תוך שניות.</p>
+      </div>
+      <div class="prob-card reveal d3">
+        <div class="prob-icon">🌐</div>
+        <h3>אין נוכחות רצינית</h3>
+        <p>עסק טוב שנראה חובבני אונליין. דף נחיתה או אתר שמייצרים אמון — והופכים מבקרים ללקוחות.</p>
+      </div>
+      <div class="prob-card reveal d4">
+        <div class="prob-icon">🔌</div>
+        <h3>כלים שלא מדברים</h3>
+        <p>כל מערכת בפינה שלה. אני מחבר Gmail, Sheets, WhatsApp ו-AI למערכת אחת שעובדת בשבילך.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SERVICES ═══════════ -->
+<section id="services">
+  <div class="container">
+    <h2 class="ttl reveal">מה אני <span>בונה לך</span></h2>
+    <p class="sub-ttl reveal">ארבעה כיוונים — נבחר את מה שמזיז את העסק שלך קדימה</p>
+    <div class="srv-grid">
+
+      <div class="srv-card reveal d1">
+        <div class="srv-display"><canvas id="cv-auto"></canvas></div>
+        <span class="srv-tag"><i class="fas fa-gears"></i> AUTOMATION</span>
+        <h3>אוטומציות חכמות</h3>
+        <p>תהליכים שרצים לבד: ניתוב לידים, מענה אוטומטי, עיבוד חשבוניות, סיכום פגישות Zoom — ב-Make ו-Zapier.</p>
+        <div class="srv-meta"><span class="srv-price">החל מ-800 ₪</span><a href="#contact" class="srv-link">לפרטים →</a></div>
+      </div>
+
+      <div class="srv-card reveal d2">
+        <div class="srv-display"><canvas id="cv-page"></canvas></div>
+        <span class="srv-tag"><i class="fas fa-bullseye"></i> LANDING</span>
+        <h3>דפי נחיתה שממירים</h3>
+        <p>דף נחיתה פרמיום, מהיר, RTL ומותאם מובייל — בנוי כדי להפוך מבקרים ללידים ולא רק להיראות יפה.</p>
+        <div class="srv-meta"><span class="srv-price">החל מ-1,200 ₪</span><a href="#contact" class="srv-link">לפרטים →</a></div>
+      </div>
+
+      <div class="srv-card reveal d3">
+        <div class="srv-display"><canvas id="cv-web"></canvas></div>
+        <span class="srv-tag"><i class="fas fa-globe"></i> WEBSITE</span>
+        <h3>אתרי תדמית</h3>
+        <p>אתר תדמית מלא — כמה עמודים, חיבור לטפסים ולמערכות, ואופציה לחנות או מערכת הזמנות.</p>
+        <div class="srv-meta"><span class="srv-price">החל מ-2,200 ₪</span><a href="#contact" class="srv-link">לפרטים →</a></div>
+      </div>
+
+      <div class="srv-card reveal d4">
+        <div class="srv-display"><canvas id="cv-ai"></canvas></div>
+        <span class="srv-tag"><i class="fas fa-brain"></i> AI</span>
+        <h3>AI וליווי דיגיטלי</h3>
+        <p>בוטים חכמים, מענה אוטומטי מבוסס AI וליווי אסטרטגי שוטף — שתמשיך לצמוח גם אחרי ההשקה.</p>
+        <div class="srv-meta"><span class="srv-price">לפי פרויקט</span><a href="#contact" class="srv-link">לפרטים →</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROCESS ═══════════ -->
+<section id="process" class="sec">
+  <div class="container">
+    <h2 class="ttl reveal">איך זה <span>עובד</span></h2>
+    <p class="sub-ttl reveal">תהליך פשוט וברור — בלי הפתעות בדרך</p>
+    <div class="proc-grid">
+      <div class="proc-card reveal d1"><div class="proc-num">1</div><h4>שיחת ייעוץ</h4><p>נשב 20 דקות, אבין את העסק ואת מה שתקוע — בלי התחייבות.</p></div>
+      <div class="proc-card reveal d2"><div class="proc-num">2</div><h4>אפיון והצעה</h4><p>אני ממפה את הפתרון ושולח הצעת מחיר ברורה, כוללת הכל.</p></div>
+      <div class="proc-card reveal d3"><div class="proc-num">3</div><h4>בנייה</h4><p>אני בונה, אתה מקבל עדכונים, ויש עד 2 סבבי תיקונים כלולים.</p></div>
+      <div class="proc-card reveal d4"><div class="proc-num">4</div><h4>השקה וליווי</h4><p>עולים לאוויר — ואני נשאר זמין לליווי ולשיפורים.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WHY US ═══════════ -->
+<section id="why-us" class="sec" style="background:var(--bg2)">
+  <div class="container">
+    <h2 class="ttl reveal">למה <span>RON DIGITAL</span></h2>
+    <p class="sub-ttl reveal">שלושה דברים שתקבל בכל פרויקט</p>
+    <div class="why-grid">
+      <div class="why-card reveal d1"><div class="why-icon"><i class="fas fa-handshake"></i></div><h3>פרקטיות ישראלית</h3><p>בלי באזז ובלי הבטחות באוויר — פתרון שמתאים לעסק קטן ועובד מהיום הראשון.</p></div>
+      <div class="why-card reveal d2"><div class="why-icon"><i class="fas fa-receipt"></i></div><h3>מחיר כולל הכל</h3><p>מחיר סופי וברור מראש. מה שסיכמנו זה מה שתשלם — בלי תוספות מפתיעות בסוף.</p></div>
+      <div class="why-card reveal d3"><div class="why-icon"><i class="fas fa-comments"></i></div><h3>זמינות אישית</h3><p>מדברים ישירות איתי, רון. לא מוקד ולא נציג — אדם אחד שמכיר את הפרויקט שלך.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PACKAGES ═══════════ -->
+<section id="packages" class="sec">
+  <div class="container">
+    <h2 class="ttl reveal">השקעה <span>שקופה</span></h2>
+    <p class="sub-ttl reveal">נקודת התחלה למחיר — הסכום הסופי נקבע אחרי שיחת אפיון קצרה</p>
+    <div class="pkg-grid">
+
+      <div class="pkg-card reveal d1">
+        <h3>דף נחיתה</h3>
+        <div class="pkg-tagline">להמיר מבקרים ללידים</div>
+        <div class="pkg-price"><small>החל מ-</small>1,200<span style="font-size:1.1rem"> ₪</span></div>
+        <ul class="pkg-list">
+          <li><i class="fas fa-check"></i> דף נחיתה פרמיום RTL</li>
+          <li><i class="fas fa-check"></i> מותאם מובייל ומהיר</li>
+          <li><i class="fas fa-check"></i> טופס לידים + וואטסאפ</li>
+          <li><i class="fas fa-check"></i> SEO בסיסי + עליה לאוויר</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">לפרטים</a>
+      </div>
+
+      <div class="pkg-card featured reveal d2">
+        <div class="pkg-badge">הכי מבוקש</div>
+        <h3>אוטומציה חכמה</h3>
+        <div class="pkg-tagline">שהעסק יעבוד בשבילך</div>
+        <div class="pkg-price"><small>החל מ-</small>800<span style="font-size:1.1rem"> ₪</span></div>
+        <ul class="pkg-list">
+          <li><i class="fas fa-check"></i> אפיון התהליך מקצה לקצה</li>
+          <li><i class="fas fa-check"></i> בנייה ב-Make / Zapier</li>
+          <li><i class="fas fa-check"></i> חיבור Gmail · Sheets · WhatsApp</li>
+          <li><i class="fas fa-check"></i> בדיקות + הדרכה</li>
+          <li><i class="fas fa-check"></i> אופציה לבוט / AI</li>
+        </ul>
+        <a href="#contact" class="btn btn-gold">בוא נדבר</a>
+      </div>
+
+      <div class="pkg-card reveal d3">
+        <h3>אתר תדמית</h3>
+        <div class="pkg-tagline">נוכחות דיגיטלית מלאה</div>
+        <div class="pkg-price"><small>החל מ-</small>2,200<span style="font-size:1.1rem"> ₪</span></div>
+        <ul class="pkg-list">
+          <li><i class="fas fa-check"></i> מספר עמודים בעיצוב אישי</li>
+          <li><i class="fas fa-check"></i> חיבור לטפסים ולמערכות</li>
+          <li><i class="fas fa-check"></i> אופציה לחנות / הזמנות</li>
+          <li><i class="fas fa-check"></i> SEO + ליווי השקה</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">לפרטים</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section id="about" class="sec" style="background:var(--bg2)">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="about-card reveal d1">
+        <div class="about-avatar">ר</div>
+        <h3>רון שבון</h3>
+        <div class="role">RON DIGITAL STUDIO</div>
+      </div>
+      <div class="about-text reveal d2">
+        <h2>סטודיו אחד, <span>אדם אחד שאחראי</span></h2>
+        <p>אני רון, יזם דיגיטלי שמקים את RON DIGITAL STUDIO כדי לתת לעסקים קטנים את מה שבדרך כלל שמור לגדולים: אוטומציות חכמות, אתרים שממירים וטכנולוגיית AI — בלי בירוקרטיה ובלי שפה גבוהה.</p>
+        <p>אני עובד מול עצמאים ובעלי עסק, מבין את המציאות הישראלית, ובונה פתרונות פרקטיים שחוסכים זמן ומביאים לקוחות. כל פרויקט עובר דרכי באופן אישי — מהשיחה הראשונה ועד ההשקה והליווי.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section id="faq" class="sec">
+  <div class="container">
+    <h2 class="ttl reveal">שאלות <span>נפוצות</span></h2>
+    <p class="sub-ttl reveal">מה שכולם שואלים לפני שמתחילים</p>
+    <div class="faq-list reveal">
+      <div class="faq-item"><div class="faq-q"><span>כמה זמן לוקח פרויקט?</span><i class="fas fa-chevron-down"></i></div><div class="faq-a"><p>דף נחיתה או אוטומציה בסיסית — בדרך כלל מספר ימים. אתר תדמית או אוטומציה מורכבת — שבוע עד שלושה, תלוי בהיקף ובמהירות החזרת החומרים מצידך. לו"ז מדויק נקבע בהצעה.</p></div></div>
+      <div class="faq-item"><div class="faq-q"><span>כמה זה עולה?</span><i class="fas fa-chevron-down"></i></div><div class="faq-a"><p>המחירים מתחילים מ-800 ₪ לאוטומציה ומ-1,200 ₪ לדף נחיתה. המחיר הסופי נקבע אחרי שיחת אפיון קצרה, והוא תמיד כולל הכל — בלי מע"מ נפרד ובלי הפתעות.</p></div></div>
+      <div class="faq-item"><div class="faq-q"><span>מה צריך ממני כדי להתחיל?</span><i class="fas fa-chevron-down"></i></div><div class="faq-a"><p>בעיקר שיחה קצרה שבה תספר לי על העסק ועל מה שתקוע. את התכנים והגישות למערכות נאסוף יחד תוך כדי. אני מלווה את התהליך כך שלא תצטרך להתעסק בטכני.</p></div></div>
+      <div class="faq-item"><div class="faq-q"><span>באילו כלים אתה עובד?</span><i class="fas fa-chevron-down"></i></div><div class="faq-a"><p>Make ו-Zapier לאוטומציות, חיבור ל-Gmail, Google Sheets, WhatsApp ועוד, וכלי AI לפתרונות חכמים. הדפים והאתרים נבנים מהר, מותאמים מובייל ו-RTL.</p></div></div>
+      <div class="faq-item"><div class="faq-q"><span>מה ההבדל בין דף נחיתה לאתר?</span><i class="fas fa-chevron-down"></i></div><div class="faq-a"><p>דף נחיתה הוא עמוד אחד ממוקד שמטרתו פעולה אחת — ליד או פנייה. אתר תדמית הוא כמה עמודים שמציגים את כל העסק. בשיחה נחליט יחד מה מתאים ליעד שלך ולתקציב.</p></div></div>
+      <div class="faq-item"><div class="faq-q"><span>יש ליווי אחרי שמסיימים?</span><i class="fas fa-chevron-down"></i></div><div class="faq-a"><p>כן. כל פרויקט כולל סבבי תיקונים, ואני נשאר זמין לשאלות ולשיפורים. אפשר גם ליווי דיגיטלי שוטף חודשי למי שרוצה להמשיך לפתח.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<section id="contact" class="sec">
+  <div class="container">
+    <h2 class="ttl reveal">בוא <span>נדבר</span></h2>
+    <p class="sub-ttl reveal">השאר פרטים ואחזור אליך לתיאום שיחת ייעוץ — חינם וללא התחייבות</p>
+    <div class="contact-grid">
+      <div class="contact-info reveal d1">
+        <h3>יצירת קשר</h3>
+        <!-- ⚠ מלא טלפון/וואטסאפ אמיתיים -->
+        <div class="cinfo-item"><i class="fas fa-phone"></i><div><div class="lbl">טלפון</div><a href="tel:[PHONE_TEL]" dir="ltr">[PHONE_DISPLAY]</a></div></div>
+        <div class="cinfo-item"><i class="fab fa-whatsapp"></i><div><div class="lbl">WhatsApp</div><a href="https://wa.me/[WA_NUMBER]" target="_blank" rel="noopener">שלח הודעה עכשיו</a></div></div>
+        <div class="cinfo-item"><i class="fas fa-envelope"></i><div><div class="lbl">אימייל</div><a href="mailto:ronsabon@gmail.com">ronsabon@gmail.com</a></div></div>
+        <div class="contact-cal">
+          <!-- ⚠ אם יש Calendly — החלף את ה-# בקישור והסר את ה-style -->
+          <a href="[CALENDLY_URL]" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;text-align:center">📅 קבע פגישה ביומן</a>
+        </div>
+      </div>
+      <div class="contact-form reveal d2">
+        <h3>השאר הודעה</h3>
+        <form id="lead-form" onsubmit="handleForm(event)">
+          <div class="form-group"><label>שם מלא</label><input type="text" name="name" placeholder="איך קוראים לך?" required></div>
+          <div class="form-group"><label>טלפון</label><input type="tel" name="phone" placeholder="05X-XXXXXXX" required></div>
+          <div class="form-group"><label>מה מעניין אותך?</label>
+            <select name="topic">
+              <option value="אוטומציה">אוטומציה חכמה</option>
+              <option value="דף נחיתה">דף נחיתה</option>
+              <option value="אתר תדמית">אתר תדמית</option>
+              <option value="AI / ליווי">AI / ליווי דיגיטלי</option>
+              <option value="עוד לא בטוח">עוד לא בטוח — בוא נדבר</option>
+            </select>
+          </div>
+          <div class="form-group"><label>הודעה (לא חובה)</label><textarea name="message" rows="3" placeholder="ספר לי בקצרה על העסק ועל מה שתקוע..."></textarea></div>
+          <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center"><i class="fas fa-paper-plane"></i> שלח — ואחזור אליך</button>
+          <div class="form-note">בלחיצה על שליחה אתה מסכים שניצור איתך קשר בנוגע לפנייתך.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">⚡ RON <span>DIGITAL</span></div>
+      <div class="footer-links">
+        <a href="#services">שירותים</a>
+        <a href="#process">איך זה עובד</a>
+        <a href="#packages">השקעה</a>
+        <a href="#about">אודות</a>
+        <a href="#faq">שאלות</a>
+        <a href="#contact">צור קשר</a>
+      </div>
+    </div>
+    <div class="footer-copy">© <span id="yr"></span> RON DIGITAL STUDIO · רון שבון · אוטומציות, דפי נחיתה ו-AI לעסקים קטנים</div>
+  </div>
+</footer>
+
+<!-- WhatsApp float (⚠ מלא מספר) -->
+<a href="https://wa.me/[WA_NUMBER]" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+/* ═══════════ THREE.JS HERO — Octahedron (tech-dark) ═══════════ */
+(function(){
+  const heroEl=document.getElementById('hero');
+  const canvas=document.getElementById('hero-3d');
+  if(!canvas||!window.THREE)return;
+  const scene=new THREE.Scene();
+  let W=heroEl.offsetWidth,H=heroEl.offsetHeight;
+  const camera=new THREE.PerspectiveCamera(60,W/H,0.1,1000);
+  camera.position.set(0,0,8);
+  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  renderer.setSize(W,H);
+
+  const core=new THREE.Mesh(
+    new THREE.OctahedronGeometry(2,0),
+    new THREE.MeshPhongMaterial({color:0x061530,emissive:0x001a22,specular:0x00ffc8,shininess:90,transparent:true,opacity:0.9})
+  );
+  scene.add(core);
+  const wire=new THREE.Mesh(
+    new THREE.OctahedronGeometry(2.5,0),
+    new THREE.MeshBasicMaterial({color:0x00ffc8,wireframe:true,transparent:true,opacity:0.45})
+  );
+  scene.add(wire);
+  const ring1=new THREE.Mesh(new THREE.TorusGeometry(3.3,0.03,8,90),new THREE.MeshBasicMaterial({color:0x0084ff,transparent:true,opacity:0.6}));
+  ring1.rotation.x=Math.PI/3;scene.add(ring1);
+  const ring2=new THREE.Mesh(new THREE.TorusGeometry(3.3,0.03,8,90),new THREE.MeshBasicMaterial({color:0x00ffc8,transparent:true,opacity:0.35}));
+  ring2.rotation.x=-Math.PI/3;ring2.rotation.y=Math.PI/4;scene.add(ring2);
+
+  const N=600,pos=new Float32Array(N*3),col=new Float32Array(N*3);
+  for(let i=0;i<N;i++){
+    const t=Math.random()*Math.PI*2,p=Math.acos(2*Math.random()-1),r=4+Math.random()*6;
+    pos[i*3]=r*Math.sin(p)*Math.cos(t);pos[i*3+1]=r*Math.sin(p)*Math.sin(t);pos[i*3+2]=r*Math.cos(p);
+    if(Math.random()>.6){col[i*3]=0;col[i*3+1]=1;col[i*3+2]=.78;}        // teal
+    else{col[i*3]=0;col[i*3+1]=.52;col[i*3+2]=1;}                        // blue
+  }
+  const pGeo=new THREE.BufferGeometry();
+  pGeo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  pGeo.setAttribute('color',new THREE.BufferAttribute(col,3));
+  const particles=new THREE.Points(pGeo,new THREE.PointsMaterial({size:0.08,vertexColors:true,transparent:true,opacity:0.75}));
+  scene.add(particles);
+
+  scene.add(new THREE.AmbientLight(0x002233,0.6));
+  const l1=new THREE.PointLight(0x00ffc8,2,18);l1.position.set(5,5,5);scene.add(l1);
+  const l2=new THREE.PointLight(0x0055ff,1.6,18);l2.position.set(-5,-3,-5);scene.add(l2);
+
+  let mx=0,my=0;
+  document.addEventListener('mousemove',e=>{mx=(e.clientX/innerWidth-.5)*3;my=(e.clientY/innerHeight-.5)*2;});
+  window.addEventListener('resize',()=>{W=heroEl.offsetWidth;H=heroEl.offsetHeight;camera.aspect=W/H;camera.updateProjectionMatrix();renderer.setSize(W,H);});
+  (function animate(){
+    requestAnimationFrame(animate);
+    core.rotation.y+=.006;core.rotation.x+=.002;
+    wire.rotation.y-=.004;wire.rotation.z+=.003;
+    ring1.rotation.z+=.004;ring2.rotation.z-=.003;
+    particles.rotation.y+=.001;
+    camera.position.x+=(mx-camera.position.x)*.04;
+    camera.position.y+=(-my-camera.position.y)*.04;
+    camera.lookAt(0,0,0);
+    renderer.render(scene,camera);
+  })();
+})();
+
+/* ═══════════ CANVAS: אוטומציות — זרימת נתונים בין צמתים ═══════════ */
+(function(){
+  const cv=document.getElementById('cv-auto');if(!cv)return;
+  const ctx=cv.getContext('2d');
+  function resize(){cv.width=cv.parentElement.clientWidth||400;cv.height=cv.parentElement.clientHeight||160;}
+  resize();window.addEventListener('resize',resize);
+  let frame=0;const packets=[];
+  function nodes(){const w=cv.width,h=cv.height;return [
+    {x:w*.12,y:h*.5,label:'טריגר',c:'#00ffc8'},
+    {x:w*.38,y:h*.28,label:'Make',c:'#0084ff'},
+    {x:w*.38,y:h*.72,label:'AI',c:'#cc66ff'},
+    {x:w*.66,y:h*.5,label:'Sheets',c:'#00ff88'},
+    {x:w*.88,y:h*.5,label:'שליחה',c:'#00ffc8'},
+  ];}
+  const edges=[[0,1],[0,2],[1,3],[2,3],[3,4]];
+  function draw(){
+    const w=cv.width,h=cv.height;const ns=nodes();
+    ctx.fillStyle='#020810';ctx.fillRect(0,0,w,h);
+    ctx.strokeStyle='rgba(0,180,200,.18)';ctx.lineWidth=1;
+    edges.forEach(([a,b])=>{ctx.beginPath();ctx.moveTo(ns[a].x,ns[a].y);ctx.lineTo(ns[b].x,ns[b].y);ctx.stroke();});
+    if(frame%26===0){const e=edges[Math.floor(Math.random()*edges.length)];packets.push({a:e[0],b:e[1],t:0});}
+    packets.forEach((p,i)=>{p.t+=.03;if(p.t>1){packets.splice(i,1);return;}
+      const a=ns[p.a],b=ns[p.b];const x=a.x+(b.x-a.x)*p.t,y=a.y+(b.y-a.y)*p.t;
+      ctx.beginPath();ctx.arc(x,y,3,0,Math.PI*2);ctx.fillStyle='#00ffc8';ctx.fill();
+      ctx.beginPath();ctx.arc(x,y,6,0,Math.PI*2);ctx.fillStyle='rgba(0,255,200,.25)';ctx.fill();
+    });
+    ns.forEach(n=>{
+      const g=ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,16);
+      g.addColorStop(0,n.c+'cc');g.addColorStop(1,n.c+'00');
+      ctx.fillStyle=g;ctx.beginPath();ctx.arc(n.x,n.y,16,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle=n.c;ctx.beginPath();ctx.arc(n.x,n.y,5,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle='rgba(200,230,240,.85)';ctx.font='8px Heebo,sans-serif';ctx.textAlign='center';
+      ctx.fillText(n.label,n.x,n.y-12);ctx.textAlign='left';
+    });
+    ctx.fillStyle='rgba(0,255,200,.5)';ctx.font='9px Share Tech Mono,monospace';ctx.fillText('AUTOMATION · RUNNING',6,h-7);
+    frame++;requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ═══════════ CANVAS: דף נחיתה — בלוקים נבנים בתוך דפדפן ═══════════ */
+(function(){
+  const cv=document.getElementById('cv-page');if(!cv)return;
+  const ctx=cv.getContext('2d');
+  function resize(){cv.width=cv.parentElement.clientWidth||400;cv.height=cv.parentElement.clientHeight||160;}
+  resize();window.addEventListener('resize',resize);
+  let frame=0;
+  function draw(){
+    const w=cv.width,h=cv.height;
+    ctx.fillStyle='#020810';ctx.fillRect(0,0,w,h);
+    const bx=w*.16,by=h*.14,bw=w*.68,bh=h*.72;
+    ctx.fillStyle='rgba(8,20,36,.9)';ctx.strokeStyle='rgba(0,200,255,.35)';ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.roundRect(bx,by,bw,bh,8);ctx.fill();ctx.stroke();
+    ctx.fillStyle='rgba(0,30,50,.9)';ctx.beginPath();ctx.roundRect(bx,by,bw,16,[8,8,0,0]);ctx.fill();
+    ['#ff5f57','#febc2e','#28c840'].forEach((c,i)=>{ctx.fillStyle=c;ctx.beginPath();ctx.arc(bx+10+i*11,by+8,3,0,Math.PI*2);ctx.fill();});
+    const cycle=frame%260;
+    const blocks=[
+      {x:bx+14,y:by+26,w:bw-28,h:14,c:'#00ffc8',at:0},
+      {x:bx+14,y:by+46,w:(bw-28)*.6,h:8,c:'#0084ff',at:40},
+      {x:bx+14,y:by+60,w:(bw-28)*.45,h:8,c:'#0084ff',at:70},
+      {x:bx+14,y:by+76,w:(bw-28)*.4,h:18,c:'#00ff88',at:110},
+      {x:bx+14,y:by+bh-30,w:(bw-28)/3-6,h:18,c:'#0084ff',at:150},
+      {x:bx+14+(bw-28)/3,y:by+bh-30,w:(bw-28)/3-6,h:18,c:'#0084ff',at:170},
+      {x:bx+14+2*(bw-28)/3,y:by+bh-30,w:(bw-28)/3-6,h:18,c:'#0084ff',at:190},
+    ];
+    blocks.forEach(b=>{
+      if(cycle<b.at)return;
+      const a=Math.min(1,(cycle-b.at)/18);
+      ctx.globalAlpha=a;ctx.fillStyle=b.c+'cc';
+      ctx.beginPath();ctx.roundRect(b.x,b.y+(1-a)*6,b.w,b.h,3);ctx.fill();ctx.globalAlpha=1;
+    });
+    // cursor
+    const cuX=bx+14+((bw-28)*.4)*(0.5+0.5*Math.sin(frame*.05)),cuY=by+85;
+    ctx.fillStyle='#fff';ctx.beginPath();ctx.moveTo(cuX,cuY);ctx.lineTo(cuX,cuY+12);ctx.lineTo(cuX+4,cuY+8);ctx.lineTo(cuX+8,cuY+8);ctx.closePath();ctx.fill();
+    ctx.fillStyle='rgba(0,255,200,.5)';ctx.font='9px Share Tech Mono,monospace';ctx.fillText('BUILDING PAGE...',6,h-7);
+    frame++;requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ═══════════ CANVAS: אתר תדמית — דפים/מסכים ═══════════ */
+(function(){
+  const cv=document.getElementById('cv-web');if(!cv)return;
+  const ctx=cv.getContext('2d');
+  function resize(){cv.width=cv.parentElement.clientWidth||400;cv.height=cv.parentElement.clientHeight||160;}
+  resize();window.addEventListener('resize',resize);
+  let frame=0;
+  function draw(){
+    const w=cv.width,h=cv.height;
+    ctx.fillStyle='#020810';ctx.fillRect(0,0,w,h);
+    // desktop
+    const dx=w*.1,dy=h*.2,dw=w*.5,dh=h*.5;
+    ctx.fillStyle='rgba(8,20,36,.9)';ctx.strokeStyle='rgba(0,200,255,.35)';ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.roundRect(dx,dy,dw,dh,6);ctx.fill();ctx.stroke();
+    ctx.fillStyle='rgba(0,255,200,.7)';ctx.fillRect(dx+8,dy+8,dw*.5,6);
+    ctx.fillStyle='rgba(0,132,255,.5)';ctx.fillRect(dx+8,dy+22,dw-16,5);ctx.fillRect(dx+8,dy+32,dw*.7,5);
+    for(let i=0;i<3;i++){ctx.fillStyle='rgba(0,132,255,.3)';ctx.fillRect(dx+8+i*(dw-16)/3,dy+dh-22,(dw-16)/3-5,14);}
+    // stand
+    ctx.strokeStyle='rgba(0,200,255,.3)';ctx.beginPath();ctx.moveTo(dx+dw/2,dy+dh);ctx.lineTo(dx+dw/2,dy+dh+8);ctx.stroke();
+    // phone
+    const px=w*.7,py=h*.22,pw=w*.16,ph=h*.56;
+    ctx.fillStyle='rgba(8,20,36,.95)';ctx.strokeStyle='rgba(0,255,200,.45)';ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.roundRect(px,py,pw,ph,8);ctx.fill();ctx.stroke();
+    ctx.fillStyle='rgba(0,255,200,.7)';ctx.fillRect(px+6,py+10,pw-12,8);
+    const sc=(frame%200)/200;
+    for(let i=0;i<4;i++){ctx.fillStyle='rgba(0,132,255,.4)';ctx.fillRect(px+6,py+24+i*14-sc*6,pw-12,8);}
+    ctx.fillStyle='rgba(0,255,200,.5)';ctx.font='9px Share Tech Mono,monospace';ctx.fillText('RESPONSIVE · LIVE',6,h-7);
+    frame++;requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ═══════════ CANVAS: AI — רשת נוירונים ═══════════ */
+(function(){
+  const cv=document.getElementById('cv-ai');if(!cv)return;
+  const ctx=cv.getContext('2d');
+  function resize(){cv.width=cv.parentElement.clientWidth||400;cv.height=cv.parentElement.clientHeight||160;}
+  resize();window.addEventListener('resize',resize);
+  let frame=0;
+  function layers(){const w=cv.width,h=cv.height;const L=[2,3,3,2];const xs=[w*.18,w*.4,w*.62,w*.84];
+    return L.map((cnt,li)=>Array.from({length:cnt},(_,i)=>({x:xs[li],y:h*(.5)+(i-(cnt-1)/2)*h*.24})));}
+  function draw(){
+    const w=cv.width,h=cv.height;const Ls=layers();
+    ctx.fillStyle='#040214';ctx.fillRect(0,0,w,h);
+    for(let li=0;li<Ls.length-1;li++)Ls[li].forEach(a=>Ls[li+1].forEach(b=>{
+      const pulse=.12+.18*(0.5+0.5*Math.sin(frame*.05+a.y*.05+b.x*.02));
+      ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);
+      ctx.strokeStyle='rgba(150,110,255,'+pulse+')';ctx.lineWidth=1;ctx.stroke();
+    }));
+    Ls.forEach((layer,li)=>layer.forEach((n,i)=>{
+      const fire=0.5+0.5*Math.sin(frame*.06+li+i);
+      const g=ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,10+fire*6);
+      g.addColorStop(0,'rgba(190,150,255,'+(.5+fire*.4)+')');g.addColorStop(1,'rgba(120,80,220,0)');
+      ctx.fillStyle=g;ctx.beginPath();ctx.arc(n.x,n.y,10+fire*6,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle='rgba(210,180,255,.95)';ctx.beginPath();ctx.arc(n.x,n.y,4,0,Math.PI*2);ctx.fill();
+    }));
+    ctx.fillStyle='rgba(180,150,255,.55)';ctx.font='9px Share Tech Mono,monospace';ctx.fillText('AI · THINKING',6,h-7);
+    frame++;requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ═══════════ 3D tilt על כרטיסי שירות ═══════════ */
+document.querySelectorAll('.srv-card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-0.5;
+    const y=(e.clientY-r.top)/r.height-0.5;
+    card.style.transform=`rotateX(${-y*16}deg) rotateY(${x*16}deg) translateZ(24px)`;
+  });
+  card.addEventListener('mouseleave',()=>{card.style.transform='';});
+});
+
+/* ═══════════ Sticky header + burger ═══════════ */
+const hdr=document.getElementById('hdr');
+window.addEventListener('scroll',()=>{hdr.classList.toggle('sc',window.scrollY>30);});
+const burger=document.getElementById('burger'),nav=document.getElementById('main-nav');
+burger.addEventListener('click',()=>nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+/* ═══════════ FAQ accordion ═══════════ */
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement;
+    document.querySelectorAll('.faq-item.open').forEach(o=>{if(o!==item)o.classList.remove('open');});
+    item.classList.toggle('open');
+  });
+});
+
+/* ═══════════ Reveal on scroll ═══════════ */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ═══════════ שנה בפוטר ═══════════ */
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* ═══════════ טופס לידים ═══════════ */
+function handleForm(e){
+  e.preventDefault();
+  const form=e.target;
+  const btn=form.querySelector('button[type=submit]');
+  const original=btn.innerHTML;
+
+  /* ⚠ אופציה א (פעיל): פתיחת אימייל מוכן ל-ronsabon@gmail.com
+     אופציה ב: החלף ב-fetch ל-[MAKE_WEBHOOK] של Make.com לקליטת לידים אוטומטית. */
+  const d=new FormData(form);
+  const subject=encodeURIComponent('ליד חדש מהאתר — '+(d.get('name')||''));
+  const body=encodeURIComponent(
+    'שם: '+(d.get('name')||'')+'\n'+
+    'טלפון: '+(d.get('phone')||'')+'\n'+
+    'נושא: '+(d.get('topic')||'')+'\n'+
+    'הודעה: '+(d.get('message')||'')
+  );
+
+  btn.innerHTML='✓ תודה! פותח אימייל לשליחה...';
+  btn.style.background='var(--green)';btn.style.color='#021014';
+
+  window.location.href='mailto:ronsabon@gmail.com?subject='+subject+'&body='+body;
+
+  setTimeout(()=>{btn.innerHTML=original;btn.style.background='';btn.style.color='';form.reset();},4500);
+}
+</script>
+</body>
+</html>
