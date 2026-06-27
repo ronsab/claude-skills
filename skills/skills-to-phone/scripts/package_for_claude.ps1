@@ -38,7 +38,7 @@ function Get-FixedSkillMd([string]$path) {
       $j = $i + 1
       while ($j -lt $fm.Count) {                       # אסוף שורות-המשך מוזחות עד המפתח הראשי הבא
         $nl = $fm[$j]
-        if ($nl -match '^[A-Za-z0-9_]+:') { break }
+        if ($nl -match '^[A-Za-z0-9_-]+:') { break }   # כולל מקף: עוצר גם ב-allowed-tools: ולא בולע אותו ל-description
         if ($nl.Trim() -ne ''){ $coll += $nl.Trim() }
         $j++
       }
