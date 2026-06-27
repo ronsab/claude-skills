@@ -33,3 +33,5 @@ plugins/cache/
 # skills/          ← הסקילים שלך
 # plugins/ron-digital/   ← הפלאגין שלך
 # settings.json    ← הגדרות (ללא סיסמאות)
+__pycache__/
+*.pyc
