@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0e1a; --surface:#111827; --surface2:#1a2235; --border:#1f2d45;
+  --text:#f0f4ff; --text2:#8b9fc0;
+  --accent1:#3b82f6; --accent2:#06b6d4; --accent3:#f59e0b;
+  --accent4:#10b981; --accent5:#ef4444; --accent6:#8b5cf6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{direction:rtl}
+body{background:var(--bg);color:var(--text);font-family:'Heebo',sans-serif;line-height:1.6;min-height:100vh;
+  background-image:radial-gradient(circle at 15% 10%,rgba(59,130,246,.08),transparent 40%),
+                   radial-gradient(circle at 85% 90%,rgba(6,182,212,.06),transparent 40%);}
+.wrap{max-width:1200px;margin:0 auto;padding:32px 20px}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.card{animation:fadeIn .5s ease both}
+.header{margin-bottom:28px;border-bottom:1px solid var(--border);padding-bottom:20px}
+.header h1{font-size:32px;font-weight:900}
+.header .sub{color:var(--text2);font-size:16px;margin-top:6px}
+.header .meta{color:var(--text2);font-size:13px;margin-top:10px;display:flex;gap:16px;flex-wrap:wrap}
+.grid{display:grid;gap:16px}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:760px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px}
+.panel h3{font-size:18px;margin-bottom:16px;font-weight:700}
+/* KPI */
+.kpi{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px;position:relative;overflow:hidden}
+.kpi::before{content:"";position:absolute;top:0;right:0;left:0;height:3px;background:linear-gradient(90deg,var(--c),transparent)}
+.kpi-num{font-size:40px;font-weight:900;color:var(--c);line-height:1.1}
+.kpi-label{color:var(--text2);font-size:14px;margin-top:6px}
+.kpi-delta{font-size:12px;margin-top:8px;color:var(--accent4)}
+/* Bar */
+.bar-item{display:grid;grid-template-columns:130px 1fr 56px;align-items:center;gap:12px;margin-bottom:12px}
+.bar-label{font-size:14px;color:var(--text2);text-align:left}
+.bar-track{background:var(--surface2);border-radius:8px;height:26px;overflow:hidden}
+.bar-fill{height:100%;border-radius:8px;transition:width 1s ease}
+.bar-value{font-weight:700;font-size:15px}
+/* Level */
+.level-card{background:var(--surface);border:1px solid var(--border);border-right:4px solid var(--c);border-radius:12px;padding:18px}
+.level-name{color:var(--text2);font-size:14px}
+.level-bignum{font-size:30px;font-weight:900;color:var(--c)}
+.level-pct{font-size:13px;color:var(--text2)}
+/* Quote */
+.quote{background:var(--surface2);border-radius:12px;padding:18px;border-right:3px solid var(--accent6)}
+.quote-text{font-size:15px;font-style:italic}
+.quote-tag{display:inline-block;margin-top:10px;font-size:12px;background:rgba(139,92,246,.15);color:var(--accent6);padding:3px 10px;border-radius:20px}
+/* Insight */
+.insight{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px}
+.insight-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.insight-icon{font-size:22px}
+.insight h4{font-size:16px;font-weight:700}
+.insight-body{color:var(--text2);font-size:14px}
+.insight-action{margin-top:12px;font-size:13px;color:var(--accent3)}
+/* Trend */
+.trend{display:flex;align-items:flex-end;gap:10px;height:160px}
+.trend-bar{flex:1;background:linear-gradient(180deg,var(--accent2),var(--accent1));border-radius:8px 8px 0 0;position:relative;min-height:6px}
+.trend-bar span{position:absolute;bottom:-22px;right:0;left:0;text-align:center;font-size:11px;color:var(--text2)}
+/* Tabs */
+.tabs{display:flex;gap:8px;margin:24px 0 20px;flex-wrap:wrap;border-bottom:1px solid var(--border)}
+.tab-btn{background:none;border:none;color:var(--text2);font-family:inherit;font-size:15px;padding:10px 18px;cursor:pointer;border-bottom:2px solid transparent}
+.tab-btn.active{color:var(--text);border-bottom-color:var(--accent1);font-weight:700}
+.tab-content{display:none}
+.tab-content.active{display:block;animation:fadeIn .4s ease both}
+.footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--border);color:var(--text2);font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ===== HEADER ===== -->
+  <div class="header">
+    <h1>{{TITLE}}</h1>
+    <div class="sub">{{SUBTITLE}}</div>
+    <div class="meta">
+      <span>📅 {{DATE}}</span>
+      <span>📄 {{SOURCE}}</span>
+      <span>🔢 {{COUNT}}</span>
+    </div>
+  </div>
+
+  <!-- ===== KPI ROW ===== -->
+  <div class="grid grid-4">
+    <!-- חזור על הבלוק הזה לכל KPI. צבע: --accent1..6 -->
+    <div class="kpi card" style="--c:var(--accent1)">
+      <div class="kpi-num">{{KPI_VALUE}}</div>
+      <div class="kpi-label">{{KPI_LABEL}}</div>
+    </div>
+  </div>
+
+  <!-- ===== TABS ===== -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab(event,'overview')">סקירה</button>
+    <button class="tab-btn" onclick="showTab(event,'breakdown')">פילוח</button>
+    <button class="tab-btn" onclick="showTab(event,'insights')">תובנות</button>
+  </div>
+
+  <div id="tab-overview" class="tab-content active">
+    <div class="panel card">
+      <h3>{{CHART_TITLE}}</h3>
+      <!-- הזרק כאן רכיבי Bar / Donut / Trend מתוך references/design-system.md -->
+    </div>
+  </div>
+
+  <div id="tab-breakdown" class="tab-content">
+    <!-- Level cards / טבלאות פילוח -->
+  </div>
+
+  <div id="tab-insights" class="tab-content">
+    <div class="grid grid-2">
+      <!-- כרטיסי insight + ציטוטים -->
+    </div>
+  </div>
+
+  <div class="footer">{{FOOTER}}</div>
+</div>
+
+<script>
+function showTab(e, name){
+  document.querySelectorAll('.tab-content').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el=>el.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  e.currentTarget.classList.add('active');
+}
+</script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 ---
 name: screencast-to-reel
-description: המרת הקלטת מסך ארוכה של מערכת/דמו לריל שיווקי אנכי 9:16 עם רקע מטושטש, כותרת ממותגת ומוזיקת רקע. Use when Ron wants to turn a screen recording into a short branded vertical reel for Instagram/Facebook/TikTok, or says "תעשה ריל מההקלטה", "תהפוך את הקלטת המסך לסרטון", "ריל מהמערכת", "תקצר את הדמו לסושיאל", "סרטון שיווקי מההקלטה". NOT for merging separate clips (that is video-merge) and NOT for adding subtitles (that is hebrew-subtitles).
+description: המרת הקלטת מסך ארוכה של מערכת/דמו לריל שיווקי אנכי 9:16 עם רקע מטושטש, כותרת ממותגת ומוזיקת רקע. Use when Ron wants to turn a screen recording into a short branded vertical reel for Instagram/Facebook/TikTok, or says "תעשה ריל מההקלטה", "תהפוך את הקלטת המסך לסרטון", "ריל מהמערכת", "תקצר את הדמו לסושיאל", "סרטון שיווקי מההקלטה". NOT for merging separate clips (that is video-merge), NOT for adding subtitles (that is hebrew-subtitles), and NOT for removing a watermark/logo (that is video-watermark-remover).
 ---
 
 # screencast-to-reel - הקלטת מסך לריל ממותג

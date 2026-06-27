@@ -674,6 +674,30 @@
         "חדש",
         "מדיה"
       ]
+    },
+    "video-watermark-remover": {
+      "category": "build",
+      "emoji": "🧽",
+      "invoke": "Skill: video-watermark-remover",
+      "whenToUse": "הסרת סימן מים / לוגו / כתם קבוע מוידאו (כולל watermark של Sora/Veo/Kling)",
+      "output": "MP4 נקי באיכות גבוהה (crf 18). זיהוי מיקום אוטומטי, בדיקת תנועה, delogo/crop/blur. המקור נשמר",
+      "opportunity": "נכס מדיה: מנקה וידאו AI לשימוש בדפי נחיתה/סושיאל. היחיד שמסיר אלמנט (השאר מוסיפים)",
+      "pricing": "נכס פנימי",
+      "badges": [
+        "חדש",
+        "מדיה"
+      ]
+    },
+    "file-dashboard": {
+      "category": "build",
+      "emoji": "📊",
+      "invoke": "Skill: file-dashboard",
+      "whenToUse": "מעלים קובץ (Excel/CSV/PDF/Word/טקסט/JSON) ורוצים דשבורד ויזואלי, ניתוח, תובנות או גרפים ממנו",
+      "output": "קובץ HTML יחיד standalone — עברי RTL Dark, כרטיסי KPI + גרפים + טאבים + תובנות, מונחה-בקשה",
+      "opportunity": "דשבורד דאטה ללקוח כתוצר נלווה / lead magnet אנליטי. נכס שמבדל בפגישת מכירה",
+      "badges": [
+        "חדש"
+      ]
     }
   },
   "commands": {
@@ -973,7 +997,7 @@
     },
     {
       "icon": "🎞️",
-      "title": "5 כלי עריכת וידאו",
+      "title": "6 כלי עריכת וידאו",
       "severity": "med",
       "status": "resolved",
       "rule": "CLAUDE.md › עריכת וידאו",
@@ -982,9 +1006,10 @@
         "screencast-to-reel",
         "hebrew-subtitles",
         "reel-brander",
-        "social-video-editor"
+        "social-video-editor",
+        "video-watermark-remover"
       ],
-      "fix": "איחוד קליפים → video-merge | הקלטת מסך→ריל → screencast-to-reel | כתוביות → hebrew-subtitles | כרטיס פתיחה/סיום+פס+הסרת שתיקות (מדבר) → reel-brander | האצה/Speed Ramp/קרוסלה → social-video-editor. הסרת שתיקות (מדבר) vs Speed Ramp (מסך בלי דיבור) = לפי סוג תוכן"
+      "fix": "איחוד קליפים → video-merge | הקלטת מסך→ריל → screencast-to-reel | כתוביות → hebrew-subtitles | כרטיס פתיחה/סיום+פס+הסרת שתיקות (מדבר) → reel-brander | האצה/Speed Ramp/קרוסלה → social-video-editor | הסרת סימן מים/לוגו → video-watermark-remover. עיקרון: כולם מוסיפים, רק watermark-remover מסיר"
     }
   ],
   "opportunities": [

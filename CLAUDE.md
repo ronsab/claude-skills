@@ -220,6 +220,7 @@
 - הוספת כתוביות עברית → `hebrew-subtitles` (אחרי כל אחד מהאחרים, לא לפני)
 - כרטיס פתיחה/סיום ממותג + פס מיתוג צדי + הסרת שתיקות לסרטון מדבר → `reel-brander` (local). זרימה: קודם `hebrew-subtitles`, אחר כך `reel-brander`
 - האצה / Speed Ramp / פיצול לקרוסלה → `anthropic-skills:social-video-editor`
+- הסרת סימן מים / לוגו / כתם קבוע מהוידאו (כולל watermark של Sora/Veo/Kling) → `video-watermark-remover` (local). מזהה מיקום אוטומטית, בודק תנועה, מסיר ב-delogo/crop/blur. **מסיר** אלמנט, להבדיל משאר סקילי הווידאו ש**מוסיפים**
 - **גבול הסרת שתיקות**: `reel-brander --trim-silence` = סרטון מדבר (יש דיבור). `social-video-editor ramp` = הקלטת מסך/דמו בלי דיבור. ההכרעה לפי סוג התוכן, לא לפי "לקצר"
 
 ### אוטומציות בסיום פרויקט

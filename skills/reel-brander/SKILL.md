@@ -1,6 +1,6 @@
 ---
 name: reel-brander
-description: מיתוג והידוק ריל מדבר (talking-head) קיים - הוספת כרטיס פתיחה (hook), כרטיס סיום ממותג עם שם העסק ו-CTA, פס מיתוג צדי, והסרת שתיקות אוטומטית (jump-cuts). Use when Ron wants to add a branded intro/outro/end card to a video, add "Link in BIO" / business-name closing screen, add a hook opening card, add a side branding bar, or tighten a talking-head video by cutting silences. Triggers on "מסך סיום", "כרטיס סיום", "מסך פתיחה", "hook בהתחלה", "פס מיתוג", "תוסיף את שם העסק בסוף", "Link in BIO", "תהדק את הסרטון", "תחתוך שתיקות". NOT for subtitles (hebrew-subtitles), merging clips (video-merge), screen-recording-to-reel (screencast-to-reel), or speed-up/ramp/carousel-split (social-video-editor).
+description: מיתוג והידוק ריל מדבר (talking-head) קיים - הוספת כרטיס פתיחה (hook), כרטיס סיום ממותג עם שם העסק ו-CTA, פס מיתוג צדי, והסרת שתיקות אוטומטית (jump-cuts). Use when Ron wants to add a branded intro/outro/end card to a video, add "Link in BIO" / business-name closing screen, add a hook opening card, add a side branding bar, or tighten a talking-head video by cutting silences. Triggers on "מסך סיום", "כרטיס סיום", "מסך פתיחה", "hook בהתחלה", "פס מיתוג", "תוסיף את שם העסק בסוף", "Link in BIO", "תהדק את הסרטון", "תחתוך שתיקות". NOT for subtitles (hebrew-subtitles), merging clips (video-merge), screen-recording-to-reel (screencast-to-reel), speed-up/ramp/carousel-split (social-video-editor), or watermark/logo removal (video-watermark-remover).
 ---
 
 # reel-brander - מיתוג והידוק ריל מדבר
